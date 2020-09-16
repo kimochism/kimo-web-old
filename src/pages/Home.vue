@@ -1,22 +1,35 @@
 <template>
   <div>
+    <Slider/>
+    <Warning/>
+    <Offer/>
+    <Products/>
+    <Gap/>
+    <Footer/>
     <MessageBar/>
-    <Menu/>
-    
-    <router-view></router-view>
   </div>
 </template>
 
 <script>
 
-import Menu from './components/Menu.vue'
-import MessageBar from './components/Messagebar.vue'
+import MessageBar from '../components/Messagebar.vue'
+import Slider from '../components/Slider.vue'
+import Warning from '../components/Warning.vue'
+import Offer from '../components/Offer.vue'
+import Products from '../components/Products.vue'
+import Footer from '../components/Footer.vue'
+import Gap from '../components/Gap.vue'
 
 export default {
-  name: 'App',
+  name: 'home',
   components: {
-    Menu,
-    MessageBar
+    MessageBar,
+    Slider,
+    Warning,
+    Offer,
+    Products,
+    Footer,
+    Gap
   }
 }
 </script>
