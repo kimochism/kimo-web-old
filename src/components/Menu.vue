@@ -6,8 +6,8 @@
             </span>
         </div>
         <div class="subMenu configMenu">
-            <span>Início</span>
-            <span>Catálogo</span>
+            <router-link to="/"><span>Início</span></router-link>
+            <router-link to="/categories"><span>Catálogo</span></router-link>
             <span>Rastreio</span>
             <span>FAQ</span>
         </div>
@@ -20,8 +20,8 @@
 
         <!-- hide menu -->
         <div id="secondMenu">
-            <span>Início</span>
-            <span>Catálogo</span>
+            <router-link to="/"><span>Início</span></router-link>
+            <router-link to="/categories"><span>Catálogo</span></router-link>
             <span>Rastreio</span>
             <span>FAQ</span>
             <span>Entre ou Cadastre-se</span>
