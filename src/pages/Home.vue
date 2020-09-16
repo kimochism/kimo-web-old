@@ -19,6 +19,7 @@ import Offer from '../components/Offer.vue'
 import Products from '../components/Products.vue'
 import Footer from '../components/Footer.vue'
 import Gap from '../components/Gap.vue'
+import { ProductService } from '../services/ProductService'
 
 export default {
   name: 'home',
@@ -30,6 +31,10 @@ export default {
     Products,
     Footer,
     Gap
+  },
+
+  mounted() {
+    new ProductService().list().then(res => console.log(res));
   }
 }
 </script>
