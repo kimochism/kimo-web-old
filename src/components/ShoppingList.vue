@@ -4,8 +4,8 @@
            <ItemProduto/>
        </div>
         <div class="footerShoppingList">
-            <div>
-                <i class='fas fa-angle-left'></i>
+            <div class="continueCart">
+                <span class="material-icons">keyboard_arrow_left</span>
                 <span class="colorPrimary">Continuar comprando</span>
             </div>
             <div>
@@ -52,5 +52,10 @@ export default {
 
     .colorPrimary{
         color: #007bff;
+    }
+    
+    .continueCart{
+        align-items: center;
+        display: flex;
     }
 </style>

@@ -2,7 +2,7 @@
     <div id="CardContainer">
 
            <h1>cartão</h1>
-           <span>Tipo do cartão</span>
+           <span class="fontGrey">Tipo do cartão</span>
 
            <div id="SubCardContainer">
                <div id="Card">
@@ -147,4 +147,7 @@ export default {
         margin-right: 69px !important;
     }
 
+    .fontGrey{
+        color: grey;
+    }
 </style>

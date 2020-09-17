@@ -27,7 +27,6 @@ export default new Router({
       path: "/categories",
       name: "categories",
       component: Categories,
-    },
-
+    }
   ]
 })

@@ -1,8 +1,9 @@
 <template>
   <div>
+    <ModalLoginRegister/>
+    
     <MessageBar/>
     <Menu/>
-    
     <router-view></router-view>
   </div>
 </template>
@@ -11,12 +12,14 @@
 
 import Menu from './components/Menu.vue'
 import MessageBar from './components/Messagebar.vue'
+import ModalLoginRegister from './components/ModalLoginRegister.vue'
 
 export default {
   name: 'App',
   components: {
     Menu,
-    MessageBar
+    MessageBar,
+    ModalLoginRegister
   }
 }
 </script>

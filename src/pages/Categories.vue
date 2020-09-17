@@ -9,16 +9,22 @@
             <CategorieCard :categorie="categorie1"></CategorieCard>
             <CategorieCard :categorie="categorie3"></CategorieCard>
         </div>
+        <Footer/>
+        <MessageBar/>
     </div>
 </template>
 
 <script>
     import CategorieCard from '../components/CategorieCard.vue'
+    import MessageBar from '../components/Messagebar.vue'
+    import Footer from '../components/Footer.vue'
 
     export default {
         name: "Categories",
         components: {
             CategorieCard,
+            MessageBar,
+            Footer
         },
         data() {
             return {

@@ -1,33 +1,48 @@
 <template>
     <div id="menu">
         <div class="iconMenu" id="btnMenuIcon" v-on:click="openMenu()">
-            <span class="glyphicon">
-               &#xe236;
+            <span class="material-icons">
+                menu
             </span>
         </div>
         <div class="subMenu configMenu">
-            <router-link to="/"><span>Início</span></router-link>
+            <router-link to="/"><span>Início </span></router-link>
             <router-link to="/categories"><span>Catálogo</span></router-link>
             <span>Rastreio</span>
             <span>FAQ</span>
         </div>
-        <span>Kimochism</span>
+        <span class="identi">Kimochism</span>
         <div class="endMenu configMenu">
-            <span>Entre ou Cadastre-se</span>
-            <i class="fa far fa-heart" style="font-size:24px"></i>
-            <i class="fa fa-shopping-bag" style="font-size:24px"></i>
+            <router-link to=""  ><span v-on:click="changeCadastro()">Entre ou Cadastre-se</span></router-link>
+            <span class="material-icons">favorite_border</span>
+            <router-link tag="a" to="/cart">
+                <span class="material-icons">shopping_basket</span>
+            </router-link>
         </div>
 
         <!-- hide menu -->
         <div id="secondMenu">
-            <router-link to="/"><span>Início</span></router-link>
-            <router-link to="/categories"><span>Catálogo</span></router-link>
-            <span>Rastreio</span>
-            <span>FAQ</span>
-            <span>Entre ou Cadastre-se</span>
-            <span>
-            <i class="fa fa-shopping-bag" style="font-size:24px"></i>
-            </span>
+
+            <div>
+                <router-link to="/"><span>Início</span></router-link>
+            </div>
+            <div>
+                <router-link to="/categories"><span>Catálogo</span></router-link>
+            </div>
+            <div>
+                <span>Rastreio</span>
+            </div>
+            <div>
+                <span>FAQ</span>
+            </div>
+            <div>
+                <router-link to="" ><span  v-on:click="changeCadastro()">Entre ou Cadastre-se</span></router-link>
+            </div>
+            <div>
+                <router-link to="/cart">
+                    <span class="material-icons">shopping_basket</span>
+                </router-link>
+            </div>
         </div>
         <!-- hide menu -->
 
@@ -44,6 +59,15 @@ export default {
         isOpen: false
     },
 
+    mounted: function(){
+        window.onresize = () => {
+            console.log( window.innerWidth );
+            if ( window.innerWidth > 800) {
+                document.getElementById('secondMenu').style.display = "none";
+            }
+        }
+    },
+
     methods: {
         openMenu: function(){
             if(this.isOpen){
@@ -52,7 +76,12 @@ export default {
                 document.getElementById('secondMenu').style.display = "none";
             }
             this.isOpen = !this.isOpen;
-        }
+        },
+        changeCadastro: function(){
+            document.getElementById('ContainerLogin').style.display = "flex";
+            document.getElementById('CadastroCase').style.display = "none";
+            document.getElementById('LoginCase').style.display = "flex";
+        },
     }
        
 }
@@ -60,7 +89,9 @@ export default {
 </script>
 
 <style>
-
+    .identi{
+        padding: 0px 8px;
+    }
     #menu{
         width: 100%;
         background-color: white;
@@ -76,15 +107,16 @@ export default {
         display: flex;
     }
     .endMenu{
-        width: 250px;
+        width: 280px;
         justify-content: space-between;
         flex-direction: row;
         display: flex;
     }
-    div span{
+    #menu div span{
         padding: 8px;
+        color: black;
     }
-    div span, i{
+    #menu span, i{
         cursor: pointer;
     }
     .glyphicon{
@@ -101,7 +133,7 @@ export default {
         width: 100%;
         display: none;
     }
-    #secondMenu span{
+    #secondMenu div{
         width: 100%;
         padding: 16px;
     }
