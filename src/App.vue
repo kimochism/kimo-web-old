@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ModalLoginRegister/>
+    <SignInUp/>
     
     <MessageBar/>
     <Menu/>
@@ -10,16 +10,16 @@
 
 <script>
 
-import Menu from './components/Menu.vue'
-import MessageBar from './components/Messagebar.vue'
-import ModalLoginRegister from './components/ModalLoginRegister.vue'
+import Menu from './components/navigation/Menu.vue'
+import MessageBar from './components/navigation/MessageBar.vue'
+import SignInUp from './components/modal/SignInUp.vue'
 
 export default {
   name: 'App',
   components: {
     Menu,
     MessageBar,
-    ModalLoginRegister
+    SignInUp
   }
 }
 </script>

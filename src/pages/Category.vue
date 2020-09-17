@@ -2,12 +2,12 @@
     <div class="categories-body">
         <span class="title">Categorias</span>
         <div class="categories-container">
-            <CategorieCard :categorie="categorie1"></CategorieCard>
-            <CategorieCard :categorie="categorie2"></CategorieCard>
-            <CategorieCard :categorie="categorie3"></CategorieCard>
-            <CategorieCard :categorie="categorie2"></CategorieCard>
-            <CategorieCard :categorie="categorie1"></CategorieCard>
-            <CategorieCard :categorie="categorie3"></CategorieCard>
+            <Card :categorie="categorie1"></Card>
+            <Card :categorie="categorie2"></Card>
+            <Card :categorie="categorie3"></Card>
+            <Card :categorie="categorie2"></Card>
+            <Card :categorie="categorie1"></Card>
+            <Card :categorie="categorie3"></Card>
         </div>
         <Footer/>
         <MessageBar/>
@@ -15,14 +15,14 @@
 </template>
 
 <script>
-    import CategorieCard from '../components/CategorieCard.vue'
-    import MessageBar from '../components/Messagebar.vue'
-    import Footer from '../components/Footer.vue'
+    import Card from '../components/category/Card.vue'
+    import MessageBar from '../components/navigation/MessageBar.vue'
+    import Footer from '../components/navigation/Footer.vue'
 
     export default {
         name: "Categories",
         components: {
-            CategorieCard,
+            Card,
             MessageBar,
             Footer
         },

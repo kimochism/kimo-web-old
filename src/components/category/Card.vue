@@ -10,7 +10,7 @@
 
 <script>
     export default {
-        name: 'CategorieCard',
+        name: 'Card',
         props: ['categorie'],
     };
 </script>

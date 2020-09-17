@@ -44,7 +44,7 @@
 
 <script>
 export default {
-    name: 'ModalLoginRegister',
+    name: 'SignInUp',
 
     methods: {
             changeLogin: function(){
@@ -73,7 +73,7 @@ export default {
         position: fixed;
         width: 100%;
         height: 100vh;
-        background-image: url('../assets/bglogin2.png');
+        background-image: url('../../assets/bglogin2.png');
         background-position: center;
         background-size: 100%;
         justify-content: center;

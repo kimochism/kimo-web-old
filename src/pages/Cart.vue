@@ -1,32 +1,32 @@
 <template>
     <div>
         <div id="ContainerCart">
-            <ShoppingList/>
+            <ProductList/>
             <Card/>
         </div>
         <div>
             <Gap/>
             <Footer/>
-            <Messagebar/>
+            <MessageBar/>
         </div>
     </div>
 </template>
 
 <script>
 
-import ShoppingList from '../components/ShoppingList.vue'
-import Messagebar from '../components/Messagebar.vue'
-import Footer from '../components/Footer.vue'
-import Card from '../components/Card.vue'
-import Gap from '../components/Gap.vue'
+import ProductList from '../components/cart/ProductList'
+import MessageBar from '../components/navigation/MessageBar'
+import Footer from '../components/navigation/Footer.vue'
+import Card from '../components/payment/Card.vue'
+import Gap from '../components/navigation/Gap.vue'
 
 export default {
     name: 'Cart',
     components: {
-        ShoppingList,
+        ProductList,
         Card,
         Footer,
-        Messagebar,
+        MessageBar,
         Gap
     }
 }

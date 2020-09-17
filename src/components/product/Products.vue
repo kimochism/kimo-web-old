@@ -9,42 +9,42 @@
         <div class="subContainerItems">
 
             <div class="item">
-                <img src="../assets/formated/3.png" alt="">
+                <img src="../../assets/formated/3.png" alt="">
                 <p class="flexDescription">
                     <span>Preço</span>
                     <span>Parcelas</span>
                 </p>
             </div>
             <div class="item">
-                <img src="../assets/formated/6.png" alt="">
+                <img src="../../assets/formated/6.png" alt="">
                 <p class="flexDescription">
                     <span>Preço</span>
                     <span>Parcelas</span>
                 </p>
             </div>
             <div class="item killua">
-                <img src="../assets/formated/4.png" alt="">
+                <img src="../../assets/formated/4.png" alt="">
                 <p class="flexDescription">
                     <span>Preço</span>
                     <span>Parcelas</span>
                 </p>
             </div>
             <div class="item">
-                <img src="../assets/formated/5.png" alt="">
+                <img src="../../assets/formated/5.png" alt="">
                 <p class="flexDescription">
                     <span>Preço</span>
                     <span>Parcelas</span>
                 </p>
             </div>
             <div class="item">
-                <img src="../assets/formated/2.png" alt="">
+                <img src="../../assets/formated/2.png" alt="">
                 <p class="flexDescription">
                     <span>Preço</span>
                     <span>Parcelas</span>
                 </p>
             </div>
             <div class="item">
-                <img src="../assets/formated/1.png" alt="">
+                <img src="../../assets/formated/1.png" alt="">
                 <p class="flexDescription">
                     <span>Preço</span>
                     <span>Parcelas</span>

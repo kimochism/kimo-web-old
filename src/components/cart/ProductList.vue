@@ -1,7 +1,7 @@
 <template>
     <div>
        <div id="ListBuy">
-           <ItemProduto/>
+           <ProductItem/>
        </div>
         <div class="footerShoppingList">
             <div class="continueCart">
@@ -18,12 +18,12 @@
 
 <script>
 
-import ItemProduto from '../components/ItemProduto.vue'
+import ProductItem from './ProductItem.vue'
 
 export default {
-    name: 'ShoppingList',
+    name: 'ProductList',
     components: {
-        ItemProduto,
+        ProductItem,
     }
 }
 </script>

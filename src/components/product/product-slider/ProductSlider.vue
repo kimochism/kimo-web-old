@@ -1,20 +1,14 @@
 <template>
   <div>
     <carousel :navigationEnabled="true">
-      <slide><ItemProduto /></slide>
-      <slide><ItemProduto /></slide>
-      <slide><ItemProduto /></slide>
-      <slide><ItemProduto /></slide>
-      <slide><ItemProduto /></slide>
-      <slide><ItemProduto /></slide>
-      <slide><ItemProduto /></slide>
+      <slide><ProductItem /></slide>
     </carousel>
   </div>
 </template>
 
 <script>
 import { Carousel, Slide } from "vue-carousel";
-import ItemProduto from './ItemProduto'
+import ProductItem from '../../cart/ProductItem'
 
 export default {
   name: "ProductSlider",
@@ -25,13 +19,12 @@ export default {
   components: {
     Carousel,
     Slide,
-    ItemProduto
+    ProductItem
   },
 };
 </script>
 
 <style>
-
     #container {
     padding: 0 60px;
     }

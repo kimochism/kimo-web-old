@@ -1,6 +1,5 @@
 <template>
     <div class="item">
-
             <img class="imgProdutoBuy" src="https://i.pinimg.com/564x/5c/45/61/5c4561d95857586852116379d86ce1fe.jpg" alt="">
 
             <div class="titleProdCart">
@@ -24,16 +23,15 @@
             
             <div class="sizeSubItem">
                 <span>
-                    <i class='	far fa-trash-alt'></i>
+                    <i class='far fa-trash-alt'></i>
                 </span>
             </div>
-
     </div>
 </template>
 
 <script>
     export default {
-        name: 'ItemProduto'
+        name: 'CardProductItem'
     }
 </script>
 

@@ -13,14 +13,14 @@
 
 <script>
 
-import MessageBar from '../components/Messagebar.vue'
-import Slider from '../components/Slider.vue'
-import Warning from '../components/Warning.vue'
-import Offer from '../components/Offer.vue'
-import Products from '../components/Products.vue'
-import ProductSlider from '../components/ProductSlider.vue'
-import Footer from '../components/Footer.vue'
-import Gap from '../components/Gap.vue'
+import MessageBar from '../components/navigation/MessageBar.vue'
+import Slider from '../components/home/SliderHome.vue'
+import Warning from '../components/home/Warning.vue'
+import Offer from '../components/home/Offer.vue'
+import Products from '../components/product/Products.vue'
+import ProductSlider from '../components/product/product-slider/ProductSlider.vue'
+import Footer from '../components/navigation/Footer.vue'
+import Gap from '../components/navigation/Gap.vue'
 import { ProductService } from '../services/ProductService'
 
 export default {
