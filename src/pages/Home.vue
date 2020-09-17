@@ -3,6 +3,7 @@
     <Slider/>
     <Warning/>
     <Offer/>
+    <ProductSlider/>
     <Products/>
     <Gap/>
     <Footer/>
@@ -17,6 +18,7 @@ import Slider from '../components/Slider.vue'
 import Warning from '../components/Warning.vue'
 import Offer from '../components/Offer.vue'
 import Products from '../components/Products.vue'
+import ProductSlider from '../components/ProductSlider.vue'
 import Footer from '../components/Footer.vue'
 import Gap from '../components/Gap.vue'
 import { ProductService } from '../services/ProductService'
@@ -30,7 +32,8 @@ export default {
     Offer,
     Products,
     Footer,
-    Gap
+    Gap,
+    ProductSlider
   },
 
   mounted() {
