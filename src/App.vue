@@ -34,7 +34,7 @@ export default {
 
           localStorage.setItem('Authorization', res.token);
         })
-        .catch((res) => {
+        .catch(() => {
           alert('incorreto (ale ou lucas arruma aq pfv o front dps, coloca umas msg de erro no form)')
         });
     },
@@ -42,10 +42,10 @@ export default {
     storeUser(userData) {
       this.userService
         .store(userData)
-        .then(user => {
+        .then(() => {
           alert('cadastrou');
         })
-        .catch(error => {
+        .catch(() => {
           alert('nao cadastrou deu errinho feio');
         });
     }
