@@ -37,10 +37,13 @@ export default {
     #container {
       padding: 0 60px;
     }
-
+    .VueCarousel{  
+      width: 70vw;
+      margin: 0 auto;
+    }
     .VueCarousel-slide {
       position: relative;
-      padding-top: 50px;
+      padding-top: 100px;
       cursor: pointer;
       color: #fff;
       font-size: 24px;

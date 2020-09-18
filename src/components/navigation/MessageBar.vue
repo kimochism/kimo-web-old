@@ -1,6 +1,6 @@
 <template>
     <div id="MessageBar">
-        <span>KIMOCHISM #FICAEMCASA</span>
+        <span>KIMOCHISM #FIQUEEMCASA</span>
     </div>
 </template>
 

@@ -8,10 +8,16 @@
         <span>Início</span>
       </router-link>
       <router-link to="/category">
+        <span>Categoria</span>
+      </router-link>
+      <router-link to="/Catalog">
         <span>Catálogo</span>
       </router-link>
-      <span>Rastreio</span>
-      <span>FAQ</span>
+      <router-link to="/product">
+        <span>Product</span>
+      </router-link>
+      <span style="color: red">Rastreio</span>
+      <span style="color: red">FAQ</span>
     </div>
     <span class="identi">Kimochism</span>
     <div class="endMenu configMenu">
@@ -32,8 +38,13 @@
         </router-link>
       </div>
       <div>
-        <router-link to="/category">
+        <router-link to="/catalog">
           <span>Catálogo</span>
+        </router-link>
+      </div>
+      <div>
+        <router-link to="/Category">
+          <span>Categoria</span>
         </router-link>
       </div>
       <div>
