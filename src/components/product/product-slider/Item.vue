@@ -3,9 +3,9 @@
 
         <img src="https://i.pinimg.com/564x/5c/45/61/5c4561d95857586852116379d86ce1fe.jpg" alt="">
         <div class="items">
-            <span>Camisa Manga Curta Estampa Chihiro</span>
-            <span>R$ 200,00</span>
-            <span>7x de R$ 23.55 no cartão kimochism</span>
+            <span class="item-name">Camisa Manga Curta</span>
+            <span class="item-price">R$ 200,00</span>
+            <span class="item-description">7x de R$ 23.55 no cartão</span>
         </div>
     </div>
     
@@ -22,13 +22,16 @@
         display: flex;
         align-items: center;
         flex-direction: column;
-        padding: 0 5% 0 5%;
-        border:
+        margin: 0 5px;
+        cursor: pointer;
+    }
+
+    .content:hover {
+        background: rgba(0,0,0,0.08);
     }
 
     img {
-        width: 70%;
-        height: 220px;
+        width: 100%;
     }
 
     .items {
@@ -43,7 +46,18 @@
         font-size:16px;
     }
 
-    span:nth-child(2) {
-        font-weight: 600;
+    .img:hover {
+        width: 120%;
+        transition: 1s;
+    }
+
+    .item-price {
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    .item-description {
+        color: gray;
+        font-size: 14px;
     }
 </style>
