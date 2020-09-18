@@ -4,6 +4,7 @@ import Home from './pages/Home.vue'
 import Cart from './pages/Cart.vue'
 import Category from './pages/Category.vue'
 import Catalog from './pages/Catalog'
+import Product from './pages/Product'
 import VueCarousel from 'vue-carousel'
 
 Vue.use(Router);
@@ -34,6 +35,11 @@ export default new Router({
       path: "/catalog",
       name: "catalog",
       component: Catalog,
+    },
+    {
+      path: "/Product",
+      name: "product",
+      component: Product,
     }
   ]
 })
