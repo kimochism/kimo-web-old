@@ -4,6 +4,20 @@
         <div class="subContainerProduct">
             <div class="containerImage">
                 <img src="https://i.pinimg.com/564x/08/f7/af/08f7afb7fcbd09ca57ec9fb12329b055.jpg" alt="" width="100%">
+                <div class="picturesImg">
+                    <div class="boxImg">
+                        <img src="https://cd.shoppub.com.br/rota34/media/cache/c4/a5/c4a5243e41354a05f08897c5da4f78db.jpg" alt="">
+                    </div>
+                    <div class="boxImg">
+                        <img src="https://cd.shoppub.com.br/rota34/media/cache/c4/a5/c4a5243e41354a05f08897c5da4f78db.jpg" alt="">
+                    </div>
+                    <div class="boxImg">
+                        <img src="https://cd.shoppub.com.br/rota34/media/cache/c4/a5/c4a5243e41354a05f08897c5da4f78db.jpg" alt="">
+                    </div>
+                    <div class="boxImg">
+                        <img src="https://cd.shoppub.com.br/rota34/media/cache/c4/a5/c4a5243e41354a05f08897c5da4f78db.jpg" alt="">
+                    </div>
+                </div>
             </div>
 
             <div class="infoProductBox">
@@ -78,20 +92,28 @@
         </div>
         
     </div>
+    <h3 class="subtituloSlider">Semelhantes a este</h3>
+    <Slider/>
+    <hr class="break_pdtc">
+    <Gap/>
     <Footer/>
     <MessageBar/>
     </div>
 </template>
 
 <script>
+import Slider from '../components/product/product-slider/Slider.vue'
 import MessageBar from '../components/navigation/MessageBar'
 import Footer from '../components/navigation/Footer.vue'
+import Gap from '../components/navigation/Gap.vue'
 
 export default {
     name: 'Product',
     components:{
+        MessageBar,
         Footer,
-        MessageBar
+        Slider,
+        Gap
     }
 }
 
@@ -99,9 +121,9 @@ export default {
 
 <style>
     /* Container Big daddy */
-
     #ContainerProduct{
         padding: 50px;
+        padding-bottom: 0px;
         flex-direction: column;
         align-items: center;
         display: flex;
@@ -120,9 +142,42 @@ export default {
     .containerImage{
         background-position: center;
         background-size: cover;
-        min-width: 320px;
+        width: auto;
+        min-width: 360px;
         margin: 0 auto;
         width: 30vw;
+    }
+    .picturesImg{
+        width: 100%;
+        min-width: 350px;
+        margin: 0 auto;
+        margin-bottom: 25px;
+        justify-content: center;
+        display: flex;
+    }
+    .boxImg{
+        width: 80px;
+        height: 80px;
+        margin: 0 5px;
+        border: 1px solid rgba(0, 0, 0, 0.226);
+        overflow: auto;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+    .boxImg:hover{
+        border: 2px solid black;
+        cursor: pointer;
+    }
+
+    .break_pdtc{
+        height: 60px;
+        border: 0px;
+    }
+
+    .boxImg img{
+        width: 90%;
+        height: 90%;
     }
     .infoProductBox{
         background-color: white;
@@ -160,7 +215,6 @@ export default {
     .containerPrice b{
         margin-bottom: 10px;
     }
-
     .containerButtons{
         width: 100%;
     }
@@ -281,9 +335,7 @@ export default {
     .pink{
         background-color: rgb(240, 155, 152);
     }
-
     /* Quebra de linha */
-    
     .breakAd{
         width: 100vw;
         background-image: url(https://images8.alphacoders.com/632/thumb-1920-632051.png);
@@ -301,5 +353,12 @@ export default {
         -webkit-text-stroke-width: 1px;
         -webkit-text-stroke-color: #000;
     }
-    
+    .subtituloSlider{
+        width: 70vw;
+        padding: 35px;
+        padding-bottom: 0px;
+        border-top: 1px solid rgb(226, 226, 226);
+        font-weight: bold;
+        margin: 0 auto;
+    }
 </style>
