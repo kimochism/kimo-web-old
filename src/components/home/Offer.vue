@@ -9,15 +9,16 @@
         <div id="Offer">
 
             <div class="Box Product">
+                <img :src="offerProduct.images[0].url" width="100%"/>
             </div>
 
             <div class="Box Info">
 
-                <h1>Camiseta Sad Girl</h1>
+                <h1>{{ offerProduct.name }}</h1>
                 <br>
                 <p class="price">
-                    <span>R$ 80</span>
-                    <span>R$ 130</span>
+                    <span>R$ {{ offerProduct.discount_price }}</span>
+                    <span>R$ {{ offerProduct.price }}</span>
                 </p>
                 <span>Ou por apenas 6x de R$ 25,28</span>
 
@@ -41,7 +42,9 @@
 
 <script>
 export default {
-    name: 'Offer'
+    name: 'Offer',
+
+    props: ['offerProduct'],
 }
 </script>
 
@@ -94,7 +97,7 @@ export default {
         margin: 1%;
     }
     .Product{
-        background-image: url(https://i.pinimg.com/564x/30/ab/68/30ab68f32c73acbe4811aafc8b5ce594.jpg);
+        /* background-image: url(https://i.pinimg.com/564x/30/ab/68/30ab68f32c73acbe4811aafc8b5ce594.jpg); */
         background-size: cover;
     }
     .Info{

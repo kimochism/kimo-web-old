@@ -7,8 +7,8 @@ export class ProductService extends BaseService {
         super();
     }
 
-    async list() {
-        return await this.get(serviceURLs.PRODUCTS, {});
+    async list(query) {
+        return await this.get(serviceURLs.PRODUCTS, query);
     }
 
 }

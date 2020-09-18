@@ -5,7 +5,10 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "create-service": "bash script-service.sh",
+    "create-component": "bash script-component.sh",
+    "create-page": "bash script-page.sh"
   },
   "dependencies": {
     "axios": "^0.20.0",
