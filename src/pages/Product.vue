@@ -1,9 +1,11 @@
 <template>
-    <div id="ContainerProduct">
+    <div>
+        <div id="ContainerProduct">
         <div class="subContainerProduct">
-            <div class="containerImage" style="background-image:url('https://i.pinimg.com/564x/08/f7/af/08f7afb7fcbd09ca57ec9fb12329b055.jpg'); background-size: cover;">
-
+            <div class="containerImage">
+                <img src="https://i.pinimg.com/564x/08/f7/af/08f7afb7fcbd09ca57ec9fb12329b055.jpg" alt="" width="100%">
             </div>
+
             <div class="infoProductBox">
 
                 <h4>CAMISETA SAILOR MOON</h4>
@@ -28,26 +30,33 @@
                 </div>
 
                 <div class="InfoAddons">
-                    Provador virtual ; Tabela de Medidas
+                    <!-- <span>
+                        <span class="material-icons">emoji_people</span>
+                        Provador virtual
+                    </span> -->
+                    <span>
+                        <span class="material-icons">straighten</span>
+                        Tabela de Medidas
+                    </span>
                 </div>
 
                 <hr>
 
                 <div class="containerPrice">
-                    <span>
-                        <b>R$ 69,90</b>
-                        <span>4x de R$ 17,48* s/juros no Cartão</span>
-                    </span>
+                    <b>R$ 69,90</b>
+                    <span>4x de R$ 17,48* s/juros no Cartão</span>
                 </div>
 
                 <div class="containerButtons">
                     <button>Adicionar ao carrinho</button>
-                    <button>Comprar com 1 click</button>
+                    <button>Favoritar</button>
                 </div>
 
                 <div class="containerMessageAddon">
                     <p>As modalidades, prazos e custos de entrega são válidas apenas para o item em consulta.</p>
                 </div>
+
+                <hr>
 
                 <div class="containerFrete">
                     <span>
@@ -57,6 +66,7 @@
                         <input type="text" placeholder="Digite seu CEP">
                         <button>OK</button>
                     </div>
+                    <br>
                     <a href="http://www.buscacep.correios.com.br/sistemas/buscacep/buscaCepEndereco.cfm">Não sei meu CEP</a>
                 </div>
 
@@ -64,23 +74,34 @@
                     Kimochism <br> 気持ち
                 </h1>
             </div>
-        </div>
 
-        <div class="rentaguloLL">
-            asdsad
         </div>
+        
+    </div>
+    <Footer/>
+    <MessageBar/>
     </div>
 </template>
 
 <script>
+import MessageBar from '../components/navigation/MessageBar'
+import Footer from '../components/navigation/Footer.vue'
+
 export default {
-    name: 'Product'
+    name: 'Product',
+    components:{
+        Footer,
+        MessageBar
+    }
 }
+
 </script>
 
 <style>
+    /* Container Big daddy */
+
     #ContainerProduct{
-        padding: 80px;
+        padding: 50px;
         flex-direction: column;
         align-items: center;
         display: flex;
@@ -90,27 +111,113 @@ export default {
         font-weight: bold;
         text-align: center;
     }
-    
+    /* Container sub daddy */
     .subContainerProduct{
-        max-width: 1200px;
-        justify-content: space-between;
+        justify-content: center;
+        flex-wrap: wrap;
         display: flex;
     }
-
     .containerImage{
-        width: 500px;
-        height: 500px;
+        background-position: center;
+        background-size: cover;
+        min-width: 320px;
+        margin: 0 auto;
+        width: 30vw;
     }
-
     .infoProductBox{
-        width: 300px;
+        background-color: white;
+        width: 320px;
         padding: 0 20px;
-        margin: 50px;
+        margin-left:50px;
+        margin: 0 auto;
         justify-content: center;
         flex-direction: column;
         display: flex;
     }
+    .infoProductBox h4{
+        font-weight: bold;
+        padding: 10px 0px;
+        width: 300px;
+    }
+    .infoProductBox span{
+        font-size: 12px;
+        color: grey;
+    }
+    .infoProductBox hr{
+        width: 90%;
+        border-top: 1px solid rgb(224, 224, 224);
+    }    
+    .containerPrice{
+        width: 100%;
+        padding: 8px;
+        font-size: 16px;
+        margin-bottom: 5%;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        display: flex;
+    }
+    .containerPrice b{
+        margin-bottom: 10px;
+    }
 
+    .containerButtons{
+        width: 100%;
+    }
+    .containerButtons button{
+        width: 100%;
+        border: 0px;
+        background-color: #00AE7C;
+        letter-spacing: 2px;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: white;
+        border: 0px;
+    }
+    .containerButtons button:nth-child(1){
+        padding: 14px;
+    }
+    .containerButtons button:nth-child(2){
+        background-color: transparent;
+        color: black;
+        border: 1px solid rgb(224, 224, 224);
+        font-size: 12px;
+    }
+    .containerMessageAddon{
+        width: 100%;
+        text-align: center;
+        margin-top: 4%;
+        font-size: 10px;
+        padding: 10px 32px;
+    }
+    .containerFrete{
+        width: 100%;
+    }
+    .containerFrete span{
+        font-weight: bold;
+    }
+    .subContainerFrete{
+        width: 100%;
+        text-align: center;
+        display: flex;
+    }
+    .subContainerFrete input{
+        width: 80%;
+        margin-right: 5%;
+        border: 0px;
+        background-color: transparent;
+        border-bottom: 1px solid rgb(224, 224, 224);
+    }
+    .subContainerFrete button{
+        width: 100px;
+        border: 0px;
+        margin: 0.2%;
+        background-color: #000;;
+        letter-spacing: 2px;
+        font-weight: bold;
+        color: white;
+        border: 0px;
+    }
     /* Cores */
     .containerColorBoxes{
         width: 200px;
@@ -122,7 +229,6 @@ export default {
         width: 25px;
         height: 25px;
         padding: 3px;
-        background-color: rebeccapurple;
     }
     .colorBox::before{
         position: absolute;
@@ -135,7 +241,6 @@ export default {
         -moz-box-sizing: border-box;
         -webkit-box-sizing: border-box;
     }
-
     /* Tamanhos */
     .containerSizes{
         width: 200px;
@@ -152,7 +257,18 @@ export default {
         align-items: center;
         display: flex;
     }
-
+    /* pós medidas */
+    .InfoAddons{
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+    .InfoAddons span{
+        margin-top: 3%;
+        font-size: 13px;
+        align-items: center;
+    }
     .black{
         background-color: rgb(24, 24, 24);
     }
@@ -166,18 +282,24 @@ export default {
         background-color: rgb(240, 155, 152);
     }
 
-
-
-
-
-
-
-
-
-    .rentaguloLL{
-        max-width: 1000px;
+    /* Quebra de linha */
+    
+    .breakAd{
+        width: 100vw;
+        background-image: url(https://images8.alphacoders.com/632/thumb-1920-632051.png);
+        background-position: top;
+        background-size: cover;
+        justify-content: center;
+        align-items: center;
+        display: flex;
         height: 100px;
-        background-color: bisque;
+    }
+    .breakAd h1{
+        font-weight: bold;
+        text-align: center;
+        color: white;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: #000;
     }
     
 </style>
