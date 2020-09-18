@@ -25,14 +25,14 @@ export default class BaseService {
     async post(url, data) {
         const buildedUrl = this.buildUrl(url);
 
-        const response = await this.http.post(url, data);
+        const response = await this.http.post(buildedUrl, data);
 
         return response.data;
     }
 
     buildUrl(url, query) {
+        console.log(query); 
         return `${url}`;
-        console.log(query);
     }
 
 }
