@@ -81,7 +81,6 @@ export default {
 
   mounted: function () {
     window.onresize = () => {
-      console.log(window.innerWidth);
       if (window.innerWidth > 800) {
         document.getElementById("secondMenu").style.display = "none";
       }
