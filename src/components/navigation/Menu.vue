@@ -7,7 +7,7 @@
       <router-link to="/">
         <span>Início</span>
       </router-link>
-      <router-link to="/categories">
+      <router-link to="/category">
         <span>Catálogo</span>
       </router-link>
       <span>Rastreio</span>
@@ -32,7 +32,7 @@
         </router-link>
       </div>
       <div>
-        <router-link to="/categories">
+        <router-link to="/category">
           <span>Catálogo</span>
         </router-link>
       </div>
