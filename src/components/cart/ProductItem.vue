@@ -31,7 +31,7 @@
 
 <script>
     export default {
-        name: 'CardProductItem'
+        name: 'ProductItem'
     }
 </script>
 
