@@ -1,7 +1,7 @@
 <template>
     <div id="CardContainer">
 
-           <h1>cartão</h1>
+           <h1>Cartão</h1>
            <span class="fontGrey">Tipo do cartão</span>
 
            <div id="SubCardContainer">
@@ -72,10 +72,9 @@ export default {
 
 <style>
     #CardContainer{
-        min-width: 480px;
-        width: 480px;
+        /* min-width: 480px; */
+        width: 90%;
         padding: 40px;
-        margin-left: 60px;
         display: flex;
         color: white;
         border-radius: 15px;
@@ -167,5 +166,16 @@ export default {
 
     .fontGrey{
         color: grey;
+    }
+
+    @media screen and (max-width: 539px){
+        #Card {
+            margin: 0;
+            height: 150px;
+        }
+
+        #SubCardContainer img {
+            display: none;
+        }
     }
 </style>

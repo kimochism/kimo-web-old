@@ -69,6 +69,7 @@ export default {
     .VueCarousel-navigation-button, .VueCarousel-navigation-next, .VueCarousel-navigation-prev{
       height: 50% !important;
     }
+    
     .VueCarousel-navigation-button, .VueCarousel-navigation-next:hover, .VueCarousel-navigation-prev:hover{
       background: rgba(0,0,0,0.05);
     }

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
        <div id="ListBuy">
            <ProductItem/>
        </div>
@@ -30,10 +30,14 @@ export default {
 
 <style>
 
+    .container {
+        width: 100%;
+    }
+    
     #ListBuy{
-        width: 1100px;
+        width: 100%;
         margin-right: 50px;
-        height: 690px;
+        display: flex;
         margin: auto;
         overflow: auto;
     }

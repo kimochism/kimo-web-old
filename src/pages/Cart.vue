@@ -34,10 +34,15 @@ export default {
 </script>
 
 <style>
-    #ContainerCart{
+    #ContainerCart {
         padding: 50px 0px;
+        width: 100%;
         justify-content: center;
-        flex-wrap: wrap;
         display: flex;
+    }
+    @media screen and (max-width: 1024px){
+        #ContainerCart{
+            flex-wrap: wrap;
+        }
     }
 </style>

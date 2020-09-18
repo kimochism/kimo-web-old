@@ -2,29 +2,33 @@
     <div class="item">
             <img class="imgProdutoBuy" src="https://i.pinimg.com/564x/5c/45/61/5c4561d95857586852116379d86ce1fe.jpg" alt="">
 
-            <div class="titleProdCart">
-                <p>Camiseta - Karpa Lothus Fuck Y*o</p>
-                <p class="idProduct">#440231</p>
-            </div>
+            <div class="content">
+                <div class="titleProdCart">
+                    <p>Camiseta - Karpa Lothus Fuck Y*o</p>
+                    <p class="idProduct">#440231</p>
+                </div>
+                
+                <div class="sub-content">
+                    <div class="quantCart sizeSubItem">
+                        <button>
+                            <i class='fas fa-minus'></i>
+                        </button>
+                        <span>1</span>
+                        <button>
+                            <i class='fas fa-plus'></i>
+                        </button>
+                    </div>
 
-            <div class="quantCart sizeSubItem">
-                <button>
-                    <i class='fas fa-minus'></i>
-                </button>
-                <span>1</span>
-                <button>
-                    <i class='fas fa-plus'></i>
-                </button>
-            </div>
-
-            <div class="priceCart sizeSubItem">
-                <p>R$ 10,00</p>
-            </div>
-            
-            <div class="sizeSubItem">
-                <span>
-                    <i class='far fa-trash-alt'></i>
-                </span>
+                    <div class="priceCart sizeSubItem">
+                        <p>R$ 10,00</p>
+                    </div>
+                        
+                    <div class="deleteItem sizeSubItem">
+                        <span>
+                            <i class='far fa-trash-alt'></i>
+                        </span>
+                    </div>
+                </div>
             </div>
     </div>
 </template>
@@ -36,12 +40,32 @@
 </script>
 
 <style scoped>
+    .item{
+        height: 180px;
+        width: 100%;
+        padding: 20px;
+        background-color: white;
+        border-bottom: 0.5px solid rgb(231, 231, 231);
+        align-items: center;
+        display: flex;
+    }
+
+    .content {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .sub-content {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
     .titleProdCart{
-        width: 250px;
-        height: 50px;
+        width: 70%;
         font-weight: bold;
-        display: block;
     }
 
     .titleProdCart p{
@@ -53,7 +77,6 @@
     }
 
     .quantCart{
-        width: 120px;
         justify-content: space-between;
         display: flex;
     }
@@ -84,7 +107,6 @@
 
     .sizeSubItem{
         margin: 0px;
-        height: 35px;
         
         align-items: center;
         display: flex;
@@ -95,14 +117,46 @@
         max-height: 100px;
     }
 
-    .item{
-        height: 180px;
-        padding: 20px;
-        background-color: white;
-        border-bottom: 0.5px solid rgb(231, 231, 231);
-        justify-content: space-between;
-        align-items: center;
-        display: flex;
+    @media screen and (max-width: 800px){
+        .content{
+            flex-direction: column;
+        }
+
+        .sub-content {
+            margin-top: 20px;
+        }
+
+        .titleProdCart {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+    }
+
+    @media screen and (max-width: 375px){
+
+        .content {
+            margin-left: 20px;
+        }
+
+        .titleProdCart, .sub-content {
+            flex-wrap: wrap;
+        }
+
+        .sub-content {
+            justify-content: center;
+        }
+        .priceCart {
+            margin-top: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .deleteItem {
+            margin-top: 10px;
+        }
     }
 
 
