@@ -93,7 +93,7 @@ import Slider from "../components/product/product-slider/Slider.vue";
 import MessageBar from "../components/navigation/MessageBar";
 import Footer from "../components/navigation/Footer.vue";
 import Gap from "../components/navigation/Gap.vue";
-import router from "../router";
+// import router from "../router";
 import { ProductService } from "../services/ProductService";
 
 export default {

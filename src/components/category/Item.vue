@@ -1,8 +1,13 @@
 <template>
-    <div class="cardBox" v-bind:style="{ 'background-image': 'url(' + this.categorie.backgroundUrl + ')' }">
-        <div class="cardContent">
-            <div class="cardTitle">
-                <span class="textTitle">{{this.categorie.title}}</span>
+<!-- colocar imagem vvv -->
+<!-- v-bind:style="{ 'background-image': 'url(' + this.category.imgId + ')' }" -->
+    <div>
+        <div class="cardBox"  
+            :key="this.category.id">
+            <div class="cardContent">
+                <div class="cardTitle">
+                    <span class="textTitle">{{this.category.name}}</span>
+                </div>
             </div>
         </div>
     </div>
@@ -10,8 +15,8 @@
 
 <script>
     export default {
-        name: 'Card',
-        props: ['categorie'],
+        name: 'Item',
+        props: ['category'],
     };
 </script>
 

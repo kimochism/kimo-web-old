@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router'
 import Home from './pages/Home.vue'
+import ShirtMaker from './pages/ShirtMaker'
+import VueCarousel from 'vue-carousel'
 
 Vue.use(Router);
 
@@ -35,9 +37,14 @@ const router = new Router({
       component: lazyLoad('Catalog'),
     },
     {
-      path: '/Product',
+      path: '/product',
       name: 'product',
       component: lazyLoad('Product'),
+    },
+    {
+      path: "/shirtMaker",
+      name: "shirt maker",
+      component: ShirtMaker,
     }
   ]
 })
