@@ -2,12 +2,7 @@
     <div class="categories-body">
         <span class="title">Categorias</span>
         <div class="categories-container">
-            <Card :categorie="categorie1"></Card>
-            <Card :categorie="categorie2"></Card>
-            <Card :categorie="categorie3"></Card>
-            <Card :categorie="categorie2"></Card>
-            <Card :categorie="categorie1"></Card>
-            <Card :categorie="categorie3"></Card>
+            <Item v-for="category in categories" :key="category.id" :category="category"/>
         </div>
         <Footer/>
         <MessageBar/>
@@ -15,33 +10,36 @@
 </template>
 
 <script>
-    import Card from '../components/category/Card.vue'
+    import Item from '../components/category/Item.vue'
     import MessageBar from '../components/navigation/MessageBar.vue'
     import Footer from '../components/navigation/Footer.vue'
+    import { CategoryService } from '../services/CategoryService'
 
     export default {
         name: "Categories",
+
+        data() {
+            return {
+                categories: {},
+                categoryService: new CategoryService(),
+            }
+        },
         components: {
-            Card,
+            Item,
             MessageBar,
             Footer
         },
-        data() {
-            return {
-                categorie1: {
-                    backgroundUrl: 'https://i.pinimg.com/564x/2a/3e/da/2a3edaa3cf5d3996a74846225e2ae5c9.jpg',
-                    title: 'Otaku'
-                },
-                categorie2: {
-                    backgroundUrl: 'https://i.pinimg.com/564x/bd/e6/62/bde662ee04fb0b517cf2610cce8fea16.jpg',
-                    title: 'Gamer'
-                },
-                categorie3: {
-                    backgroundUrl: 'https://i.pinimg.com/564x/cc/28/f9/cc28f92d03de23674705aa1b4bfb48b5.jpg',
-                    title: 'Cartoons'
-                },
-            }
-        }
+        methods: {
+            listCategories() {
+                this.categoryService
+                    .list({})
+                    .then((categories) => (this.categories = categories));
+            },
+        },
+
+        created() {
+            this.listCategories();
+        },
     };
 </script>
 

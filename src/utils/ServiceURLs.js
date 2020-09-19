@@ -4,5 +4,7 @@ export const serviceURLs = {
 
     USERS: '/users',
 
-    AUTH: '/auth'
+    AUTH: '/auth',
+
+    CATEGORIES: '/categories',
 }

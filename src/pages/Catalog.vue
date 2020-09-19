@@ -57,7 +57,7 @@
 import MessageBar from "../components/navigation/MessageBar";
 import Footer from "../components/navigation/Footer";
 import { ProductService } from "../services/ProductService";
-import router from '../router';
+// import router from '../router';
 
 
 export default {
