@@ -2,6 +2,11 @@
   <div>
     <Slider />
     <Warning />
+    <div class="warning-shirt-maker">
+      <router-link to="/shirtMaker" class="linker">
+        <h1>Faça sua estampa!</h1>
+      </router-link>
+    </div>
     <Offer :offerProduct="offerProduct" />
     <ProductSlider />
     <Products :products="products" />
@@ -55,7 +60,7 @@ export default {
       this.productService
         .list({ offer: true })
         .then((products) => (this.offerProduct = products.data[0]));
-    }
+    },
   },
 
   created() {
@@ -68,6 +73,19 @@ export default {
 <style>
 * {
   outline: none !important;
+}
+.warning-shirt-maker {
+  text-align: center;
+  margin: 5% 0%;
+}
+
+.linker {
+  text-decoration: none;
+  color: black;
+}
+.linker:hover {
+  text-decoration: none;
+  color: black;
 }
 
 /* width */
