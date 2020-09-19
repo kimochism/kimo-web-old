@@ -14,9 +14,9 @@ export default class BaseService {
         });
     }
 
-    async get(url, query) {
-        
-        const buildedUrl = this.buildUrl(url, query);
+    async get(url, pathParams = [], queries = null) {
+
+        const buildedUrl = this.buildUrl(url, pathParams, queries);
 
         const response = await this.http.get(buildedUrl);
         return response.data;
@@ -30,9 +30,41 @@ export default class BaseService {
         return response.data;
     }
 
-    buildUrl(url, query) {
-        console.log(query); 
-        return `${url}`;
+    buildUrl(url, pathParams, queries) {
+        const buildedPathParams = this.buildPathParams(url, pathParams);
+        const buildedQueries = this.buildQueries(queries);
+
+        const buildedUrl = `${buildedPathParams}${buildedQueries ? '?'.concat(buildedQueries) : ''}`
+        return buildedUrl;
+    }
+
+    buildQueries(queries) {
+        if (!queries) {
+            return;
+        }
+
+        const keys = Object.keys(queries);
+
+        return keys.map(key => {
+            return `${key}=${queries[key]}`
+        }).join('&&');
+    }
+
+    buildPathParams(url, pathParams) {
+        if (!pathParams || !pathParams.length) {
+            return url;
+        }
+
+        const regex = /\{(.*?)\}/;
+
+        pathParams.forEach(value => {
+            const matched = regex.exec(url);
+            if (matched) {
+                url = url.replace(matched[0], value);
+            }
+        });
+
+        return url;
     }
 
 }

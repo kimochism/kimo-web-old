@@ -1,364 +1,387 @@
 <template>
-    <div>
-        <div id="ContainerProduct">
-        <div class="subContainerProduct">
-            <div class="containerImage">
-                <img src="https://i.pinimg.com/564x/08/f7/af/08f7afb7fcbd09ca57ec9fb12329b055.jpg" alt="" width="100%">
-                <div class="picturesImg">
-                    <div class="boxImg">
-                        <img src="https://cd.shoppub.com.br/rota34/media/cache/c4/a5/c4a5243e41354a05f08897c5da4f78db.jpg" alt="">
-                    </div>
-                    <div class="boxImg">
-                        <img src="https://cd.shoppub.com.br/rota34/media/cache/c4/a5/c4a5243e41354a05f08897c5da4f78db.jpg" alt="">
-                    </div>
-                    <div class="boxImg">
-                        <img src="https://cd.shoppub.com.br/rota34/media/cache/c4/a5/c4a5243e41354a05f08897c5da4f78db.jpg" alt="">
-                    </div>
-                    <div class="boxImg">
-                        <img src="https://cd.shoppub.com.br/rota34/media/cache/c4/a5/c4a5243e41354a05f08897c5da4f78db.jpg" alt="">
-                    </div>
-                </div>
+  <div>
+    <div id="ContainerProduct">
+      <div class="subContainerProduct">
+        <div class="containerImage">
+          <img
+            v-if="product && product.images && product.images.length"
+            :src="product.images[0].url"
+            alt
+            width="100%"
+          />
+          <div class="picturesImg">
+            <div class="boxImg" v-for="image of product.images" :key="image.url">
+              <img v-if="image && image.url" :src="image.url" alt />
             </div>
+          </div>
+        </div>
 
-            <div class="infoProductBox">
+        <div class="infoProductBox">
+          <h4>{{ product.name }}</h4>
+          <span>REF: #{{ product.id }}</span>
+          <div class="containerColorBoxes">
+            <div class="colorBox black"></div>
+            <div class="colorBox white"></div>
+            <div class="colorBox gray"></div>
+            <div class="colorBox pink"></div>
+          </div>
+          <div class="containerSizes">
+            <div class="sizeBox">P</div>
+            <div class="sizeBox">M</div>
+            <div class="sizeBox">G</div>
+          </div>
 
-                <h4>CAMISETA SAILOR MOON</h4>
-                <span>REF: 550869051</span>
-                <div class="containerColorBoxes">
-                    <div class="colorBox black"></div>
-                    <div class="colorBox white"></div>
-                    <div class="colorBox gray"></div>
-                    <div class="colorBox pink"></div>
-                </div>
-                <div class="containerSizes">
-                    <div class="sizeBox">
-                        P
-                    </div>
-                    <div class="sizeBox">
-                        M
-                    </div>
-                    <div class="sizeBox">
-                        G
-                    </div>
-                    
-                </div>
-
-                <div class="InfoAddons">
-                    <!-- <span>
+          <div class="InfoAddons">
+            <!-- <span>
                         <span class="material-icons">emoji_people</span>
                         Provador virtual
-                    </span> -->
-                    <span>
-                        <span class="material-icons">straighten</span>
-                        Tabela de Medidas
-                    </span>
-                </div>
+            </span>-->
+            <span>
+              <span class="material-icons">straighten</span>
+              Tabela de Medidas
+            </span>
+          </div>
 
-                <hr>
+          <hr />
 
-                <div class="containerPrice">
-                    <b>R$ 69,90</b>
-                    <span>4x de R$ 17,48* s/juros no Cartão</span>
-                </div>
+          <div class="containerPrice">
+            <b>R$ {{ product.price }}</b>
+            <span>4x de R$ 17,48* s/juros no Cartão</span>
+          </div>
 
-                <div class="containerButtons">
-                    <button>Adicionar ao carrinho</button>
-                    <button>Favoritar</button>
-                </div>
+          <div class="containerButtons">
+            <button v-on:click="addToOrder()">Adicionar ao carrinho</button>
+            <button>Favoritar</button>
+          </div>
 
-                <div class="containerMessageAddon">
-                    <p>As modalidades, prazos e custos de entrega são válidas apenas para o item em consulta.</p>
-                </div>
+          <div class="containerMessageAddon">
+            <p>As modalidades, prazos e custos de entrega são válidas apenas para o item em consulta.</p>
+          </div>
 
-                <hr>
+          <hr />
 
-                <div class="containerFrete">
-                    <span>
-                        Simular Frete
-                    </span>
-                    <div class="subContainerFrete">
-                        <input type="text" placeholder="Digite seu CEP">
-                        <button>OK</button>
-                    </div>
-                    <br>
-                    <a href="http://www.buscacep.correios.com.br/sistemas/buscacep/buscaCepEndereco.cfm">Não sei meu CEP</a>
-                </div>
-
-                <h1 class="we">
-                    Kimochism <br> 気持ち
-                </h1>
+          <div class="containerFrete">
+            <span>Simular Frete</span>
+            <div class="subContainerFrete">
+              <input type="text" placeholder="Digite seu CEP" />
+              <button>OK</button>
             </div>
+            <br />
+            <a
+              href="http://www.buscacep.correios.com.br/sistemas/buscacep/buscaCepEndereco.cfm" target="_blank"
+            >Não sei meu CEP</a>
+          </div>
 
+          <h1 class="we">
+            Kimochism
+            <br />気持ち
+          </h1>
         </div>
-        
+      </div>
     </div>
     <h3 class="subtituloSlider">Semelhantes a este</h3>
-    <Slider/>
-    <hr class="break_pdtc">
-    <Gap/>
-    <Footer/>
-    <MessageBar/>
-    </div>
+    <Slider />
+    <hr class="break_pdtc" />
+    <Gap />
+    <Footer />
+    <MessageBar />
+  </div>
 </template>
 
 <script>
-import Slider from '../components/product/product-slider/Slider.vue'
-import MessageBar from '../components/navigation/MessageBar'
-import Footer from '../components/navigation/Footer.vue'
-import Gap from '../components/navigation/Gap.vue'
+import Slider from "../components/product/product-slider/Slider.vue";
+import MessageBar from "../components/navigation/MessageBar";
+import Footer from "../components/navigation/Footer.vue";
+import Gap from "../components/navigation/Gap.vue";
+import router from "../router";
+import { ProductService } from "../services/ProductService";
 
 export default {
-    name: 'Product',
-    components:{
-        MessageBar,
-        Footer,
-        Slider,
-        Gap
-    }
-}
+  name: "Product",
+  components: {
+    MessageBar,
+    Footer,
+    Slider,
+    Gap,
+  },
 
+  data() {
+    return {
+      productService: new ProductService(),
+      product: {},
+    };
+  },
+
+  created() {
+    if (!this.$route.query.id) {
+      this.$router.push({ path: "not-found" });
+    }
+
+    this.getProductById();
+  },
+
+  methods: {
+    getProductById() {
+      const id = this.getQuery("id");
+
+      this.productService.show(id).then((product) => (this.product = product));
+    },
+
+    getQuery(param) {
+      return this.$route.query[param];
+    },
+
+    addToOrder() {
+      if (!localStorage.getItem("Authorization")) {
+        document.getElementById("CadastroCase").style.display = "flex";
+        document.getElementById("LoginCase").style.display = "none";
+        document.getElementById("ContainerLogin").style.display = "flex";
+      }
+    },
+  },
+};
 </script>
 
 <style>
-    /* Container Big daddy */
-    #ContainerProduct{
-        padding: 50px;
-        padding-bottom: 0px;
-        flex-direction: column;
-        align-items: center;
-        display: flex;
-    }
-    .we{
-        margin: 50px 0px ;
-        font-weight: bold;
-        text-align: center;
-    }
-    /* Container sub daddy */
-    .subContainerProduct{
-        justify-content: center;
-        flex-wrap: wrap;
-        display: flex;
-    }
-    .containerImage{
-        background-position: center;
-        background-size: cover;
-        width: auto;
-        min-width: 360px;
-        margin: 0 auto;
-        width: 30vw;
-    }
-    .picturesImg{
-        width: 100%;
-        min-width: 350px;
-        margin: 0 auto;
-        margin-bottom: 25px;
-        justify-content: center;
-        display: flex;
-    }
-    .boxImg{
-        width: 80px;
-        height: 80px;
-        margin: 0 5px;
-        border: 1px solid rgba(0, 0, 0, 0.226);
-        overflow: auto;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-    }
-    .boxImg:hover{
-        border: 2px solid black;
-        cursor: pointer;
-    }
+/* Container Big daddy */
+#ContainerProduct {
+  padding: 50px;
+  padding-bottom: 0px;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+}
+.we {
+  margin: 50px 0px;
+  font-weight: bold;
+  text-align: center;
+}
+/* Container sub daddy */
+.subContainerProduct {
+  justify-content: center;
+  flex-wrap: wrap;
+  display: flex;
+}
+.containerImage {
+  background-position: center;
+  background-size: cover;
+  width: auto;
+  min-width: 360px;
+  margin: 0 auto;
+  width: 30vw;
+}
+.picturesImg {
+  width: 100%;
+  min-width: 350px;
+  margin: 0 auto;
+  margin-bottom: 25px;
+  justify-content: center;
+  display: flex;
+}
+.boxImg {
+  width: 80px;
+  height: 80px;
+  margin: 0 5px;
+  border: 1px solid rgba(0, 0, 0, 0.226);
+  overflow: auto;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.boxImg:hover {
+  border: 2px solid black;
+  cursor: pointer;
+}
 
-    .break_pdtc{
-        height: 60px;
-        border: 0px;
-    }
+.break_pdtc {
+  height: 60px;
+  border: 0px;
+}
 
-    .boxImg img{
-        width: 90%;
-        height: 90%;
-    }
-    .infoProductBox{
-        background-color: white;
-        width: 320px;
-        padding: 0 20px;
-        margin-left:50px;
-        margin: 0 auto;
-        justify-content: center;
-        flex-direction: column;
-        display: flex;
-    }
-    .infoProductBox h4{
-        font-weight: bold;
-        padding: 10px 0px;
-        width: 300px;
-    }
-    .infoProductBox span{
-        font-size: 12px;
-        color: grey;
-    }
-    .infoProductBox hr{
-        width: 90%;
-        border-top: 1px solid rgb(224, 224, 224);
-    }    
-    .containerPrice{
-        width: 100%;
-        padding: 8px;
-        font-size: 16px;
-        margin-bottom: 5%;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        display: flex;
-    }
-    .containerPrice b{
-        margin-bottom: 10px;
-    }
-    .containerButtons{
-        width: 100%;
-    }
-    .containerButtons button{
-        width: 100%;
-        border: 0px;
-        background-color: #00AE7C;
-        letter-spacing: 2px;
-        margin-bottom: 8px;
-        font-weight: bold;
-        color: white;
-        border: 0px;
-    }
-    .containerButtons button:nth-child(1){
-        padding: 14px;
-    }
-    .containerButtons button:nth-child(2){
-        background-color: transparent;
-        color: black;
-        border: 1px solid rgb(224, 224, 224);
-        font-size: 12px;
-    }
-    .containerMessageAddon{
-        width: 100%;
-        text-align: center;
-        margin-top: 4%;
-        font-size: 10px;
-        padding: 10px 32px;
-    }
-    .containerFrete{
-        width: 100%;
-    }
-    .containerFrete span{
-        font-weight: bold;
-    }
-    .subContainerFrete{
-        width: 100%;
-        text-align: center;
-        display: flex;
-    }
-    .subContainerFrete input{
-        width: 80%;
-        margin-right: 5%;
-        border: 0px;
-        background-color: transparent;
-        border-bottom: 1px solid rgb(224, 224, 224);
-    }
-    .subContainerFrete button{
-        width: 100px;
-        border: 0px;
-        margin: 0.2%;
-        background-color: #000;;
-        letter-spacing: 2px;
-        font-weight: bold;
-        color: white;
-        border: 0px;
-    }
-    /* Cores */
-    .containerColorBoxes{
-        width: 200px;
-        padding: 15px 0px;
-        justify-content: space-around;
-        display: flex;
-    }
-    .colorBox{
-        width: 25px;
-        height: 25px;
-        padding: 3px;
-    }
-    .colorBox::before{
-        position: absolute;
-        display: block;
-        content: '';
-        border: 2px solid black;
-        height: 25px;
-        width: 25px;
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-    }
-    /* Tamanhos */
-    .containerSizes{
-        width: 200px;
-        padding: 15px 0px;
-        display: flex;
-    }
-    .sizeBox{
-        width: 25px;
-        height: 25px;
-        margin: 1% 6.9%;
-        text-transform: uppercase;
-        border: 1px solid rgb(196, 196, 196);
-        justify-content: center;
-        align-items: center;
-        display: flex;
-    }
-    /* pós medidas */
-    .InfoAddons{
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-    }
-    .InfoAddons span{
-        margin-top: 3%;
-        font-size: 13px;
-        align-items: center;
-    }
-    .black{
-        background-color: rgb(24, 24, 24);
-    }
-    .gray{
-        background-color: grey;
-    }
-    .white{
-        background-color: rgb(218, 218, 218);
-    }
-    .pink{
-        background-color: rgb(240, 155, 152);
-    }
-    /* Quebra de linha */
-    .breakAd{
-        width: 100vw;
-        background-image: url(https://images8.alphacoders.com/632/thumb-1920-632051.png);
-        background-position: top;
-        background-size: cover;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-        height: 100px;
-    }
-    .breakAd h1{
-        font-weight: bold;
-        text-align: center;
-        color: white;
-        -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: #000;
-    }
-    .subtituloSlider{
-        width: 70vw;
-        padding: 35px;
-        padding-bottom: 0px;
-        border-top: 1px solid rgb(226, 226, 226);
-        font-weight: bold;
-        margin: 0 auto;
-    }
+.boxImg img {
+  width: 90%;
+  height: 90%;
+}
+.infoProductBox {
+  background-color: white;
+  width: 320px;
+  padding: 0 20px;
+  margin-left: 50px;
+  margin: 0 auto;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+}
+.infoProductBox h4 {
+  font-weight: bold;
+  padding: 10px 0px;
+  width: 300px;
+}
+.infoProductBox span {
+  font-size: 12px;
+  color: grey;
+}
+.infoProductBox hr {
+  width: 90%;
+  border-top: 1px solid rgb(224, 224, 224);
+}
+.containerPrice {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  margin-bottom: 5%;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+}
+.containerPrice b {
+  margin-bottom: 10px;
+}
+.containerButtons {
+  width: 100%;
+}
+.containerButtons button {
+  width: 100%;
+  border: 0px;
+  background-color: #00ae7c;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: white;
+  border: 0px;
+}
+.containerButtons button:nth-child(1) {
+  padding: 14px;
+}
+.containerButtons button:nth-child(2) {
+  background-color: transparent;
+  color: black;
+  border: 1px solid rgb(224, 224, 224);
+  font-size: 12px;
+}
+.containerMessageAddon {
+  width: 100%;
+  text-align: center;
+  margin-top: 4%;
+  font-size: 10px;
+  padding: 10px 32px;
+}
+.containerFrete {
+  width: 100%;
+}
+.containerFrete span {
+  font-weight: bold;
+}
+.subContainerFrete {
+  width: 100%;
+  text-align: center;
+  display: flex;
+}
+.subContainerFrete input {
+  width: 80%;
+  margin-right: 5%;
+  border: 0px;
+  background-color: transparent;
+  border-bottom: 1px solid rgb(224, 224, 224);
+}
+.subContainerFrete button {
+  width: 100px;
+  border: 0px;
+  margin: 0.2%;
+  background-color: #000;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: white;
+  border: 0px;
+}
+/* Cores */
+.containerColorBoxes {
+  width: 200px;
+  padding: 15px 0px;
+  justify-content: space-around;
+  display: flex;
+}
+.colorBox {
+  width: 25px;
+  height: 25px;
+  padding: 3px;
+}
+.colorBox::before {
+  position: absolute;
+  display: block;
+  content: "";
+  border: 2px solid black;
+  height: 25px;
+  width: 25px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+/* Tamanhos */
+.containerSizes {
+  width: 200px;
+  padding: 15px 0px;
+  display: flex;
+}
+.sizeBox {
+  width: 25px;
+  height: 25px;
+  margin: 1% 6.9%;
+  text-transform: uppercase;
+  border: 1px solid rgb(196, 196, 196);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+/* pós medidas */
+.InfoAddons {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.InfoAddons span {
+  margin-top: 3%;
+  font-size: 13px;
+  align-items: center;
+}
+.black {
+  background-color: rgb(24, 24, 24);
+}
+.gray {
+  background-color: grey;
+}
+.white {
+  background-color: rgb(218, 218, 218);
+}
+.pink {
+  background-color: rgb(240, 155, 152);
+}
+/* Quebra de linha */
+.breakAd {
+  width: 100vw;
+  background-image: url(https://images8.alphacoders.com/632/thumb-1920-632051.png);
+  background-position: top;
+  background-size: cover;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 100px;
+}
+.breakAd h1 {
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000;
+}
+.subtituloSlider {
+  width: 70vw;
+  padding: 35px;
+  padding-bottom: 0px;
+  border-top: 1px solid rgb(226, 226, 226);
+  font-weight: bold;
+  margin: 0 auto;
+}
 </style>

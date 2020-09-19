@@ -47,13 +47,13 @@ export default {
   methods: {
     listProducts() {
       this.productService
-        .list({})
+        .list({ page:1 ,limit: 6 })
         .then((products) => (this.products = products.data));
     },
 
     getOfferProduct() {
       this.productService
-        .list({ offer: true })
+        .list({ offer: true, page: 1, limit: 1 })
         .then((products) => (this.offerProduct = products.data[0]));
     }
   },
