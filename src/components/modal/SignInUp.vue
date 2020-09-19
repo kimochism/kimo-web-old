@@ -114,7 +114,7 @@ export default {
   background-size: 100%;
   justify-content: center;
   align-items: center;
-  display: flex;
+  display: none;
 }
 
 .SubContainerLogin span {
@@ -133,7 +133,7 @@ export default {
   background-color: white;
   flex-direction: column;
   text-align: center;
-  display: flex;
+  display: none;
   box-shadow: 0 6px 20px #00000040, 0 2px 2px #00000038;
 }
 
@@ -202,7 +202,7 @@ button {
   transform: translateX(-50%);
   flex-direction: column;
   text-align: center;
-  display: flex;
+  display: none;
   box-shadow: 0 6px 20px #00000040, 0 2px 2px #00000038;
   display: none;
 }

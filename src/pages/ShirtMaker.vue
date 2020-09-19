@@ -1,19 +1,35 @@
 <template>
-  <div class="categories-body">
+  <div class="shirt-maker-body">
 
       <p class="title">Faça sua estampa!</p>
 
       <md-steppers class="container-stepper" :md-active-step.sync="active" md-linear>
         <md-step id="first" md-label="Escolha seu modelo" :md-error="firstStepError" :md-done.sync="first">
           <div class="types-container">
-            <CardShirtType id="black_shirt" @click="choseItem('black_shirt')" imageLink='https://static.hering.com.br//sys_master/images/h63/ha0/9678028079134.jpg?name=0201-N1007S-D1'/>
-            <CardShirtType id="white_shirt" @click="choseItem('white_shirt')" imageLink='https://static.hering.com.br//sys_master/images/h4b/he4/9654043148318.jpg?name=0299-N0A00S-D1'/>
-            <CardShirtType id="gray_shirt" @click="choseItem('gray_shirt')" imageLink='https://static.hering.com.br//sys_master/images/h8f/h70/9611191091230.jpg?name=0201-M2H07S-D1'/>
-            <CardShirtType id="pink_shirt" @click="choseItem('pink_shirt')" imageLink='https://static.hering.com.br//sys_master/images/hc5/h78/9777899012126.jpg?name=0201-KRQEN-D1'/>
-            <CardShirtType id="black_sweatshirt" @click="choseItem('black_sweatshirt')" imageLink='https://cdn.awsli.com.br/600x700/987/987705/produto/37808766/fcc0c2398d.jpg'/>
-            <CardShirtType id="white_sweatshirt" @click="choseItem('white_sweatshirt')" imageLink='https://produtos.fotos-riachuelo.com.br/media/catalog/product/cache/3541e153ef6ead3044d72626c3847968/b/l/blusa-moletom-lisa---branco-13753886_foto6_detalhe.jpg'/>
-            <CardShirtType id="gray_sweatshirt" @click="choseItem('gray_sweatshirt')" imageLink='https://cdn.awsli.com.br/600x700/987/987705/produto/37808828/a847b57c38.jpg'/>
-            <CardShirtType id="pink_sweatshirt" @click="choseItem('pink_sweatshirt')" imageLink='https://http2.mlstatic.com/D_NQ_NP_706290-MLB31078684416_062019-O.webp'/>
+            <div v-on:click="choseItem('black_shirt')">
+              <CardShirtType id="black_shirt" imageLink='https://static.hering.com.br//sys_master/images/h63/ha0/9678028079134.jpg?name=0201-N1007S-D1'/>
+            </div>
+            <div v-on:click="choseItem('white_shirt')">
+              <CardShirtType id="white_shirt" v-on:click="choseItem('white_shirt')" imageLink='https://static.hering.com.br//sys_master/images/h4b/he4/9654043148318.jpg?name=0299-N0A00S-D1'/>
+            </div>
+            <div v-on:click="choseItem('gray_shirt')">
+              <CardShirtType id="gray_shirt" v-on:click="choseItem('gray_shirt')" imageLink='https://static.hering.com.br//sys_master/images/h8f/h70/9611191091230.jpg?name=0201-M2H07S-D1'/>
+            </div>
+            <div v-on:click="choseItem('pink_shirt')">
+              <CardShirtType id="pink_shirt" v-on:click="choseItem('pink_shirt')" imageLink='https://static.hering.com.br//sys_master/images/hc5/h78/9777899012126.jpg?name=0201-KRQEN-D1'/>
+            </div>
+            <div v-on:click="choseItem('black_sweatshirt')">
+              <CardShirtType id="black_sweatshirt" v-on:click="choseItem('black_sweatshirt')" imageLink='https://cdn.awsli.com.br/600x700/987/987705/produto/37808766/fcc0c2398d.jpg'/>
+            </div>
+            <div v-on:click="choseItem('white_sweatshirt')">
+              <CardShirtType id="white_sweatshirt" v-on:click="choseItem('white_sweatshirt')" imageLink='https://produtos.fotos-riachuelo.com.br/media/catalog/product/cache/3541e153ef6ead3044d72626c3847968/b/l/blusa-moletom-lisa---branco-13753886_foto6_detalhe.jpg'/>
+            </div>
+            <div v-on:click="choseItem('gray_sweatshirt')">
+              <CardShirtType id="gray_sweatshirt" v-on:click="choseItem('gray_sweatshirt')" imageLink='https://cdn.awsli.com.br/600x700/987/987705/produto/37808828/a847b57c38.jpg'/>
+            </div>
+            <div v-on:click="choseItem('pink_sweatshirt')">
+              <CardShirtType id="pink_sweatshirt" v-on:click="choseItem('pink_sweatshirt')" imageLink='https://http2.mlstatic.com/D_NQ_NP_706290-MLB31078684416_062019-O.webp'/>
+            </div>
           </div>
         <md-button :disabled="firstButtonDisable" class="md-raised md-primary" @click="setDone('first', 'second')">Proximo</md-button>
       </md-step>
@@ -73,6 +89,10 @@
         },
         choseItem(item){
           this.selectedItem = item;
+
+
+          let el = document.getElementById(item);
+          el.classList.add('selected-model');
         }
     }
 
@@ -80,11 +100,14 @@
 </script>
 
 <style scoped>
-    .title{
-      margin: 4% 0;
-      font-size: 40px;
-      font-weight: bold;
-    }
+  .shirt-maker-body{
+    text-align: center; 
+  }
+  .title{
+    margin: 4% 0;
+    font-size: 40px;
+    font-weight: bold;
+  }
   .types-container {
     justify-content: space-between;
     flex-wrap: wrap;
@@ -93,5 +116,8 @@
   }
   .container-stepper {
     margin: 2% 0; 
+  }
+  .selected-model {
+    border: 1px solid red;
   }
 </style>

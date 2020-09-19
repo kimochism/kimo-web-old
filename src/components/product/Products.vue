@@ -6,16 +6,13 @@
     </div>
 
     <div class="subContainerItems">
-
-      <div class="item" v-for="product in products" :key="product.id">
-
+      <div v-on:click="navigateToProduct(product.id)" class="item" v-for="product in products" :key="product.id">
         <img :src="product.images[0].url" alt />
         <p class="flexDescription">
           <span>{{ product.name }}</span>
           <span>R$ {{ product.price }}</span>
         </p>
       </div>
-
     </div>
 
     <div class="buttonLoadItems">
@@ -34,8 +31,10 @@ export default {
     return {};
   },
 
-  created() {
-    console.log(this.products);
+  methods: {
+      navigateToProduct(id) {
+        this.$router.push({ path: 'product', query: { id } })
+    }
   },
 };
 </script>

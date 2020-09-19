@@ -1,209 +1,184 @@
 <template>
   <div>
     <div id="header">
-        <h1>Catálogo</h1>
-        <span>Produtos</span>
+      <h1>Catálogo</h1>
+      <span>Produtos</span>
     </div>
     <!-- ******* -->
     <!-- Modelo pra componente -->
     <!-- ******* -->
 
     <div class="optionsHeader">
-
-        <div class="options">
-            <div class="firstOptionHeader">
-                <span>Todos</span>
-            </div>
-            <div>
-                <span>Camisetas</span>
-            </div>
-            <div>
-                <span>Canecas</span>
-            </div>
-            <div>
-                <span>Gamer</span>
-            </div>
-            <div>
-                <span>Otaku</span>
-            </div>
+      <div class="options">
+        <div class="firstOptionHeader">
+          <span>Todos</span>
         </div>
-
-        <div class="lastOptions">
-            <div>
-                <span>Filtro</span>
-            </div>
+        <div>
+          <span>Camisetas</span>
         </div>
+        <div>
+          <span>Canecas</span>
+        </div>
+        <div>
+          <span>Gamer</span>
+        </div>
+        <div>
+          <span>Otaku</span>
+        </div>
+      </div>
+
+      <div class="lastOptions">
+        <div>
+          <span>Filtro</span>
+        </div>
+      </div>
     </div>
 
     <div id="ContainerCatalog">
-
-        <div class="productBoxItem">
-            <img src="https://i.pinimg.com/564x/85/c3/4d/85c34d1c659f2b057f416a93df11bcdd.jpg" alt="" width="270px">
-            <span for="">Camiseta garota HENTAI</span>
-            <span>
-                <b>R$ 49,90</b>
-            </span>
-        </div>
-        <div class="productBoxItem">
-            <img src="https://i.pinimg.com/564x/85/c3/4d/85c34d1c659f2b057f416a93df11bcdd.jpg" alt="" width="270px">
-            <span for="">Camiseta garota HENTAI</span>
-            <span>
-                <b>R$ 49,90</b>
-            </span>
-        </div>
-        <div class="productBoxItem">
-            <img src="https://i.pinimg.com/564x/85/c3/4d/85c34d1c659f2b057f416a93df11bcdd.jpg" alt="" width="270px">
-            <span for="">Camiseta garota HENTAI</span>
-            <span>
-                <b>R$ 49,90</b>
-            </span>
-        </div>
-        <div class="productBoxItem">
-            <img src="https://i.pinimg.com/564x/85/c3/4d/85c34d1c659f2b057f416a93df11bcdd.jpg" alt="" width="270px">
-            <span for="">Camiseta garota HENTAI</span>
-            <span>
-                <b>R$ 49,90</b>
-            </span>
-        </div>
-        
-        <div class="productBoxItem">
-            <img src="https://i.pinimg.com/564x/85/c3/4d/85c34d1c659f2b057f416a93df11bcdd.jpg" alt="" width="270px">
-            <span for="">Camiseta garota HENTAI</span>
-            <span>
-                <b>R$ 49,90</b>
-            </span>
-        </div>
-        <div class="productBoxItem">
-            <img src="https://i.pinimg.com/564x/85/c3/4d/85c34d1c659f2b057f416a93df11bcdd.jpg" alt="" width="270px">
-            <span for="">Camiseta garota HENTAI</span>
-            <span>
-                <b>R$ 49,90</b>
-            </span>
-        </div>
-        <div class="productBoxItem">
-            <img src="https://i.pinimg.com/564x/85/c3/4d/85c34d1c659f2b057f416a93df11bcdd.jpg" alt="" width="270px">
-            <span for="">Camiseta garota HENTAI</span>
-            <span>
-                <b>R$ 49,90</b>
-            </span>
-        </div>
-        <div class="productBoxItem">
-            <img src="https://i.pinimg.com/564x/85/c3/4d/85c34d1c659f2b057f416a93df11bcdd.jpg" alt="" width="270px">
-            <span for="">Camiseta garota HENTAI</span>
-            <span>
-                <b>R$ 49,90</b>
-            </span>
-        </div>
-
+      <div  v-on:click="navigateToProduct(product.id)" class="productBoxItem" v-for="product in products" :key="product.id">
+        <img :src="product.images[0].url" alt width="270px" />
+        <span for>{{ product.name }}</span>
+        <span>
+          <b>R$ {{ product.price }}</b>
+        </span>
+      </div>
     </div>
 
     <div class="BtnSeeMore">
-        <button>Ver Mais</button>
+      <button v-on:click="listProducts()">Ver Mais</button>
     </div>
 
-    <Footer/>
-    <MessageBar/>
+    <Footer />
+    <MessageBar />
   </div>
 </template>
 
 <script>
-import MessageBar from '../components/navigation/MessageBar'
-import Footer from '../components/navigation/Footer'
+import MessageBar from "../components/navigation/MessageBar";
+import Footer from "../components/navigation/Footer";
+import { ProductService } from "../services/ProductService";
+import router from '../router';
+
 
 export default {
-    name : 'Catalog',
-    components :{
-        MessageBar,
-        Footer
+  name: "Catalog",
+
+  data() {
+    return {
+      productService: new ProductService(),
+      products: [],
+      page: 0,
+    };
+  },
+
+  created() {
+    this.listProducts();
+  },
+
+  methods: {
+    listProducts() {
+      this.page++;
+      this.productService
+        .list({ page: this.page, limit: 8 })
+        .then(
+          (products) => (this.products = [...this.products, ...products.data])
+        );
+    },
+
+    navigateToProduct(id) {
+        this.$router.push({ path: 'product', query: { id } })
     }
-}
+  },
+
+  components: {
+    MessageBar,
+    Footer,
+  },
+};
 </script>
 
 <style>
+#header {
+  height: 320px;
+  background-image: url("../assets/bg.png");
+  background-size: cover;
+  background-position: top;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+}
+#header h1 {
+  font-weight: bold;
+}
+#header span {
+  font-size: 16px;
+  text-transform: uppercase;
+}
 
-    #header{
-        height: 320px;
-        background-image: url('../assets/bg.png');
-        background-size: cover;
-        background-position: top;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        display: flex;
-    }
-    #header h1{
-        font-weight: bold;
-    }
-    #header span{
-        font-size: 16px;
-        text-transform: uppercase;
-    }
+/* ^ modelo pra componente */
 
-    /* ^ modelo pra componente */
-
-
-
-    .optionsHeader{
-        max-width: 1200px;
-        margin: 0 auto;
-        margin-top: 130px;
-        justify-content: space-between;
-        display: flex;
-    }
-    .options{
-        display: flex;
-    }
-    .options div{
-        padding: 20px;
-        font-weight: bold;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-    }
-    .firstOptionHeader{
-        padding-left: 0px !important;
-    }
-    .lastOptions{
-        padding: 20px;
-        font-weight: bold;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-    }
-    #ContainerCatalog{
-        max-width: 1250px;
-        margin: 50px auto;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        display: flex;
-    }
-    .productBoxItem{
-        width: 270px;
-        height: 370px;
-        flex: 1 1 270px;
-        margin: 1%;
-        flex-direction: column;
-        align-items: center;
-        display: flex;
-    }
-    .productBoxItem span{
-        padding: 12px;
-        padding-top: 20px;
-    }
-    .BtnSeeMore{
-        max-width: 1250px;
-        margin: 50px auto;  
-        margin-bottom: 200px;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-    }
-    .BtnSeeMore button{
-        background-color: #000;
-        letter-spacing: 2px;
-        font-weight: bold;
-        color: white;
-        border: 0px;
-        padding: 12px;
-        width: 250px;
-        margin: 0px;
-    }
+.optionsHeader {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 130px;
+  justify-content: space-between;
+  display: flex;
+}
+.options {
+  display: flex;
+}
+.options div {
+  padding: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.firstOptionHeader {
+  padding-left: 0px !important;
+}
+.lastOptions {
+  padding: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+#ContainerCatalog {
+  max-width: 1250px;
+  margin: 50px auto;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  display: flex;
+}
+.productBoxItem {
+  width: 270px;
+  height: 370px;
+  flex: 1 1 270px;
+  margin: 1%;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+}
+.productBoxItem span {
+  padding: 12px;
+  padding-top: 20px;
+}
+.BtnSeeMore {
+  max-width: 1250px;
+  margin: 50px auto;
+  margin-bottom: 200px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.BtnSeeMore button {
+  background-color: #000;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: white;
+  border: 0px;
+  padding: 12px;
+  width: 250px;
+  margin: 0px;
+}
 </style>

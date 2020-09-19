@@ -8,7 +8,7 @@
 
         <div id="Offer">
 
-            <div class="Box Product">
+            <div class="Box Product" v-if="offerProduct && offerProduct.images && offerProduct.images.length">
                 <img :src="offerProduct.images[0].url" width="100%"/>
             </div>
 
@@ -45,6 +45,7 @@ export default {
     name: 'Offer',
 
     props: ['offerProduct'],
+
 }
 </script>
 
