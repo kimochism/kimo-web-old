@@ -10,7 +10,7 @@
       <router-link to="/category">
         <span>Categoria</span>
       </router-link>
-      <router-link to="/Catalog">
+      <router-link to="/catalog">
         <span>Catálogo</span>
       </router-link>
       <router-link to="/product">
