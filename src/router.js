@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router'
 import Home from './pages/Home.vue'
 import ShirtMaker from './pages/ShirtMaker'
+import NotFound from './pages/NotFound'
 import VueCarousel from 'vue-carousel'
 
 Vue.use(Router);
@@ -15,7 +16,6 @@ const router = new Router({
   base: __dirname,
 
   routes: [
-    
     {
       path: '/',
       name: 'home',
@@ -45,7 +45,15 @@ const router = new Router({
       path: "/shirtMaker",
       name: "shirt maker",
       component: ShirtMaker,
-    }
+    },
+    { 
+      path: '/not-found', 
+      component: NotFound
+    },
+    { 
+      path: '*', 
+      redirect: '/not-found',
+    },
   ]
 })
 
