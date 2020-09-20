@@ -12,6 +12,7 @@
 import Menu from "./components/navigation/Menu.vue";
 import MessageBar from "./components/navigation/MessageBar.vue";
 import SignInUp from "./components/modal/SignInUp.vue";
+import { CustomerService } from "./services/CustomerService";
 import { UserService } from "./services/UserService";
 
 export default {
@@ -20,6 +21,7 @@ export default {
   data() {
     return {
       userService: new UserService(),
+      customerService: new CustomerService(),
     };
   },
 
@@ -32,23 +34,46 @@ export default {
           document.getElementById("LoginCase").style.display = "none";
           document.getElementById("CadastroCase").style.display = "none";
 
-          localStorage.setItem('Authorization', res.token);
+          localStorage.setItem("Authorization", res.token);
         })
         .catch(() => {
-          alert('incorreto (ale ou lucas arruma aq pfv o front dps, coloca umas msg de erro no form)')
+          alert(
+            "incorreto (ale ou lucas arruma aq pfv o front dps, coloca umas msg de erro no form)"
+          );
         });
     },
 
     storeUser(userData) {
       this.userService
         .store(userData)
-        .then(() => {
-          alert('cadastrou');
+        .then((userResponse) => {
+          this.userService
+            .auth({ email: userData.email, password: userData.password })
+            .then((response) => {
+              this.storeCustomer({
+                user_id: userResponse.id,
+                full_name: userData.username,
+                email: userData.email,
+                cell_phone_number: userData.cellPhoneNumber,
+              });
+            });
         })
         .catch(() => {
-          alert('nao cadastrou deu errinho feio');
+          alert("nao cadastrou deu errinho feio");
         });
-    }
+    },
+
+    storeCustomer(customerData) {
+      this.customerService
+        .store(customerData)
+        .then((customer) => {
+          document.getElementById("ContainerLogin").style.display = "none";
+          document.getElementById("LoginCase").style.display = "none";
+          document.getElementById("CadastroCase").style.display = "none";
+          alert("cadastrou");
+        })
+        .catch(() => {});
+    },
   },
   components: {
     Menu,

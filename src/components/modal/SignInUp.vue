@@ -49,14 +49,14 @@ export default {
 
   data() {
     return {
-      emailLogin: '',
-      passwordLogin: '',
+      emailLogin: "",
+      passwordLogin: "",
 
-      username: '',
-      email: '',
-      password: '',
-      confirmPassword: '',
-      cellPhoneNumber: ''
+      username: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+      cellPhoneNumber: "",
     };
   },
 
@@ -72,18 +72,25 @@ export default {
     },
 
     isPasswordEquals() {
-        return this.password === this.confirmPassword;
+      return this.password === this.confirmPassword;
     },
 
     callStoreUser() {
-        const isPasswordEquals = this.isPasswordEquals();
+      const isPasswordEquals = this.isPasswordEquals();
 
-        if (!isPasswordEquals) {
-            return alert('ale ou lucas aqui tem que colocar no formulario que as senhas estao incorretas :)');
-        }
-        const request = { username: this.username, email: this.email, password: this.password };
+      if (!isPasswordEquals) {
+        return alert(
+          "ale ou lucas aqui tem que colocar no formulario que as senhas estao incorretas :)"
+        );
+      }
+      const request = {
+        username: this.username,
+        email: this.email,
+        password: this.password,
+        cellPhoneNumber: this.cellPhoneNumber,
+      };
 
-        this.storeUser(request);
+      this.storeUser(request)
     },
 
     changeLogin: function () {
@@ -123,6 +130,7 @@ export default {
 
 .SubContainerLogin {
   width: 400px;
+  z-index: 9999;
   padding: 50px;
   position: fixed;
   top: 15%;
@@ -193,6 +201,7 @@ button {
 .SubContainerCadastro {
   width: 400px;
   padding: 50px;
+  z-index: 9999;
   max-height: 80vh;
   overflow-y: auto;
   background-color: white;
