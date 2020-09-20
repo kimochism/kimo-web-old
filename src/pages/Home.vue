@@ -4,6 +4,7 @@
     <Warning />
     <Offer :offerProduct="offerProduct" />
     <ProductSlider />
+    <InstagramCase />
     <Products :products="products" />
     <Gap />
     <Footer />
@@ -12,15 +13,16 @@
 </template>
 
 <script>
+import ProductSlider from "../components/product/product-slider/Slider.vue";
 import MessageBar from "../components/navigation/MessageBar.vue";
+import InstagramCase from "../components/home/InstagramCase.vue";
+import { ProductService } from "../services/ProductService";
+import Products from "../components/product/Products.vue";
+import Footer from "../components/navigation/Footer.vue";
 import Slider from "../components/home/SliderHome.vue";
 import Warning from "../components/home/Warning.vue";
-import Offer from "../components/home/Offer.vue";
-import Products from "../components/product/Products.vue";
-import ProductSlider from "../components/product/product-slider/Slider.vue";
-import Footer from "../components/navigation/Footer.vue";
 import Gap from "../components/navigation/Gap.vue";
-import { ProductService } from "../services/ProductService";
+import Offer from "../components/home/Offer.vue";
 
 export default {
   name: "home",
@@ -42,6 +44,7 @@ export default {
     Footer,
     Gap,
     ProductSlider,
+    InstagramCase
   },
 
   methods: {
