@@ -49,7 +49,7 @@
   </div>
 </template>
 
-<script>
+<script scoped>
     import MessageBar from '../components/navigation/MessageBar.vue'
     import Footer from '../components/navigation/Footer.vue'
     import CardShirtType from '../components/shirtMaker/CardShirtType.vue'

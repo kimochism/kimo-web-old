@@ -47,7 +47,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 #ContainerInstagramCase{
   height: 500px;

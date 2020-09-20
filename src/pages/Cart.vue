@@ -33,7 +33,7 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
     #ContainerCart {
         padding: 50px 0px;
         width: 100%;

@@ -36,7 +36,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
     footer{
         height: auto;
         background-color: black;

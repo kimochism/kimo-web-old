@@ -29,7 +29,7 @@
 
       <div class="lastOptions">
         <div>
-          <span>Filtro</span>
+          <span v-on:click="toggleProductFilter()">Filtro</span>
         </div>
       </div>
     </div>
@@ -48,56 +48,69 @@
       <button v-on:click="listProducts()">Ver Mais</button>
     </div>
 
+    <ProductFilter  v-show="showProductFilter" 
+                    :showProductFilter="showProductFilter" 
+                    @returnShowProductFilter="showProductFilter = $event"
+                    />
     <Footer />
     <MessageBar />
   </div>
 </template>
 
 <script>
-import MessageBar from "../components/navigation/MessageBar";
-import Footer from "../components/navigation/Footer";
-import { ProductService } from "../services/ProductService";
-// import router from '../router';
+  import MessageBar from "../components/navigation/MessageBar"
+  import Footer from "../components/navigation/Footer"
+  import ProductFilter from "../components/catalog/ProductFilter"
+  import { ProductService } from "../services/ProductService"
+  // import router from '../router';
 
 
-export default {
-  name: "Catalog",
+  export default {
+    name: "Catalog",
 
-  data() {
-    return {
-      productService: new ProductService(),
-      products: [],
-      page: 0,
-    };
-  },
-
-  created() {
-    this.listProducts();
-  },
-
-  methods: {
-    listProducts() {
-      this.page++;
-      this.productService
-        .list({ page: this.page, limit: 8 })
-        .then(
-          (products) => (this.products = [...this.products, ...products.data])
-        );
+    data() {
+      return {
+        productService: new ProductService(),
+        products: [],
+        page: 0,
+        showProductFilter: false
+      };
     },
 
-    navigateToProduct(id) {
-        this.$router.push({ path: 'product', query: { id } })
-    }
-  },
+    created() {
+      // this.listProducts();
+    },
 
-  components: {
-    MessageBar,
-    Footer,
-  },
-};
+    methods: {
+      listProducts() {
+        this.page++
+        this.productService
+          .list({ page: this.page, limit: 8 })
+          .then(
+            (products) => (this.products = [...this.products, ...products.data])
+          );
+      },
+
+      navigateToProduct(id) {
+        this.$router.push({ path: 'product', query: { id } })
+      },
+
+      toggleProductFilter() {
+        this.showProductFilter = !this.showProductFilter
+      }
+      
+    },
+
+    components: {
+      MessageBar,
+      Footer,
+      ProductFilter
+    },
+  };
 </script>
 
-<style>
+<style scoped>
+
 #header {
   height: 320px;
   background-image: url("../assets/bg.png");
@@ -108,9 +121,11 @@ export default {
   flex-direction: column;
   display: flex;
 }
+
 #header h1 {
   font-weight: bold;
 }
+
 #header span {
   font-size: 16px;
   text-transform: uppercase;
@@ -125,24 +140,29 @@ export default {
   justify-content: space-between;
   display: flex;
 }
+
 .options {
   display: flex;
 }
+
 .options div {
   padding: 20px;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
+
 .firstOptionHeader {
   padding-left: 0px !important;
 }
+
 .lastOptions {
   padding: 20px;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
+
 #ContainerCatalog {
   max-width: 1250px;
   margin: 50px auto;
@@ -150,6 +170,7 @@ export default {
   flex-wrap: wrap;
   display: flex;
 }
+
 .productBoxItem {
   width: 270px;
   height: 370px;
@@ -159,10 +180,12 @@ export default {
   align-items: center;
   display: flex;
 }
+
 .productBoxItem span {
   padding: 12px;
   padding-top: 20px;
 }
+
 .BtnSeeMore {
   max-width: 1250px;
   margin: 50px auto;
@@ -171,6 +194,7 @@ export default {
   align-items: center;
   display: flex;
 }
+
 .BtnSeeMore button {
   background-color: #000;
   letter-spacing: 2px;

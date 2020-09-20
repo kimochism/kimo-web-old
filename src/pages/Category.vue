@@ -43,7 +43,7 @@
     };
 </script>
 
-<style>
+<style scoped>
     .categories-container {
         justify-content: space-between;
         flex-wrap: wrap;

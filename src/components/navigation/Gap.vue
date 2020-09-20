@@ -10,7 +10,7 @@ export default {
 }
 </script>
 
-<style> 
+<style scoped> 
     #gap{
         height: 23vw;
         background-color: transparent;

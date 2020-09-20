@@ -142,7 +142,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 /* Container Big daddy */
 #ContainerProduct {
   padding: 50px;
