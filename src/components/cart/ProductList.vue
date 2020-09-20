@@ -10,7 +10,7 @@
             </div>
             <div>
                 <span>Subtotal: <b>R$</b></span>
-                <span>24,90</span>
+                <span class="price">24,90</span>
             </div>
         </div>
     </div>
@@ -61,5 +61,15 @@ export default {
     .continueCart{
         align-items: center;
         display: flex;
+    }
+
+    .price {
+        padding-right: 20px;
+    }
+
+    @media screen and (max-width: 800px){
+        .price {
+            padding-right: 0px;
+        }
     }
 </style>
