@@ -70,7 +70,7 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
     #CardContainer{
         /* min-width: 480px; */
         width: 90%;

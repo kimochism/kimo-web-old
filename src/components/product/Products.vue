@@ -39,9 +39,9 @@ export default {
 };
 </script>
 
-<style>
-h3,
-h2 {
+<style scoped>
+
+h3, h2 {
   text-align: center;
 }
 .containerItems {

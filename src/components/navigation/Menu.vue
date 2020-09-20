@@ -105,7 +105,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+
 .identi {
   padding: 0px 8px;
 }

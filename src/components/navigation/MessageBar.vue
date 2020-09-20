@@ -10,7 +10,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
     #MessageBar{
         width: 100%;

@@ -11,7 +11,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
     #Slider{
         width: 100%;
         height: 550px;
