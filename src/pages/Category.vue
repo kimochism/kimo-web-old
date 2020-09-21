@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div class="categories-body">
-            <h1 class="title">Categorias</h1>
-            <div class="categories-container">
+        <Header :header="header" />
+        <div class="container">
+            <div class="content">
                 <Item v-for="category in categories" :key="category.id" :category="category"/>
             </div>
         </div>
@@ -14,6 +14,7 @@
 <script>
     import Item from '../components/category/Item.vue'
     import MessageBar from '../components/navigation/MessageBar.vue'
+    import Header from '../components/navigation/Header'
     import Footer from '../components/navigation/Footer.vue'
     import { CategoryService } from '../services/CategoryService'
 
@@ -24,11 +25,15 @@
             return {
                 categories: {},
                 categoryService: new CategoryService(),
+                header: {
+                    title: "Categorias"
+                }
             }
         },
         components: {
             Item,
             MessageBar,
+            Header,
             Footer
         },
         methods: {
@@ -44,19 +49,18 @@
         },
     };
 </script>
-
+    
 <style scoped>
-    .categories-container {
-        justify-content: space-between;
-        flex-wrap: wrap;
+
+    .container {
+        margin: 10%;
+    }
+
+    .content {
+        width: 100%;
         display: flex;
-        padding: 5px 25px;
-    }
-    .title{
-        font-size: 36px;
-        font-weight: bold;
-    }
-    .categories-body{
-        text-align: center;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
     }
 </style>

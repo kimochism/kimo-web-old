@@ -83,7 +83,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+
 #ContainerDaddy{
   background-color: white;
 }

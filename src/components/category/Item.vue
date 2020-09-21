@@ -1,12 +1,9 @@
+// 
 <template>
     <div>
-        <div class="cardBox"  
-            :key="this.category.id"
-            v-bind:style="{ 'background-image': 'url(' + this.category.image.url + ')' }" >
-            <div class="cardContent">
-                <div class="cardTitle">
-                    <span class="textTitle">{{this.category.name}}</span>
-                </div>
+        <div class="container" v-bind:style="{ 'background-image': 'url(' + this.category.image.url + ')' }">
+            <div class="card">
+                <span class="title">{{this.category.name}}</span>
             </div>
         </div>
     </div>
@@ -20,39 +17,60 @@
 </script>
 
 <style scoped>
-    .cardBox {
-        cursor: pointer;
-        height: 50vh;
-        width: 30vw;
-        margin: 1% 0%;
-        box-shadow: 0 6px 20px #00000040, 0 2px 2px #00000038;
-        transition: linear .2s;
-        background-size: contain;
+
+    .container{
+        width: 300px;
+        height: 200px;
+        margin: 5px;
+        background-size: cover;
         background-repeat: no-repeat;
-        background-position: center;
-    }
-    .cardBox:hover {
-        box-shadow: 0 8px 22px #00000050, 0 4px 4px #00000048;
-    }
-    .cardContent {
-        height: 100%;
-        width: 100%;
-        background-color: #00000040;
-        text-align: center;
-        line-height: 25vw;
+        box-shadow: 0 6px 20px #00000040, 0 2px 2px #00000038;
+        cursor: pointer;
         transition: linear .2s;
     }
-    .cardContent:hover{
-        background-color: #000000aa;
+
+    .container:hover {
+        box-shadow: 0 8px 22px #00000050, 0 4px 4px #00000048;   
     }
-    .textTitle {
-        font-size: 64px;
-        color: white;
+
+    .card {
+        width: 100%;
+        height: 100%;
+        background: #00000048;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card:hover {
+        background: #000000aa;
+    }
+
+    .title {
         opacity: 0;
-        transition: linear .1s;
+        font-size: 20px;
+        color: white;
+        text-transform: uppercase;
+        transition: linear .2s;
     }
-    .cardContent:hover .textTitle {
+
+    .card:hover .title {
         opacity: 1;
     }
 
+    @media screen and (max-width: 800px) {
+        .card {
+            background: #000000aa;
+        }
+
+        .title {
+            opacity: 1;
+        }
+
+        .container {
+            width: 90vw;
+            height: 30vh;
+        }
+    }
 </style>
