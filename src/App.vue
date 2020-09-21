@@ -83,14 +83,11 @@ export default {
 };
 </script>
 
-<<<<<<< HEAD
 <style scoped>
-=======
-<style>
+
 #ContainerDaddy{
   background-color: white;
 }
->>>>>>> 60fe1e422576d9f3c1bc6461f20ff28939c063d7
 
 .md-theme-default a:not(.md-button){
   color: black;
