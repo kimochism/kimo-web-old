@@ -83,7 +83,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 
 .md-theme-default a:not(.md-button){
   color: black;

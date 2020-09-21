@@ -8,7 +8,7 @@ templateClose="</template>"
 script="<script>"
 exportDefault="  export default { name: '$1' }"
 scriptClose="</script>"
-style="<style>"
+style="<style scoped>"
 styleClose="</style>"
 
 echo "$template" >> src/pages/$1.vue; echo
