@@ -133,7 +133,7 @@ export default {
   z-index: 9999;
   padding: 50px;
   position: fixed;
-  top: 15%;
+  top: 5%;
   left: 50%;
   max-height: 80vh;
   overflow-y: auto;

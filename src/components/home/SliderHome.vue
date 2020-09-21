@@ -1,7 +1,5 @@
 <template>
     <div id="Slider">
-        <span>Kimochism</span>
-        <span>気持ち</span>
     </div>
 </template>
 
@@ -14,7 +12,7 @@ export default {
 <style scoped>
     #Slider{
         width: 100%;
-        height: 550px;
+        height: 500px;
         background-image: url("../../assets/bg4k.jpg");
         background-position: center;
         background-size: cover;

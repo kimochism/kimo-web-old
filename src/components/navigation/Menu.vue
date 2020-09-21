@@ -1,74 +1,105 @@
 <template>
-  <div id="menu">
-    <div class="iconMenu" id="btnMenuIcon" v-on:click="openMenu()">
-      <span class="material-icons">menu</span>
-    </div>
-    <div class="subMenu configMenu">
-      <router-link to="/">
-        <span>Início</span>
-      </router-link>
-      <router-link to="/category">
-        <span>Categoria</span>
-      </router-link>
-      <router-link to="/catalog">
-        <span>Catálogo</span>
-      </router-link>
-      <router-link to="/product">
-        <span>Product</span>
-      </router-link>
-      <span style="color: red">Rastreio</span>
-      <span style="color: red">FAQ</span>
-    </div>
-    <span class="identi">Kimochism</span>
-    <div class="endMenu configMenu">
-      <router-link to>
-        <span v-on:click="changeCadastro()" class="material-icons">
-          person
-        </span>
-      </router-link>
-      <span class="material-icons">favorite_border</span>
-      <router-link tag="a" to="/cart">
-        <span class="material-icons">shopping_basket</span>
-      </router-link>
+  <div id="Containermenu"> 
+
+    <div class="subMessage">
+        <span v-on:click="changeCadastro()">Registrar</span>
+        <span>Trocas e devoluções</span>
+        <span>Pedidos</span>
+        <span>Newsletter</span>
+        <span>Ajuda</span>
     </div>
 
-    <!-- hide menu -->
-    <div id="secondMenu">
-      <div>
-        <router-link to="/">
-          <span>Início</span>
-        </router-link>
-      </div>
-      <div>
-        <router-link to="/catalog">
-          <span>Catálogo</span>
-        </router-link>
-      </div>
-      <div>
-        <router-link to="/Category">
-          <span>Categoria</span>
-        </router-link>
-      </div>
-      <div>
-        <span>Rastreio</span>
-      </div>
-      <div>
-        <span>FAQ</span>
-      </div>
-      <div>
-        <router-link to>
-          <span v-on:click="changeCadastro()">Entre ou Cadastre-se</span>
-        </router-link>
-      </div>
-      <div>
-        <router-link to="/cart">
-          <span class="material-icons">shopping_basket</span>
-        </router-link>
-      </div>
+    <div class="subOptionsMenu">
+        <div id="Logo" class="ajust">
+            <router-link to="/">
+                <h1>Kimochism 気持ち</h1>
+            </router-link>
+        </div>
+        <div class="optionsMenu">
+            <router-link to="/category">
+                <span>Categorias</span>
+            </router-link>
+            <router-link to="/catalog">
+                <span>Catálogo</span>
+            </router-link>
+            <span>Gamer</span>
+            <span>Anime</span>
+            <span>Geek</span>
+            <span>E-girl</span>
+            <span>Kids</span>
+        </div>
+        <div class="searchMenu ajust">
+            <input type="text" placeholder="Procurar">
+            <span class="material-icons weSearch">
+                search
+            </span>
+            <router-link to="/cart">
+                <span class="material-icons">
+                    perm_identity
+                </span>
+            </router-link>
+            <router-link to="/cart">
+                <span class="material-icons">
+                    shopping_basket
+                </span>
+            </router-link>
+        </div>
+
+        <!-- Hider Menu -->
+        <div id="HiderMenu">
+
+            <div class="headerHideMenu">
+                <span class="material-icons" v-on:click="openMenu()">
+                    menu
+                </span>
+                <span class="material-icons" v-on:click="changeCadastro()">
+                    perm_identity
+                </span>
+            </div>
+
+            <div id="MenuOptions">
+                <router-link to="/" tag="span">
+                    <span>Início</span>
+                </router-link>
+                <router-link to="/category" tag="span">
+                    <span>Categorias</span>
+                </router-link>
+                <router-link to="/catalog" tag="span">
+                    <span>Catálogo</span>
+                </router-link>
+                <router-link to="/" tag="span">
+                    <span>Gamer</span>
+                </router-link>
+                <router-link to="/" tag="span">
+                    <span>Anime</span>
+                </router-link>
+                <router-link to="/" tag="span">
+                    <span>Geek</span>
+                </router-link>
+                <router-link to="/" tag="span">
+                    <span>E-girl</span>
+                </router-link>
+                <router-link to="/" tag="span">
+                    <span>Kids</span>
+                </router-link>
+            </div>
+
+        </div>
+
+
     </div>
-    <!-- hide menu -->
+
+    <div class="subMessageTwo">
+        <div class="subContainerMessageTwo">
+            <span class="mobileDisapear">COVID-19 | SAIBA SOBRE OS NOSSOS SERVIÇOS</span>
+            <span class="mobileDisapear">FRETE GRÁTIS PARA TODO BRASIL</span>
+        </div>
+    </div>
+    
+
   </div>
 </template>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
 <script>
 export default {
@@ -84,7 +115,7 @@ export default {
   mounted: function () {
     window.onresize = () => {
       if (window.innerWidth > 800) {
-        document.getElementById("secondMenu").style.display = "none";
+        document.getElementById("MenuOptions").style.display = "none";
       }
     };
   },
@@ -92,9 +123,9 @@ export default {
   methods: {
     openMenu: function () {
       if (this.isOpen) {
-        document.getElementById("secondMenu").style.display = "flex";
+        document.getElementById("MenuOptions").style.display = "flex";
       } else {
-        document.getElementById("secondMenu").style.display = "none";
+        document.getElementById("MenuOptions").style.display = "none";
       }
       this.isOpen = !this.isOpen;
     },
@@ -109,73 +140,180 @@ export default {
 
 <style scoped>
 
-.identi {
-  padding: 0px 8px;
-}
-#menu {
-  width: 100%;
-  background-color: white;
-  padding: 0px 50px;
-  justify-content: space-between;
-  align-items: center;
-  display: flex;
-}
-.configMenu {
-  padding: 8px;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-}
-.endMenu {
-  width: 130px;
-  justify-content: space-between;
-  flex-direction: row;
-  display: flex;
-}
-#menu div span {
-  padding: 8px;
-  color: black;
-}
-#menu span,
-i {
-  cursor: pointer;
-}
-.glyphicon {
-  font-size: 24px;
-}
-.iconMenu {
-  display: none;
-  padding: 8px;
-}
-/* Hide menu */
+    #Containermenu{
+        border-bottom: 1px solid rgba(202, 202, 202, 0.288);
+    }
 
-#secondMenu {
-  flex-wrap: wrap;
-  width: 100%;
-  display: none;
-}
-#secondMenu div {
-  width: 100%;
-  padding: 16px;
-}
+    #Logo{
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
 
-@media screen and (max-width: 850px) {
-  #secondMenu {
-    display: none;
-  }
+    #Logo h1{
+        margin: 0px;
+        text-transform: uppercase;
+        font-size: 28px;
+        font-weight: bold;
+    }
 
-  #menu {
-    flex-wrap: wrap;
-    padding: 0px;
-  }
-  .iconMenu {
-    display: flex;
-  }
-  .subMenu {
-    display: none;
-  }
-  .endMenu {
-    display: none;
-  }
-}
+    .ajust{
+        width: 300px;
+    }
+
+    .subMessage{
+        height: 32px;
+        font-size: 12px;
+        cursor: pointer;
+        flex-direction: row-reverse;
+        padding-right: 50px;
+        display: flex;
+    }
+    
+    .subMessage span:hover{
+        font-weight: bold;
+    }
+
+    .subMessage span{
+        padding: 6px;
+    }
+
+    .subOptionsMenu{
+        padding: 0px 50px;
+        justify-content: space-between;
+        display: flex;
+    }
+
+    .optionsMenu{
+        width: 500px;
+        padding: 0px 20px;
+        justify-content: space-between;
+        align-items: center;
+        text-transform: uppercase;
+        display: flex;
+    }
+
+    .optionsMenu span{
+        cursor: pointer;
+    }
+
+    .optionsMenu span:nth-child(-n+3) {
+        font-weight: bold;
+    }
+
+    .searchMenu{
+        padding: 8px;
+        justify-content: space-between;
+        align-items: center;
+        display: flex;
+    }
+
+    .searchMenu  input{
+        width: 70%;
+        padding: 5px;
+        border: 0px;
+        background-color: #ebedee;
+    }
+
+    .searchMenu  input::placeholder{
+        font-weight: bold;
+    }
+
+    .weSearch{
+        margin-left: -50px;
+        margin-right: 15px;
+        cursor: pointer;
+    }
+
+    .subMessageTwo{
+        width: 700px;
+        margin: 0 auto;
+        display: flex;
+    }
+
+    .subContainerMessageTwo{
+        width: 100%;
+        justify-content: space-between;
+        display: flex;
+    }
+
+    .subMessageTwo span{   
+        padding: 8px;
+    }
+    *{
+        color: black;
+    }
+
+    /* Responsividade */
+
+    #HiderMenu{
+        display: none;
+    }
+    #MenuOptions{
+        display: none;
+    }
+
+    @media screen and (max-width: 1100px){
+        #Logo{
+            display: none;
+        }
+    }
+    @media screen and (max-width: 900px){
+        
+        .subContainerMessageTwo{
+            justify-content: center;
+        }
+        .mobileDisapear{
+            width: 0px ;
+            display: none !important;
+        }
+        .subMessage{
+            margin: 0px;
+            padding-right: 10px;
+        }
+        .subOptionsMenu{
+            padding: 0px 20px;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .optionsMenu{
+            display: none;
+        }
+        .searchMenu{
+            display: none;
+        }
+        #HiderMenu{
+            width: 100%;
+            flex-direction: column;
+            display: flex;
+        }
+        .headerHideMenu{
+            width: 100%;
+            justify-content: space-between;
+            padding: 8px;
+            display: flex;
+        }
+        .headerHideMenu span{
+            cursor: pointer;
+        }
+        #MenuOptions{
+            width: 100%;
+            text-align: left;
+            margin-bottom: 15px;
+            flex-direction: column;
+        }
+        #MenuOptions span{
+            padding: 8px;
+            width: 100%;
+            cursor: pointer;
+        }
+        #MenuOptions span:hover{
+            background-color: #ebedee;
+        }
+    }
+    
 </style>

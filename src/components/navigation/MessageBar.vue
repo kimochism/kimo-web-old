@@ -14,7 +14,7 @@ export default {
 
     #MessageBar{
         width: 100%;
-        height: 40px;
+        height: 25px;
         background-color: whitesmoke;
         justify-content: center;
         align-items: center;

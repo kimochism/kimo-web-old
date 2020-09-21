@@ -4,7 +4,7 @@
     <Warning />
     <div class="warning-shirt-maker">
       <router-link to="/shirtMaker" class="linker">
-        <h1>Faça sua estampa!</h1>
+        <h1 class="h1ShirtMaker">Faça sua estampa!</h1>
       </router-link>
     </div>
     <Offer :offerProduct="offerProduct" />
@@ -89,6 +89,13 @@ export default {
 .linker:hover {
   text-decoration: none;
   color: black;
+}
+
+.h1ShirtMaker{
+  width: auto;
+  text-transform: uppercase;
+  color: black;
+  margin: 0 auto;
 }
 
 /* width */

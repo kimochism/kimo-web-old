@@ -11,6 +11,8 @@ import 'vue-material/dist/theme/default.css'
 
 Vue.use(VueMaterial)
 
+// Vue.material.theming.default.primary = "#000000";
+
 new Vue({
 	router,
 	render: h => h(App)

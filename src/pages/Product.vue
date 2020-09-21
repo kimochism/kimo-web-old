@@ -89,6 +89,7 @@
 </template>
 
 <script>
+
 import Slider from "../components/product/product-slider/Slider.vue";
 import MessageBar from "../components/navigation/MessageBar";
 import Footer from "../components/navigation/Footer.vue";

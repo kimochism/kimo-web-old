@@ -22,6 +22,11 @@ const router = new Router({
       component: Home,
     },
     {
+      path: '/userprofile',
+      name: 'userprofile',
+      component: lazyLoad('UserProfile'),
+    },
+    {
       path: '/cart',
       name: 'cart',
       component: lazyLoad('Cart'),

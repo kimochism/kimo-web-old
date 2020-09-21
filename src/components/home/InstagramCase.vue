@@ -32,13 +32,8 @@
         <span>@dapessoa</span>
       </div>
     </div>
-
-    <div class="boxInstagram" style="background-image:url('https://i.pinimg.com/564x/31/1e/a9/311ea9031362193ea525f6f1efcdb5c2.jpg');">
-      <div class="instaOpacity">
-        <span>@dapessoa</span>
-      </div>
-    </div>
   </div>
+  
 </template>
 
 <script>

@@ -84,6 +84,15 @@ export default {
 </script>
 
 <style>
+
+.md-theme-default a:not(.md-button){
+  color: black;
+}
+.md-theme-default a:not(.md-button):hover{
+  color: black;
+  text-decoration: none;
+}
+
 * {
   outline: none !important;
 }
