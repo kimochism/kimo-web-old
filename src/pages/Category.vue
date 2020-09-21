@@ -53,7 +53,7 @@
 <style scoped>
 
     .container {
-        margin: 10%;
+        margin: 50px 10% ;
     }
 
     .content {

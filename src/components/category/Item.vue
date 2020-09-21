@@ -1,6 +1,6 @@
 // 
 <template>
-    <div>
+    <div id="ContainerItemCategory">
         <div class="container" v-bind:style="{ 'background-image': 'url(' + this.category.image.url + ')' }">
             <div class="card">
                 <span class="title">{{this.category.name}}</span>
@@ -17,10 +17,9 @@
 </script>
 
 <style scoped>
-
     .container{
-        width: 300px;
-        height: 200px;
+        width: 400px;
+        height: 400px;
         margin: 5px;
         background-size: cover;
         background-repeat: no-repeat;
