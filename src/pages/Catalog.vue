@@ -186,7 +186,6 @@
 
 .productBoxItem span {
   padding: 12px;
-  padding-top: 20px;
 }
 
 .btnSeeMore {

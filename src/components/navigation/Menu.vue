@@ -33,7 +33,7 @@
             <span class="material-icons weSearch">
                 search
             </span>
-            <router-link to="/cart">
+            <router-link to="/UserProfile">
                 <span class="material-icons">
                     perm_identity
                 </span>

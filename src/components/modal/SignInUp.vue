@@ -219,6 +219,7 @@ button {
 
 .SubContainerCadastro h1 {
   font-weight: bold;
+  line-height: 30px;
 }
 
 .SubContainerCadastro span {
