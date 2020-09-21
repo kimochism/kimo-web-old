@@ -210,7 +210,7 @@ export default {
 
     .searchMenu  input{
         width: 70%;
-        padding: 5px;
+        padding: 8px;
         border: 0px;
         background-color: #ebedee;
     }

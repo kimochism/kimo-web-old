@@ -55,6 +55,7 @@ export default {
         margin: 0px;
         font-weight: 100;
         letter-spacing: 2px;
+        line-height: 30px;
         text-transform: uppercase;
     }
     #ContainerOffer{

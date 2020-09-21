@@ -153,6 +153,7 @@ export default {
 }
 .we {
   margin: 50px 0px;
+  line-height: 30px;
   font-weight: bold;
   text-align: center;
 }
@@ -181,7 +182,7 @@ export default {
 .boxImg {
   width: 80px;
   height: 80px;
-  margin: 0 5px;
+  margin: 5px 5px;
   border: 1px solid rgba(0, 0, 0, 0.226);
   overflow: auto;
   justify-content: center;
@@ -204,17 +205,19 @@ export default {
 }
 .infoProductBox {
   background-color: white;
-  width: 320px;
+  width: 330px;
   padding: 0 20px;
-  margin-left: 50px;
   margin: 0 auto;
+  margin-left: 50px;
   justify-content: center;
   flex-direction: column;
   display: flex;
 }
 .infoProductBox h4 {
   font-weight: bold;
-  padding: 10px 0px;
+  font-size: 20px;
+  padding: 0px 0px;
+  margin: 0px;
   width: 300px;
 }
 .infoProductBox span {
@@ -244,6 +247,7 @@ export default {
 .containerButtons button {
   width: 100%;
   border: 0px;
+  padding: 8px;
   background-color: #00ae7c;
   letter-spacing: 2px;
   margin-bottom: 8px;
@@ -269,6 +273,7 @@ export default {
 }
 .containerFrete {
   width: 100%;
+  padding: 18px;
 }
 .containerFrete span {
   font-weight: bold;
@@ -281,6 +286,7 @@ export default {
 .subContainerFrete input {
   width: 80%;
   margin-right: 5%;
+  padding: 10px;
   border: 0px;
   background-color: transparent;
   border-bottom: 1px solid rgb(224, 224, 224);
@@ -311,12 +317,16 @@ export default {
   position: absolute;
   display: block;
   content: "";
+  cursor: pointer;
   border: 2px solid black;
   height: 25px;
   width: 25px;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+}
+.colorBox:active{
+  border: 2px solid black;
 }
 /* Tamanhos */
 .containerSizes {
@@ -326,13 +336,17 @@ export default {
 }
 .sizeBox {
   width: 25px;
+  cursor: pointer;
   height: 25px;
   margin: 1% 6.9%;
-  text-transform: uppercase;
   border: 1px solid rgb(196, 196, 196);
+  text-transform: uppercase;
   justify-content: center;
   align-items: center;
   display: flex;
+}
+.sizeBox:active{
+  border: 2px solid black;
 }
 /* pós medidas */
 .InfoAddons {
@@ -383,5 +397,11 @@ export default {
   border-top: 1px solid rgb(226, 226, 226);
   font-weight: bold;
   margin: 0 auto;
+}
+
+ @media screen and (max-width:800px){
+  .infoProductBox{
+    margin: 0 auto;
+  }
 }
 </style>

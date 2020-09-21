@@ -8,7 +8,6 @@
       </router-link>
     </div>
     <Offer :offerProduct="offerProduct" />
-    <ProductSlider />
     <InstagramCase />
     <Products :products="products" />
     <Gap />
@@ -18,7 +17,6 @@
 </template>
 
 <script>
-import ProductSlider from "../components/product/product-slider/Slider.vue";
 import MessageBar from "../components/navigation/MessageBar.vue";
 import InstagramCase from "../components/home/InstagramCase.vue";
 import { ProductService } from "../services/ProductService";
@@ -48,7 +46,6 @@ export default {
     Products,
     Footer,
     Gap,
-    ProductSlider,
     InstagramCase
   },
 
@@ -78,8 +75,11 @@ export default {
   outline: none !important;
 }
 .warning-shirt-maker {
+  width: 300px;
+  background-color: rgb(100, 100, 100);
   text-align: center;
-  margin: 5% 0%;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .linker {
@@ -94,7 +94,8 @@ export default {
 .h1ShirtMaker{
   width: auto;
   text-transform: uppercase;
-  color: black;
+  line-height: 30px;
+  color: white;
   margin: 0 auto;
 }
 

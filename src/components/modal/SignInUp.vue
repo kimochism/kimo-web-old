@@ -147,6 +147,7 @@ export default {
 
 .SubContainerLogin h1 {
   font-weight: bold;
+  line-height: 30px;
 }
 
 .SubContainerLogin label {

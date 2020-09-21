@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="ContainerDaddy">
     <SignInUp :auth="auth" :storeUser="storeUser" />
 
     <MessageBar />
@@ -83,7 +83,14 @@ export default {
 };
 </script>
 
+<<<<<<< HEAD
 <style scoped>
+=======
+<style>
+#ContainerDaddy{
+  background-color: white;
+}
+>>>>>>> 60fe1e422576d9f3c1bc6461f20ff28939c063d7
 
 .md-theme-default a:not(.md-button){
   color: black;
@@ -126,7 +133,7 @@ html {
 body {
   margin: 0px;
   padding: 0px;
-  font-family: "Kumbh Sans", sans-serif;
+  font-family: "Kumbh Sans", sans-serif !important;
   text-rendering: optimizeLegibility !important;
   font-weight: 400;
   font-style: normal;
