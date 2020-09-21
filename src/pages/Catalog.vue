@@ -44,7 +44,7 @@
       </div>
     </div>
 
-    <div class="BtnSeeMore">
+    <div class="btnSeeMore">
       <button v-on:click="listProducts()">Ver Mais</button>
     </div>
 
@@ -140,6 +140,9 @@
   justify-content: space-between;
   display: flex;
 }
+.optionsHeader span{
+  cursor: pointer;
+}
 
 .options {
   display: flex;
@@ -186,7 +189,7 @@
   padding-top: 20px;
 }
 
-.BtnSeeMore {
+.btnSeeMore {
   max-width: 1250px;
   margin: 50px auto;
   margin-bottom: 200px;
@@ -195,8 +198,9 @@
   display: flex;
 }
 
-.BtnSeeMore button {
+.btnSeeMore button {
   background-color: #000;
+  text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: bold;
   color: white;

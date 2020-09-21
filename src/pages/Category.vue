@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="categories-body">
-            <span class="title">Categorias</span>
+            <h1 class="title">Categorias</h1>
             <div class="categories-container">
                 <Item v-for="category in categories" :key="category.id" :category="category"/>
             </div>
@@ -53,7 +53,7 @@
         padding: 5px 25px;
     }
     .title{
-        font-size: 40px;
+        font-size: 36px;
         font-weight: bold;
     }
     .categories-body{

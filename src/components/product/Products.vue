@@ -2,21 +2,25 @@
   <div class="containerItems">
     <div class="headerItems">
       <h3>Conheça nosso vestuário</h3>
-      <h2>Talvez você goste dessas ideais</h2>
+      <h2 class="bolded">Talvez você goste dessas ideais</h2>
     </div>
 
     <div class="subContainerItems">
       <div v-on:click="navigateToProduct(product.id)" class="item" v-for="product in products" :key="product.id">
         <img :src="product.images[0].url" alt />
-        <p class="flexDescription">
+        <div class="flexDescription">
           <span>{{ product.name }}</span>
           <span>R$ {{ product.price }}</span>
-        </p>
+        </div>
       </div>
     </div>
 
     <div class="buttonLoadItems">
-      <button>Ver mais</button>
+      <button>
+        <router-link to="/catalog" tag="m">
+          Ver mais 
+        </router-link>
+      </button>
     </div>
   </div>
 </template>
@@ -47,14 +51,22 @@ h3, h2 {
 .containerItems {
   background-color: white;
   padding: 50px;
+  padding-top: 0px;
 }
 .headerItems {
-  padding: 50px;
-  padding-bottom: 80px;
+  padding: 80px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   display: flex;
+}
+.headerItems h1,h2,h3,h4,h5,h6{
+  text-transform: uppercase;
+  font-weight: 100;
+  margin: 10px;
+}
+.bolded{
+  font-weight: bold;
 }
 .subContainerItems {
   display: flex;
@@ -107,5 +119,17 @@ h3, h2 {
 .buttonLoadItems button:hover {
   background-color: white;
   color: black;
+}
+.flexDescription{
+  padding: 8px 0px;
+  justify-content: space-between;
+  display: flex;
+}
+.flexDescription span{
+  text-align: center;
+  text-transform: uppercase;
+}
+.flexDescription span:nth-child(2n){
+  font-weight: bold;
 }
 </style>
