@@ -87,7 +87,7 @@ export default {
         padding: 8px;
     }
     .socialMedia a{
-        color: white;
+        color: white !important;
     }
 
     @media screen and (max-width:1160px){

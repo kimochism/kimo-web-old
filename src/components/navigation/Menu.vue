@@ -22,7 +22,9 @@
     <span class="identi">Kimochism</span>
     <div class="endMenu configMenu">
       <router-link to>
-        <span v-on:click="changeCadastro()">Entre ou Cadastre-se</span>
+        <span v-on:click="changeCadastro()" class="material-icons">
+          person
+        </span>
       </router-link>
       <span class="material-icons">favorite_border</span>
       <router-link tag="a" to="/cart">
@@ -125,7 +127,7 @@ export default {
   display: flex;
 }
 .endMenu {
-  width: 280px;
+  width: 130px;
   justify-content: space-between;
   flex-direction: row;
   display: flex;

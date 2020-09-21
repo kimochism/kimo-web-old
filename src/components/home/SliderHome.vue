@@ -20,6 +20,7 @@ export default {
         background-size: cover;
         font-size: 75px;
         font-weight: bold;
+        line-height: 80px;
         flex-direction: column;
         justify-content: center;
         align-items: center;

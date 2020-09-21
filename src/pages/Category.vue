@@ -1,8 +1,10 @@
 <template>
-    <div class="categories-body">
-        <span class="title">Categorias</span>
-        <div class="categories-container">
-            <Item v-for="category in categories" :key="category.id" :category="category"/>
+    <div>
+        <div class="categories-body">
+            <span class="title">Categorias</span>
+            <div class="categories-container">
+                <Item v-for="category in categories" :key="category.id" :category="category"/>
+            </div>
         </div>
         <Footer/>
         <MessageBar/>
