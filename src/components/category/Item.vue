@@ -1,9 +1,8 @@
 <template>
-<!-- colocar imagem vvv -->
-<!-- v-bind:style="{ 'background-image': 'url(' + this.category.imgId + ')' }" -->
     <div>
         <div class="cardBox"  
-            :key="this.category.id">
+            :key="this.category.id"
+            v-bind:style="{ 'background-image': 'url(' + this.category.image.url + ')' }" >
             <div class="cardContent">
                 <div class="cardTitle">
                     <span class="textTitle">{{this.category.name}}</span>

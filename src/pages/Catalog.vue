@@ -78,7 +78,7 @@
     },
 
     created() {
-      // this.listProducts();
+      this.listProducts();
     },
 
     methods: {
