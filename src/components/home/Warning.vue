@@ -32,4 +32,9 @@ export default {
         width: 430px;
     }
 
+    @media screen and (max-width: 800px ){
+        #Warning p{
+            width: auto;
+        }
+    }
 </style>

@@ -83,8 +83,10 @@ export default {
 };
 </script>
 
-<style scoped>
-
+<style>
+.md-theme-default a:not(.md-button):hover{
+  text-decoration: none !important;
+}
 #ContainerDaddy{
   background-color: white;
 }
@@ -103,22 +105,22 @@ export default {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 10px !important;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #f1f1f1 !important;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #888 !important;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #555 !important;
 }
 
 html {
