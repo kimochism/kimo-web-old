@@ -28,7 +28,6 @@
 <script>
 export default {
   name: "Products",
-
   props: ["products"],
 
   data() {

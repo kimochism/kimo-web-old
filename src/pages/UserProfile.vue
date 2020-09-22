@@ -3,13 +3,13 @@
       <div id="ContainerInfos">
             <div id="Infos">
 
-                <div class="itemInfo" v-on:click="setContent('MyRegister')">
+                <div class="itemInfo" v-on:click="setCurrentContent('myRegister')">
                     <span class="material-icons">
                     perm_identity
                     </span>
                     <span>Meu Cadastro</span>
                 </div>
-                <div class="itemInfo" v-on:click="setContent('MyRequests')">
+                <div class="itemInfo" v-on:click="setCurrentContent('myRequests')">
                    <span class="material-icons">
                     shopping_cart
                     </span>
@@ -55,11 +55,11 @@
             </div>
             <div id="ContainerInfos">
                 
-                <div id="MyRegister" v-show="content">
-                    aaa
+                <div id="MyRegister" v-show="currentContent == 'myRegister'">
+                    Contente AAAAAAAA
                 </div>
-                <div id="MyRequests" v-show="content.MyRequests">
-                    bbb
+                <div id="MyRequests" v-show="currentContent == 'myRequests'">
+                    Content BBBBBBBB
                 </div>
                 
             </div>
@@ -72,12 +72,12 @@ export default {
 
     data(){
         return{
-            content: 'MyRegister'
+            currentContent: 'myRegister'
         };
     },
     methods:{
-        setContent(){
-
+        setCurrentContent(content){
+            this.currentContent = content;
         }
     }
 }

@@ -14,4 +14,5 @@ export const serviceURLs = {
     AUTH: '/auth',
 
     CATEGORIES: '/categories',
+    CATEGORIES_ID_PRODUCTS: '/categories/{categoryId}/products',
 }

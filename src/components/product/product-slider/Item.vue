@@ -3,9 +3,9 @@
 
         <img src="https://i.pinimg.com/564x/5c/45/61/5c4561d95857586852116379d86ce1fe.jpg" alt="">
         <div class="items">
-            <span class="item-name">Camisa Manga Curta</span>
-            <span class="item-price">R$ 200,00</span>
-            <span class="item-description">7x de R$ 23.55 no cartão</span>
+            <span class="item-name">{{ product.name }}</span>
+            <span class="item-price">{{ product.price }}</span>
+            <span class="item-description">7x de R$ {{ (product.price / 7).toFixed(2) }} no cartão</span>
         </div>
     </div>
     
@@ -13,7 +13,8 @@
 
 <script>
     export default {
-        name: 'Item'
+        name: 'Item',
+        props: ['product'],
     }
 </script>
 

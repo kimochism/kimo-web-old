@@ -80,7 +80,7 @@
       </div>
     </div>
     <h3 class="subtituloSlider">Semelhantes a este</h3>
-    <Slider />
+    <Slider :categoryId="2"/>
     <hr class="break_pdtc" />
     <Gap />
     <Footer />
@@ -116,8 +116,9 @@ export default {
     if (!this.$route.query.id) {
       this.$router.push({ path: "not-found" });
     }
-
+    
     this.getProductById();
+
   },
 
   methods: {

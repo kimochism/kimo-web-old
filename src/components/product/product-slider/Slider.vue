@@ -8,15 +8,10 @@
       :perPageCustom="[[300, 1],[625, 2], [800, 3],[1024, 4]]" 
       :autoplay="true" 
       :autoplayTimeout="5000">
-      <slide><Item /></slide>
-      <slide><Item /></slide>
-      <slide><Item /></slide>
-      <slide><Item /></slide>
-      <slide><Item /></slide>
-      <slide><Item /></slide>
-      <slide><Item /></slide>
-      <slide><Item /></slide>
-      <slide><Item /></slide>
+      
+      <slide>
+        <Item v-for="product in products" :key="product.id" :product="product"/>
+      </slide>
     </carousel>
   </div>
 </template>
@@ -25,18 +20,35 @@
 
 import { Carousel, Slide } from "vue-carousel"
 import Item from './Item.vue'
+import { CategoryService } from "../../../services/CategoryService"
 
 export default {
   name: "Slider",
+  props: ['categoryId'],
 
   data: function () {
-    return {}
+    return {
+      products: {},
+      categoryService: new CategoryService(),
+    }
   },
   components: {
     Carousel,
     Slide,
-    Item
+    Item,
   },
+  methods: {
+    listProductsByCategory(id) {
+      this.categoryService
+        .listProductsByCategory(id)
+        .then((category) => (this.products = category.products));
+    },
+  },
+  created() {
+    this.listProductsByCategory(this.categoryId);
+
+    
+  }
 };
 </script>
 
