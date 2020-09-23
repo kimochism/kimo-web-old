@@ -3,7 +3,7 @@
 
     <div class="subMessage">
         <span v-on:click="changeCadastro()">Registrar</span>
-        <span>Trocas e devoluções</span>
+        <span>Devoluções</span>
         <span>Pedidos</span>
         <span>Newsletter</span>
         <span>Ajuda</span>
