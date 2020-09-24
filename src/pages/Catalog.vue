@@ -35,7 +35,12 @@
     </div>
 
     <div id="ContainerCatalog">
-      <div  v-on:click="navigateToProduct(product.id)" class="productBoxItem" v-for="product in products" :key="product.id">
+      <div
+        v-on:click="navigateToProduct(product.id)"
+        class="productBoxItem"
+        v-for="product in products"
+        :key="product.id"
+      >
         <img :src="product.images[0].url" alt width="270px" />
         <span for>{{ product.name }}</span>
         <span>
@@ -48,69 +53,61 @@
       <button v-on:click="listProducts()">Ver Mais</button>
     </div>
 
-    <ProductFilter  v-show="showProductFilter" 
-                    :showProductFilter="showProductFilter" 
-                    @returnShowProductFilter="showProductFilter = $event"
-                    />
+    <ProductFilter
+      v-show="showProductFilter"
+      :showProductFilter="showProductFilter"
+      @returnShowProductFilter="showProductFilter = $event"
+    />
     <Footer />
     <MessageBar />
   </div>
 </template>
 
 <script>
-  import MessageBar from "../components/navigation/MessageBar"
-  import Footer from "../components/navigation/Footer"
-  import ProductFilter from "../components/catalog/ProductFilter"
-  import { ProductService } from "../services/ProductService"
-  // import router from '../router';
+import MessageBar from "../components/navigation/MessageBar";
+import Footer from "../components/navigation/Footer";
+import ProductFilter from "../components/catalog/ProductFilter";
+import { ProductService } from "../services/ProductService";
+// import router from '../router';
 
-
-  export default {
-    name: "Catalog",
-
-    data() {
-      return {
-        productService: new ProductService(),
-        products: [],
-        page: 0,
-        showProductFilter: false
-      };
+export default {
+  name: "Catalog",
+  components: {
+    MessageBar,
+    Footer,
+    ProductFilter,
+  },
+  data() {
+    return {
+      productService: new ProductService(),
+      products: [],
+      page: 0,
+      showProductFilter: false,
+    };
+  },
+  methods: {
+    listProducts() {
+      this.page++;
+      this.productService
+        .list({ page: this.page, limit: 8 })
+        .then(
+          (products) => (this.products = [...this.products, ...products.data])
+        );
     },
-
-    created() {
-      this.listProducts();
+    navigateToProduct(id) {
+      this.$router.push({ path: "product", query: { id } });
     },
-
-    methods: {
-      listProducts() {
-        this.page++
-        this.productService
-          .list({ page: this.page, limit: 8 })
-          .then(
-            (products) => (this.products = [...this.products, ...products.data])
-          );
-      },
-
-      navigateToProduct(id) {
-        this.$router.push({ path: 'product', query: { id } })
-      },
-
-      toggleProductFilter() {
-        this.showProductFilter = !this.showProductFilter
-      }
-      
+    toggleProductFilter() {
+      this.showProductFilter = !this.showProductFilter;
     },
-
-    components: {
-      MessageBar,
-      Footer,
-      ProductFilter
-    },
-  };
+  },
+  created() {
+    this.listProducts();
+  },
+};
 </script>
 
 <style scoped>
-
 #header {
   height: 320px;
   background-image: url("../assets/bg.png");
@@ -140,7 +137,7 @@
   justify-content: space-between;
   display: flex;
 }
-.optionsHeader span{
+.optionsHeader span {
   cursor: pointer;
 }
 

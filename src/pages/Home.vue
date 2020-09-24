@@ -29,15 +29,6 @@ import Offer from "../components/home/Offer.vue";
 
 export default {
   name: "home",
-
-  data() {
-    return {
-      products: {},
-      offerProduct: {},
-      productService: new ProductService(),
-    };
-  },
-
   components: {
     MessageBar,
     Slider,
@@ -46,23 +37,27 @@ export default {
     Products,
     Footer,
     Gap,
-    InstagramCase
+    InstagramCase,
   },
-
+  data() {
+    return {
+      products: {},
+      offerProduct: {},
+      productService: new ProductService(),
+    };
+  },
   methods: {
     listProducts() {
       this.productService
-        .list({ page:1 ,limit: 6 })
+        .list({ page: 1, limit: 6 })
         .then((products) => (this.products = products.data));
     },
-
     getOfferProduct() {
       this.productService
         .list({ offer: true, page: 1, limit: 1 })
         .then((products) => (this.offerProduct = products.data[0]));
     },
   },
-
   created() {
     this.listProducts();
     this.getOfferProduct();
@@ -91,7 +86,7 @@ export default {
   color: black;
 }
 
-.h1ShirtMaker{
+.h1ShirtMaker {
   width: auto;
   text-transform: uppercase;
   line-height: 30px;
