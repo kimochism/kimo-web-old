@@ -41,13 +41,11 @@ export default {
     listProductsByCategory(id) {
       this.categoryService
         .listProductsByCategory(id)
-        .then((category) => (this.products = category.products));
+        .then((category) => (this.products = category[0].products));
     },
   },
   created() {
     this.listProductsByCategory(this.categoryId);
-
-    
   }
 };
 </script>

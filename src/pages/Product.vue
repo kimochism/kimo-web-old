@@ -80,7 +80,7 @@
       </div>
     </div>
     <h3 class="subtituloSlider">Semelhantes a este</h3>
-    <Slider :categoryId="2"/>
+    <Slider v-if="categoryId" :categoryId="categoryId"/>
     <hr class="break_pdtc" />
     <Gap />
     <Footer />
@@ -109,6 +109,7 @@ export default {
     return {
       productService: new ProductService(),
       product: {},
+      categoryId: null
     };
   },
 
@@ -125,7 +126,10 @@ export default {
     getProductById() {
       const id = this.getQuery("id");
 
-      this.productService.show(id).then((product) => (this.product = product));
+      this.productService.show(id).then((product) => {
+          this.product = product
+          this.categoryId = product.categories[0].id
+        });
     },
 
     getQuery(param) {

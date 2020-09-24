@@ -1,7 +1,7 @@
 <template>
     <div class="content">
 
-        <img src="https://i.pinimg.com/564x/5c/45/61/5c4561d95857586852116379d86ce1fe.jpg" alt="">
+        <img :src="product.images[0].url" alt="">
         <div class="items">
             <span class="item-name">{{ product.name }}</span>
             <span class="item-price">{{ product.price }}</span>
