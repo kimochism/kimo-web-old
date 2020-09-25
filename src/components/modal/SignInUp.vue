@@ -35,9 +35,15 @@
       <label for>Confirme sua Senha</label>
       <input type="password" v-model="confirmPassword" placeholder="Senha" />
       <label for>Telefone</label>
-      <input type="text" v-model="cellPhoneNumber" placeholder="Usuário ou E-mail" />
+      <input
+        type="text"
+        v-model="cellPhoneNumber"
+        placeholder="Usuário ou E-mail"
+      />
       <br />
-      <button class="btnCadastrar" v-on:click="callStoreUser()">Cadastrar</button>
+      <button class="btnCadastrar" v-on:click="callStoreUser()">
+        Cadastrar
+      </button>
       <button class="btnLogin" v-on:click="changeCadastro()">Voltar</button>
     </div>
   </div>
@@ -51,7 +57,6 @@ export default {
     return {
       emailLogin: "",
       passwordLogin: "",
-
       username: "",
       email: "",
       password: "",
@@ -59,22 +64,18 @@ export default {
       cellPhoneNumber: "",
     };
   },
-
   props: {
     auth: { type: Function },
     storeUser: { type: Function },
   },
-
   methods: {
     callAuth() {
       const request = { email: this.emailLogin, password: this.passwordLogin };
       this.auth(request);
     },
-
     isPasswordEquals() {
       return this.password === this.confirmPassword;
     },
-
     callStoreUser() {
       const isPasswordEquals = this.isPasswordEquals();
 
@@ -90,9 +91,8 @@ export default {
         cellPhoneNumber: this.cellPhoneNumber,
       };
 
-      this.storeUser(request)
+      this.storeUser(request);
     },
-
     changeLogin: function () {
       document.getElementById("CadastroCase").style.display = "flex";
       document.getElementById("LoginCase").style.display = "none";

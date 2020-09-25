@@ -10,7 +10,11 @@
             width="100%"
           />
           <div class="picturesImg">
-            <div class="boxImg" v-for="image of product.images" :key="image.url">
+            <div
+              class="boxImg"
+              v-for="image of product.images"
+              :key="image.url"
+            >
               <img v-if="image && image.url" :src="image.url" alt />
             </div>
           </div>
@@ -55,7 +59,10 @@
           </div>
 
           <div class="containerMessageAddon">
-            <p>As modalidades, prazos e custos de entrega são válidas apenas para o item em consulta.</p>
+            <p>
+              As modalidades, prazos e custos de entrega são válidas apenas para
+              o item em consulta.
+            </p>
           </div>
 
           <hr />
@@ -68,8 +75,10 @@
             </div>
             <br />
             <a
-              href="http://www.buscacep.correios.com.br/sistemas/buscacep/buscaCepEndereco.cfm" target="_blank"
-            >Não sei meu CEP</a>
+              href="http://www.buscacep.correios.com.br/sistemas/buscacep/buscaCepEndereco.cfm"
+              target="_blank"
+              >Não sei meu CEP</a
+            >
           </div>
 
           <h1 class="we">
@@ -80,7 +89,7 @@
       </div>
     </div>
     <h3 class="subtituloSlider">Semelhantes a este</h3>
-    <Slider :categoryId="2"/>
+    <Slider v-if="categoryId" :categoryId="categoryId" />
     <hr class="break_pdtc" />
     <Gap />
     <Footer />
@@ -89,7 +98,6 @@
 </template>
 
 <script>
-
 import Slider from "../components/product/product-slider/Slider.vue";
 import MessageBar from "../components/navigation/MessageBar";
 import Footer from "../components/navigation/Footer.vue";
@@ -104,34 +112,25 @@ export default {
     Slider,
     Gap,
   },
-
   data() {
     return {
       productService: new ProductService(),
       product: {},
+      categoryId: null,
     };
   },
-
-  created() {
-    if (!this.$route.query.id) {
-      this.$router.push({ path: "not-found" });
-    }
-    
-    this.getProductById();
-
-  },
-
   methods: {
     getProductById() {
       const id = this.getQuery("id");
 
-      this.productService.show(id).then((product) => (this.product = product));
+      this.productService.show(id).then((product) => {
+        this.product = product;
+        this.categoryId = product.categories[0].id;
+      });
     },
-
     getQuery(param) {
       return this.$route.query[param];
     },
-
     addToOrder() {
       if (!localStorage.getItem("Authorization")) {
         document.getElementById("CadastroCase").style.display = "flex";
@@ -139,6 +138,12 @@ export default {
         document.getElementById("ContainerLogin").style.display = "flex";
       }
     },
+  },
+  created() {
+    if (!this.$route.query.id) {
+      this.$router.push({ path: "not-found" });
+    }
+    this.getProductById();
   },
 };
 </script>
@@ -326,7 +331,7 @@ export default {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
 }
-.colorBox:active{
+.colorBox:active {
   border: 2px solid black;
 }
 /* Tamanhos */
@@ -346,7 +351,7 @@ export default {
   align-items: center;
   display: flex;
 }
-.sizeBox:active{
+.sizeBox:active {
   border: 2px solid black;
 }
 /* pós medidas */
@@ -400,8 +405,8 @@ export default {
   margin: 0 auto;
 }
 
- @media screen and (max-width:800px){
-  .infoProductBox{
+@media screen and (max-width: 800px) {
+  .infoProductBox {
     margin: 0 auto;
   }
 }

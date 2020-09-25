@@ -6,7 +6,12 @@
     </div>
 
     <div class="subContainerItems">
-      <div v-on:click="navigateToProduct(product.id)" class="item" v-for="product in products" :key="product.id">
+      <div
+        v-on:click="navigateToProduct(product.id)"
+        class="item"
+        v-for="product in products"
+        :key="product.id"
+      >
         <img :src="product.images[0].url" alt />
         <div class="flexDescription">
           <span>{{ product.name }}</span>
@@ -17,9 +22,7 @@
 
     <div class="buttonLoadItems">
       <button>
-        <router-link to="/catalog" tag="m">
-          Ver mais 
-        </router-link>
+        <router-link to="/catalog" tag="m"> Ver mais </router-link>
       </button>
     </div>
   </div>
@@ -35,16 +38,16 @@ export default {
   },
 
   methods: {
-      navigateToProduct(id) {
-        this.$router.push({ path: 'product', query: { id } })
-    }
+    navigateToProduct(id) {
+      this.$router.push({ path: "product", query: { id } });
+    },
   },
 };
 </script>
 
 <style scoped>
-
-h3, h2 {
+h3,
+h2 {
   text-align: center;
 }
 .containerItems {
@@ -59,12 +62,17 @@ h3, h2 {
   align-items: center;
   display: flex;
 }
-.headerItems h1,h2,h3,h4,h5,h6{
+.headerItems h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   text-transform: uppercase;
   font-weight: 100;
   margin: 10px;
 }
-.bolded{
+.bolded {
   font-weight: bold;
 }
 .subContainerItems {
@@ -119,16 +127,16 @@ h3, h2 {
   background-color: white;
   color: black;
 }
-.flexDescription{
+.flexDescription {
   padding: 8px 0px;
   justify-content: space-between;
   display: flex;
 }
-.flexDescription span{
+.flexDescription span {
   text-align: center;
   text-transform: uppercase;
 }
-.flexDescription span:nth-child(2n){
+.flexDescription span:nth-child(2n) {
   font-weight: bold;
 }
 </style>
