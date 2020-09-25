@@ -86,6 +86,9 @@
                                 <label for="">Telefone</label>
                                 <input type="text" placeholder="(11) 98765-4321">
                             </div>
+                            <div class="itemSubContainerRegister">
+                                <button>Atualizar</button>
+                            </div>
                         </div>
                     </div>
 
@@ -285,14 +288,94 @@
 
                     <div id="MyRequests" v-show="currentContent == 'myPreferences'" class="contentBox">
                         <h1>Minhas Preferências</h1>
+                        <div class="subContainerPreferences">
+                            <div class="itemPreference">
+                                <span>
+                                    Preferências
+                                </span>
+                                <select name="" id="">
+                                    <option value="">Camisetas</option>
+                                </select>
+                            </div>
+                            <div class="itemPreference">
+                                <span>
+                                    Minhas Medidas
+                                </span>
+                                <select name="" id="">
+                                    <option value="">49</option>
+                                </select>
+                            </div>
+                            <div class="itemPreference">
+                                <span>
+                                    Meu Estilo
+                                </span>
+                                <select name="" id="">
+                                    <option value="">Indie</option>
+                                </select>
+                            </div>
+                            <div class="itemPreference">
+                                <span>*</span>
+                                <button class="btnPreferences">
+                                    Atualizar
+                                </button>
+                            </div>
+                        </div>
+                        
                     </div>
 
                     <div id="MyRequests" v-show="currentContent == 'myFavorites'" class="contentBox">
                         <h1>Meus Favoritos</h1>
+                        <div class="subContainerFavorites">
+                            <div class="itemFavorites">
+                                <div class="OpacityItemFavorites">
+                                   <span class="material-icons">
+                                        remove_circle_outline
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="itemFavorites">
+                                <div class="OpacityItemFavorites">
+                                    <span class="material-icons">
+                                        remove_circle_outline
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="itemFavorites">
+                                <div class="OpacityItemFavorites">
+                                     <span class="material-icons">
+                                        remove_circle_outline
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="itemFavorites">
+                                <div class="OpacityItemFavorites">
+                                     <span class="material-icons">
+                                        remove_circle_outline
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div id="MyRequests" v-show="currentContent == 'myPassword'" class="contentBox">
                         <h1>Alterar senha</h1>
+                        <div class="subContainerRegister">
+                            <div class="itemSubContainerRegister">
+                                <label for="">Senha</label>
+                                <input type="text" placeholder="Senha123@">
+                            </div>
+                            <div class="itemSubContainerRegister">
+                                <label for="">Repetir a Senha</label>
+                                <input type="text" placeholder="Senha123@">
+                            </div>
+                            <div class="itemSubContainerRegister">
+                                <label>*</label>
+                                <button>Atualizar</button>
+                            </div>
+                        </div>
                     </div>
                     
                 </div>
@@ -327,6 +410,7 @@ export default {
 </script>
 
 <style scoped>
+
     #ContainerProfile{
         max-width: 1100px;
         height: 700px;
@@ -371,8 +455,10 @@ export default {
 
     .contentBox{
         width: 100%;
+        overflow: hidden;
         padding: 0px;
     }
+
     .contentBox input{
         background-color: transparent;
         border: 0px;
@@ -380,6 +466,7 @@ export default {
         min-width: 33%;
         padding: 12px;
     }
+
     .contentBox h1{
         width: 100%;
         margin: 0px;
@@ -395,12 +482,27 @@ export default {
         flex-wrap: wrap;
         display: flex;
     }
+
     .itemSubContainerRegister{
         margin: 1%;
         width: 250px;
         flex-direction: column;
         display: flex;
     }
+
+    .itemSubContainerRegister button{
+        padding: 12px;
+        border: 1px solid black;
+        background-color: transparent;
+        text-transform: uppercase;
+    }
+
+    .itemSubContainerRegister button:hover{
+        background-color: black;
+        cursor: pointer;
+        color: white;
+    }
+
     .itemSubContainerRegister label{
         text-transform: uppercase;
     }
@@ -410,21 +512,25 @@ export default {
     .subContainerRequests h1{
         width: 100%;
     }
+
     .subContainerRequests{
         justify-content: space-between;
         flex-wrap: wrap;
         display: flex;
     }
+
     .headerListRequests span{
         font-weight: bold;
         padding: 10px 35px;
         margin-left: -8px;
     }
+
     .headerListRequests{
         width: 100%;
         justify-content: space-between;
         display: flex;
     }
+
     .listSubContainerRequests{
         width: 100%;
         height: 500px;
@@ -434,14 +540,21 @@ export default {
         flex-direction: column;
         display: flex;
     }
+
     .itemSubContainerRequests{
         width: 100%;
         padding: 20px;
+        cursor: pointer;
         border-bottom: 1px solid rgb(211, 211, 211);
         justify-content: space-between;
         align-items: center;
         display: flex;
     }  
+
+    .itemSubContainerRequests:hover{
+        background-color: rgb(241, 241, 241);
+    }
+
     .itemSubContainerRequests label{
         width: 100px;
         text-align: center;
@@ -453,22 +566,26 @@ export default {
         height: 300px;
         overflow: auto;
     }
+
     .paymentButtons{
         padding: 8px 0px;
         display: flex;
     }
+
     .paymentButtons button{
         background-color: transparent;
         text-transform: uppercase;
         border: 1px solid black;
         padding: 10px 25px;
     }
+
     .paymentButtons button:hover{
         background-color: black;
         font-weight: bold;
         cursor: pointer;
         color: white;
     }
+
     .subContainerPaymentsItem{
         width: 100%;
         padding: 20px;
@@ -478,6 +595,7 @@ export default {
         display: flex;
 
     }
+
     .imgCaseCard{
         width: 50px;
         height: 32px;
@@ -495,6 +613,7 @@ export default {
         width: 100%;
         height: 500px;
     }
+
     .subContainerDevolutionItem{
         width: 100%;
         padding: 8px 0px;
@@ -502,9 +621,11 @@ export default {
         justify-content: space-between;
         display: flex;
     }
+
     .subContainerDevolutionItem span{
         width: 100px;
     }
+
     .subContainerDevolutionItem:hover{
         background-color: rgb(235, 235, 235);
         cursor: pointer;
@@ -518,19 +639,24 @@ export default {
         flex-direction: column;
         display: flex;
     }
+
     .subBoxAdress{
         width: 100%;
     }
+
     .subBoxAdressMap{
         height: 300px;
     }
+
     .subBoxAdress:nth-child(1){
         border-bottom: 1px solid rgb(235, 235, 235);
     }
+
     iframe{
         width: 100%;
         height: 100%;
     }
+
     .addAdress{
         width: 100%;
         border-bottom: 1px solid rgb(235, 235, 235);
@@ -538,18 +664,21 @@ export default {
         flex-wrap: wrap;
         display: flex;
     }
+
     .itemAddAddress{
         width: 150px;
         margin: 1%;
         flex-direction: column;
         display: flex;
     }
+
     .subBoxAdress{
         width: 100%;
         cursor: pointer;
         flex-wrap: wrap;
         display: flex;
     }
+
     .itemAdress{
         height: 125px;
         margin: 1% 0px;
@@ -557,6 +686,7 @@ export default {
         border: 1px solid rgb(235, 235, 235);
         display: flex;
     }
+
     .editarItemAddress{
         padding: 15px;
         background-color: rgb(197, 197, 197);
@@ -564,12 +694,14 @@ export default {
         align-items: center;
         display: flex;
     }
+
     .itemAddAddress input{
         padding: 0px;
         padding-bottom: 2px;
         border-bottom: 1px solid black;
         text-transform: capitalize;
     }
+
     .itemAddAddress button{
         width: 150px;
         background-color: transparent;
@@ -578,6 +710,7 @@ export default {
         height: 40px;
         text-transform: uppercase;
     }
+
     .itemAddAddress button:hover{
         background-color: black;
         color: white;
@@ -588,6 +721,7 @@ export default {
         background-color:black;
         color: white;
     }
+
     .infoItemAddress{
         width: 150px;
         padding: 15px;
@@ -595,69 +729,189 @@ export default {
         justify-content: center;
         display: flex;
     }
+
     .deleteItemAddress{
         padding: 15px;
     }
+
     .deleteItemAddress span:hover{
         background-color: rgb(253, 105, 105);
         color: white;
     }
 
+    /* Preferences */
+
+    .subContainerPreferences{
+        padding: 8px;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        display: flex;
+    }
+
+    .itemPreference{
+        width: 150px;
+        flex-direction: column;
+        display: flex;
+    }
+
+    .itemPreference select{
+        width: 100%;
+        background-color: transparent;
+        border: 1px solid black;
+        padding: 8px;
+    }
+
+    .itemPreference select option{
+        padding: 8px;
+    }
+
+    .btnPreferences{
+        width: 100%;
+        margin: 0 auto;
+        padding: 10px;
+        background-color: transparent;
+        border: 1px solid black;
+        text-transform: uppercase;
+    }
+
+    .btnPreferences:hover{
+        background-color: black;
+        color: white;
+        cursor: pointer;
+    }
+
+    /* Favorites */
+
+    .subContainerFavorites{
+        padding: 10px 0px;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        display: flex;
+    }
+
+    .itemFavorites{
+        width: 33%;
+        height: 150px;
+        margin: 1% 0;
+        cursor: pointer;
+        background-position: center;
+        background-size: cover;
+        overflow: hidden;
+    }
+
+    .itemFavorites:nth-child(1n){
+        background-image: url(https://i.pinimg.com/564x/34/79/47/347947845caa02b620b79877419b39e0.jpg);
+    }
+
+    .itemFavorites:nth-child(2n){
+        background-image: url(https://i.pinimg.com/564x/27/93/07/279307fadc7dbc00a4baa5fd2327ba38.jpg);
+    }
+
+    .itemFavorites:nth-child(3n){
+        background-image: url(https://i.pinimg.com/564x/3a/c1/09/3ac109aa254fd8307bb68f2cf108ef2b.jpg);
+    }
+
+    .OpacityItemFavorites{
+        background-image: linear-gradient(to top, rgba(155, 155, 155, 0.301), rgba(255, 255, 255, 0));
+        width: 100%;
+        height: 100%;
+    }
+    
+    .OpacityItemFavorites span{
+        background-color: rgba(0, 0, 0, 0.541);
+        color: white;
+        padding: 1.5%;
+    }
+
+    /* Password */
+
+
+
     /* media */
 
     @media screen and (max-width: 1070px){
+
         #ContainerProfile{
             width: 800px;
         }
+
     }
 
     @media screen and (max-width: 800px){
+
         #ContainerProfile{
             width: 530px;
         }
+
     }
 
     @media screen and (max-width: 800px){
+
         #ContainerProfile{
             width: 530px;
         }
+
         #Infos{
             width: 60px;
             min-width: 60px;
         }
+
         .disapearMobile{
             display: none;
         }
+
     }
 
     @media screen and (max-width: 799px){
+
         #ContainerInfos{
-            margin-right: 2%;
+            width: 96%;
         }
+
         #Infos .itemInfo{
             margin-right: 5%;
             border: 0px;
         }
+
         #ContainerProfile{
             width: 380px;
         }
+
+        .contentBox{
+            width: 300px;
+        }
+
         .itemAdress{
             justify-content: space-between;
             width: 100%;
         }
+
         .itemAddAddress{
             width: 100%;
             margin: 2% 0%;
         }
+
         .itemAddAddress button{
             width: 100%;
         }
+
         .subContainerRegister{
             padding: 20px 0px;
         }
+
         .itemSubContainerRegister{
             margin-bottom: 10%;
         }
+
+        .itemPreference{
+            margin: 3%;
+            width: 100%;
+        }
+
+        .paymentButtons button{
+            width: 100%;
+        }
+
     }
 
 

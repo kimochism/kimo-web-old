@@ -32,6 +32,11 @@ const router = new Router({
       component: lazyLoad('Cart'),
     },
     {
+      path: '/checkout',
+      name: 'checkout',
+      component: lazyLoad('checkout'),
+    },
+    {
       path: '/category',
       name: 'category',
       component: lazyLoad('Category'),
