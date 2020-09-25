@@ -1,21 +1,25 @@
-# kimochism
+# KIMOCHISM
 
-## Project setup
+## Setup do Projeto
 ```
-npm install
+git clone kimo-web
 ```
 
-### Compiles and hot-reloads for development
+### Compiles e hot-reloads para desenvolvimento
 ```
 npm run serve
 ```
+### Qualquer erro de módulo faltando
+```
+npm i
+```
 
-### Compiles and minifies for production
+### Compiles e minifies para Produção
 ```
 npm run build
 ```
 
-### Lints and fixes files
+### Lints e fixes files
 ```
 npm run lint
 ```
