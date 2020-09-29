@@ -48,29 +48,8 @@
         </div>
 
         <div id="MenuOptions">
-          <router-link to="/" tag="span">
-            <span v-on:click="openMenu()">Início</span>
-          </router-link>
-          <router-link to="/category" tag="span">
-            <span v-on:click="openMenu()">Categorias</span>
-          </router-link>
-          <router-link to="/catalog" tag="span">
-            <span v-on:click="openMenu()">Catálogo</span>
-          </router-link>
-          <router-link to="/" tag="span">
-            <span v-on:click="openMenu()">Gamer</span>
-          </router-link>
-          <router-link to="/" tag="span">
-            <span v-on:click="openMenu()">Anime</span>
-          </router-link>
-          <router-link to="/" tag="span">
-            <span v-on:click="openMenu()">Geek</span>
-          </router-link>
-          <router-link to="/" tag="span">
-            <span v-on:click="openMenu()">E-girl</span>
-          </router-link>
-          <router-link to="/" tag="span">
-            <span v-on:click="openMenu()">Kids</span>
+          <router-link :to="routerLink.path" tag="span" v-for="routerLink in routerLinks" :key="routerLink.name">
+            <span v-on:click="openMenu()">{{routerLink.name}}</span>
           </router-link>
         </div>
       </div>
@@ -96,6 +75,40 @@ export default {
     return {
       message: "",
       isOpen: true,
+      routerLinks: {
+        home: {
+          path: '/',
+          name: 'Início'
+        },
+        category: {
+          path: '/category',
+          name: 'Categorias'
+        },
+        catalog: {
+          path: '/catalog',
+          name: 'Catálogo'
+        },
+        gamer: {
+          path: '/catalog',
+          name: 'Gamer'
+        },
+        anime: {
+          path: '/catalog',
+          name: 'Anime'
+        },
+        geek: {
+          path: '/catalog',
+          name: 'Geek'
+        },
+        eGirl: {
+          path: '/catalog',
+          name: 'E-girl'
+        },
+        kids: {
+          path: '/catalog',
+          name: 'Kids'
+        },
+      }
     };
   },
 
