@@ -176,6 +176,7 @@ export default {
   height: 370px;
   flex: 1 1 270px;
   margin: 1%;
+  cursor: pointer;
   flex-direction: column;
   align-items: center;
   display: flex;

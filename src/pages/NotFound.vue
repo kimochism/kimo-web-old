@@ -6,7 +6,7 @@
       <p>
         Ocorreu um erro na página que você tentou acessar
         <br />
-        <a href="">volte</a>
+        <a href="/">volte</a>
         e tente novamente mais tarde.
       </p>
     </div>

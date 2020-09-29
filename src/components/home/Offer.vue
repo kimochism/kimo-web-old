@@ -14,7 +14,9 @@
       </div>
 
       <div class="Box Info">
-        <h1>{{ offerProduct.name }}</h1>
+        <h2>{{ offerProduct.name }}</h2>
+        
+        <label for="">Moda Unisex</label>
         <br />
         <p class="price">
           <span>R$ {{ offerProduct.discount_price }}</span>
@@ -57,6 +59,7 @@ h6 {
   font-weight: 100;
   letter-spacing: 2px;
   line-height: 30px;
+  text-align: center;
   text-transform: uppercase;
 }
 #ContainerOffer {
@@ -84,14 +87,9 @@ h3 {
   justify-content: center;
   align-items: center;
   display: flex;
-
+  margin: 1%;
+  padding: 1%;
   margin-top: 45px;
-}
-
-@media screen and (max-width: 800px) {
-  #Offer {
-    flex-wrap: wrap;
-  }
 }
 
 .Box {
@@ -107,6 +105,9 @@ h3 {
   flex-direction: column;
   display: flex;
 }
+.Info h2{
+  text-align: left;
+}
 .Info span {
   font-size: 19px;
 }
@@ -118,7 +119,12 @@ h3 {
   display: flex;
   width: 140px;
 }
+.price span{
+  min-width: 100px;
+  margin-right: 1%;
+}
 .price span:nth-child(2) {
+  margin-left: 50px;
   text-decoration: line-through;
   color: grey;
 }
@@ -126,7 +132,9 @@ h3 {
   padding: 15px;
   margin-bottom: 2%;
   border-radius: 0px;
+  background-color: white;
 }
+
 .Info button {
   border-radius: 0px;
   padding: 15px;
@@ -143,9 +151,24 @@ h3 {
   color: black;
 }
 .Info a {
-  width: 185px;
+  text-align: center;
   color: black;
-  text-decoration: none;
-  border-bottom: 1px solid black;
 }
+
+
+@media screen and (max-width: 800px){
+  #Offer {
+    margin: 5%;
+    flex-wrap: wrap;
+  }
+  .Box{
+    width: 350px !important;
+    height: 350px !important;
+  }
+  .Info h2{
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
 </style>

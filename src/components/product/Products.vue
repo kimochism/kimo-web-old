@@ -139,4 +139,10 @@ h6 {
 .flexDescription span:nth-child(2n) {
   font-weight: bold;
 }
+
+@media screen and (max-width: 800px){
+  .headerItems{
+    padding: 40px 0px;
+  }
+}
 </style>
