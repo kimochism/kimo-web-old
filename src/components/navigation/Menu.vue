@@ -49,7 +49,7 @@
 
         <div id="MenuOptions">
           <router-link to="/" tag="span">
-            <span>Início</span>
+            <span v-on:click="openMenu()">Início</span>
           </router-link>
           <router-link to="/category" tag="span">
             <span v-on:click="openMenu()">Categorias</span>
