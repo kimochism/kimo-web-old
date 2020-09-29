@@ -52,25 +52,25 @@
             <span>Início</span>
           </router-link>
           <router-link to="/category" tag="span">
-            <span>Categorias</span>
+            <span v-on:click="openMenu()">Categorias</span>
           </router-link>
           <router-link to="/catalog" tag="span">
-            <span>Catálogo</span>
+            <span v-on:click="openMenu()">Catálogo</span>
           </router-link>
           <router-link to="/" tag="span">
-            <span>Gamer</span>
+            <span v-on:click="openMenu()">Gamer</span>
           </router-link>
           <router-link to="/" tag="span">
-            <span>Anime</span>
+            <span v-on:click="openMenu()">Anime</span>
           </router-link>
           <router-link to="/" tag="span">
-            <span>Geek</span>
+            <span v-on:click="openMenu()">Geek</span>
           </router-link>
           <router-link to="/" tag="span">
-            <span>E-girl</span>
+            <span v-on:click="openMenu()">E-girl</span>
           </router-link>
           <router-link to="/" tag="span">
-            <span>Kids</span>
+            <span v-on:click="openMenu()">Kids</span>
           </router-link>
         </div>
       </div>
@@ -95,7 +95,7 @@ export default {
   data: function () {
     return {
       message: "",
-      isOpen: false,
+      isOpen: true,
     };
   },
 
@@ -114,6 +114,7 @@ export default {
       } else {
         document.getElementById("MenuOptions").style.display = "none";
       }
+      console.log(this.isOpen);
       this.isOpen = !this.isOpen;
     },
     changeCadastro: function () {

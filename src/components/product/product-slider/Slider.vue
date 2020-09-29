@@ -5,12 +5,7 @@
       navigationNextLabel="<span class='material-icons arrow-right'>keyboard_arrow_right</span>"
       navigationPrevLabel="<span class='material-icons arrow-right'>keyboard_arrow_left</span>"
       :loop="true"
-      :perPageCustom="[
-        [300, 1],
-        [625, 2],
-        [800, 3],
-        [1024, 4],
-      ]"
+      :perPageCustom="[[300, 1], [625, 2], [800, 3], [1024, 4]]"
       :autoplay="true"
       :autoplayTimeout="5000"
     >
