@@ -88,7 +88,7 @@ export default {
   text-decoration: none !important;
 }
 #ContainerDaddy{
-  background-color: white;
+  background-color: transparent;
 }
 
 .md-theme-default a:not(.md-button){

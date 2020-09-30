@@ -1,5 +1,10 @@
 <template>
-  <div id="Slider"></div>
+  <!-- NÃO MEXE AQUI, DE JEITO NENHUM -->
+  <div id="Slider">
+      <video controls autoplay loop>
+        <source src="../../assets/video/slide2.mp4" type="video/mp4">
+      </video>
+  </div>
 </template>
 
 <script>
@@ -10,18 +15,30 @@ export default {
 
 <style scoped>
 #Slider {
-  width: 100%;
-  height: 500px;
-  background-image: url("../../assets/bg4k.jpg");
+  background-color: transparent;
   background-position: center;
+  justify-content: center;
+  flex-direction: column;
   background-size: cover;
-  font-size: 75px;
+  align-items: center;
   font-weight: bold;
   line-height: 80px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  overflow: hidden;
+  font-size: 75px;
   display: flex;
+  height: 500px;
+  width: 100%;
+}
+#Slider video{
+  position: fixed; 
+  top: -150px;
+	right: 0; 
+	bottom: 0;
+	min-width: 100%; 
+	min-height: 100%;
+	width: auto; 
+	height: auto; 
+	z-index: -1000;
 }
 #Slider span {
   color: white;

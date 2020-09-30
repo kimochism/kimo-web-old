@@ -141,6 +141,7 @@ export default {
 
 <style scoped>
 #Containermenu {
+  background-color: white;
   border-bottom: 1px solid rgba(202, 202, 202, 0.288);
 }
 

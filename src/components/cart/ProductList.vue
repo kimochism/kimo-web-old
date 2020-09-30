@@ -2,11 +2,18 @@
   <div class="container">
     <div id="ListBuy">
       <ProductItem />
+      <ProductItem />
+      <ProductItem />
+      <ProductItem />
+      <ProductItem />
+      <ProductItem />
+      <ProductItem />
+
     </div>
     <div class="footerShoppingList">
       <div class="continueCart">
         <span class="material-icons">keyboard_arrow_left</span>
-        <span class="colorPrimary">Continuar comprando</span>
+        <span class="colorPrimary"><router-link to="/catalog">Continuar comprando</router-link></span>
       </div>
       <div>
         <span>Subtotal: <b>R$</b></span>
@@ -34,7 +41,10 @@ export default {
 
 #ListBuy {
   width: 100%;
+  min-height: 500px;
+  max-height: 500px;
   margin-right: 50px;
+  flex-direction: column;
   display: flex;
   margin: auto;
   overflow: auto;

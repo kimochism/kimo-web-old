@@ -80,8 +80,9 @@ export default {
 
 <style scoped>
 #CardContainer {
-  /* min-width: 480px; */
-  width: 90%;
+  min-width: 480px;
+  width: 480px;
+  /* width: 90%; */
   padding: 40px;
   display: flex;
   color: white;

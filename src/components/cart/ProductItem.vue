@@ -15,8 +15,7 @@
       <div class="sub-content">
         <div class="quantCart sizeSubItem">
           <button>
-            <i class="fas fa-minus"></i></button
-          ><!--  -->
+            <i class="fas fa-minus"></i></button>
           <span>1</span>
           <button>
             <i class="fas fa-plus"></i>

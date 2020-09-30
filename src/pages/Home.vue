@@ -70,10 +70,8 @@ export default {
   outline: none !important;
 }
 .warning-shirt-maker {
-  width: 300px;
-  background-color: rgb(100, 100, 100);
+  background-color: white;
   text-align: center;
-  margin: 0 auto;
   padding: 20px;
 }
 
@@ -90,7 +88,8 @@ export default {
   width: auto;
   text-transform: uppercase;
   line-height: 30px;
-  color: white;
+  padding: 8px;
+  color: black;
   margin: 0 auto;
 }
 
