@@ -1,29 +1,29 @@
 <template>
   <div class="item">
     <img
-      class="imgProdutoBuy"
-      src="https://i.pinimg.com/564x/5c/45/61/5c4561d95857586852116379d86ce1fe.jpg"
+      class="imgProdutoBuy" v-if="customerBag.product.images && customerBag.product.images.length"
+      :src="customerBag.product.images[0].url"
       alt=""
     />
 
     <div class="content">
       <div class="titleProdCart">
-        <p>Camiseta - Karpa Lothus Fuck Y*o</p>
-        <p class="idProduct">#440231</p>
+        <p>{{ customerBag.product.name }}</p>
+        <p class="idProduct">#{{ customerBag.product.id }} </p>
       </div>
 
       <div class="sub-content">
         <div class="quantCart sizeSubItem">
           <button>
             <i class="fas fa-minus"></i></button>
-          <span>1</span>
+          <span>{{ customerBag.quantity }}</span>
           <button>
             <i class="fas fa-plus"></i>
           </button>
         </div>
 
         <div class="priceCart sizeSubItem">
-          <p>R$ 10,00</p>
+          <p>{{ customerBag.product.price }}</p>
         </div>
 
         <div class="deleteItem sizeSubItem">
@@ -39,6 +39,8 @@
 <script>
 export default {
   name: "ProductItem",
+
+  props: ['customerBag']
 };
 </script>
 

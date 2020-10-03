@@ -37,9 +37,7 @@ export default {
           localStorage.setItem("Authorization", res.token);
         })
         .catch(() => {
-          alert(
-            "incorreto (ale ou lucas arruma aq pfv o front dps, coloca umas msg de erro no form)"
-          );
+          alert("incorreto (ale ou lucas arruma aq pfv o front dps, coloca umas msg de erro no form)");
         });
     },
 

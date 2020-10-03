@@ -15,4 +15,7 @@ export const serviceURLs = {
 
     CATEGORIES: '/categories',
     CATEGORIES_ID_PRODUCTS: '/categories/{categoryId}/products',
+
+    CUSTOMER_BAGS: '/customerBags',
+    CUSTOMER_BAGS_ID: '/customerBags/{id}'
 }
