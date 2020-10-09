@@ -136,8 +136,8 @@ export default {
     },
     addToCustomerBag(productId) {
       if (!localStorage.getItem("Authorization")) {
-        document.getElementById("CadastroCase").style.display = "flex";
-        document.getElementById("LoginCase").style.display = "none";
+        document.getElementById("CadastroCase").style.display = "none";
+        document.getElementById("LoginCase").style.display = "flex";
         document.getElementById("ContainerLogin").style.display = "flex";
         return;
       }
