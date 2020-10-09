@@ -54,7 +54,7 @@
           </div>
 
           <div class="containerButtons">
-            <button v-on:click="addToOrder()">Adicionar ao carrinho</button>
+            <button v-on:click="addToCustomerBag(product.id)">Adicionar ao carrinho</button>
             <button>Favoritar</button>
           </div>
 
@@ -102,7 +102,9 @@ import Slider from "../components/product/product-slider/Slider.vue";
 import MessageBar from "../components/navigation/MessageBar";
 import Footer from "../components/navigation/Footer.vue";
 import Gap from "../components/navigation/Gap.vue";
+
 import { ProductService } from "../services/ProductService";
+import { CustomerBagService } from "../services/CustomerBagService";
 
 export default {
   name: "Product",
@@ -115,6 +117,7 @@ export default {
   data() {
     return {
       productService: new ProductService(),
+      customerBagService: new CustomerBagService(),
       product: {},
       categoryId: null,
     };
@@ -131,12 +134,17 @@ export default {
     getQuery(param) {
       return this.$route.query[param];
     },
-    addToOrder() {
+    addToCustomerBag(productId) {
       if (!localStorage.getItem("Authorization")) {
         document.getElementById("CadastroCase").style.display = "flex";
         document.getElementById("LoginCase").style.display = "none";
         document.getElementById("ContainerLogin").style.display = "flex";
+        return;
       }
+
+      this.customerBagService.store({ productId })
+        .then(result => alert('produto adicionado pessoas do front colocar um bagui bonito aq'))
+        .catch(err => alert(err.message));
     },
   },
   created() {

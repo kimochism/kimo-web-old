@@ -1,13 +1,7 @@
 <template>
   <div class="container">
     <div id="ListBuy">
-      <ProductItem />
-      <ProductItem />
-      <ProductItem />
-      <ProductItem />
-      <ProductItem />
-      <ProductItem />
-      <ProductItem />
+      <ProductItem v-for="product in products" :key="product.id" :customerBag="product"/>
 
     </div>
     <div class="footerShoppingList">
@@ -31,6 +25,8 @@ export default {
   components: {
     ProductItem,
   },
+
+  props: ['products']
 };
 </script>
 

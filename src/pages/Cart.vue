@@ -1,25 +1,32 @@
 <template>
   <div>
     <div id="ContainerCart">
-        <md-steppers :md-active-step.sync="active" md-linear>
-          <md-step
-            id="first"
-            md-label="First Step"
-            md-description="Optional"
-            :md-done.sync="first"
+      <md-steppers :md-active-step.sync="active" md-linear>
+        <md-step
+          id="first"
+          md-label="First Step"
+          md-description="Optional"
+          :md-done.sync="first"
+        >
+          <ProductList :products="products" />
+          <md-button
+            class="md-raised md-primary"
+            @click="setDone('first', 'second')"
+            >Continue</md-button
           >
-            <ProductList/>
-            <md-button
-              class="md-raised md-primary"
-              @click="setDone('first', 'second')"
-              >Continue</md-button>
-          </md-step>
+        </md-step>
 
-          <md-step
-            id="second"
-            md-label="Second Step"
-            :md-error="secondStepError"
-            :md-done.sync="second"
+        <md-step
+          id="second"
+          md-label="Second Step"
+          :md-error="secondStepError"
+          :md-done.sync="second"
+        >
+          <Card />
+          <md-button
+            class="md-raised md-primary"
+            @click="setDone('second', 'third')"
+            >Continue</md-button
           >
             
             <md-button
@@ -62,29 +69,37 @@ import Footer from "../components/navigation/Footer.vue";
 import Card from "../components/payment/Card.vue";
 import Gap from "../components/navigation/Gap.vue";
 
+import { CustomerBagService } from "../services/CustomerBagService";
+
 export default {
-  name: 'StepperLinear',
-    data: () => ({
-      active: 'first',
-      first: false,
-      second: false,
-      third: false,
-      secondStepError: null
-    }),
-    methods: {
-      setDone (id, index) {
-        this[id] = true
+  name: "StepperLinear",
+  data: () => ({
+    active: "first",
+    customerBagService: new CustomerBagService(),
+    first: false,
+    second: false,
+    third: false,
+    secondStepError: null,
+    products: []
+  }),
+  methods: {
+    setDone(id, index) {
+      this[id] = true;
 
-        this.secondStepError = null
+      this.secondStepError = null;
 
-        if (index) {
-          this.active = index
-        }
-      },
-      setError () {
-        this.secondStepError = 'This is an error!'
+      if (index) {
+        this.active = index;
       }
     },
+    setError() {
+      this.secondStepError = "This is an error!";
+    },
+  },
+
+  created() {
+    this.customerBagService.list({ loggedCustomer: true }).then(products => this.products = products)
+  },
   components: {
     ProductList,
     Card,
@@ -96,7 +111,6 @@ export default {
 </script>
 
 <style scoped>
-
 #ContainerCart {
   padding: 50px 0px;
   width: 100%;
@@ -104,10 +118,10 @@ export default {
   justify-content: center;
   display: flex;
 }
-.md-steppers.md-theme-default .md-stepper-number{
+.md-steppers.md-theme-default .md-stepper-number {
   border-radius: 1px;
 }
-.md-steppers.md-theme-default{
+.md-steppers.md-theme-default {
   width: 80%;
   min-height: 500px;
 }
