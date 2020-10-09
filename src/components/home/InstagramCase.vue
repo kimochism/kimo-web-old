@@ -69,7 +69,6 @@ export default {
 #ContainerInstagramCase {
   background-color: white;
   height: 500px;
-  padding-top: 80px;
   display: flex;
 }
 .boxInstagram {

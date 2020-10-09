@@ -1,9 +1,9 @@
 <template>
   <!-- NÃO MEXE AQUI, DE JEITO NENHUM -->
   <div id="Slider">
-      <video controls autoplay loop>
+      <!-- <video controls autoplay loop>
         <source src="../../assets/video/slide2.mp4" type="video/mp4">
-      </video>
+      </video> -->
   </div>
 </template>
 
@@ -15,6 +15,7 @@ export default {
 
 <style scoped>
 #Slider {
+  background-image: url(https://media1.tenor.com/images/11f5a15b0a07d34ab032b92d53dcaae8/tenor.gif?itemid=14774070);
   background-color: transparent;
   background-position: center;
   justify-content: center;

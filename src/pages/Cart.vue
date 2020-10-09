@@ -21,7 +21,7 @@
             :md-error="secondStepError"
             :md-done.sync="second"
           >
-            <Card/>
+            
             <md-button
               class="md-raised md-primary"
               @click="setDone('second', 'third')"
@@ -32,13 +32,15 @@
             >
           </md-step>
 
-          <md-step id="third" md-label="Third Step" :md-done.sync="third">
-            <p>
-              asd
-            </p>
-            <p>
-              asd
-            </p>
+          <md-step  id="third" md-label="Third Step" :md-done.sync="third">
+            <div class="subContainerBoxPayments">
+              <div class="boxBoleto">
+                boletin
+              </div>
+              <div class="boxCard">
+                <Card/>  
+              </div>
+            </div>
             <md-button class="md-raised md-primary" @click="setDone('third')"
               >Done</md-button
             >
@@ -109,6 +111,23 @@ export default {
   width: 80%;
   min-height: 500px;
 }
+.subContainerBoxPayments{
+  padding: 0px 0px;
+  flex-direction: row;
+  display: flex;
+}
+
+.boxBoleto{
+  width: 50%;
+  justify-content: center;
+  display: flex;
+}
+.boxCard{
+  width: 50%;
+  justify-content: center;
+  display: flex;
+}
+
 @media screen and (max-width: 1024px) {
   #ContainerCart {
     flex-wrap: wrap;
