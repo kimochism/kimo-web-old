@@ -10,35 +10,25 @@
         />
       </div>
     </div>
-    <Footer />
-    <MessageBar />
   </div>
 </template>
 
 <script>
   import Item from "./category-item/component.vue";
-  import MessageBar from "../shared/message-bar/component.vue";
   import Header from "../shared/header/component.vue";
-  import Footer from "../shared/footer/component.vue";
-  import { store, mutations } from "./store";
+  import { actions, mapGetters } from "./store";
+
   export default {
     name: "Categories",
     components: {
       Item,
-      MessageBar,
       Header,
-      Footer,
     },
     computed: {
-      categories() {
-        return store.categories;
-      },
-      header() {
-        return store.header;
-      }
+      ...mapGetters
     },
     created() {
-      mutations.listCategories();
+      actions.listCategories();
     },
   };
 </script>

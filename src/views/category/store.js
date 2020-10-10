@@ -1,5 +1,7 @@
 import Vue from "vue";
 
+import { buildStore } from '../../utils/base-store';
+
 import { CategoryService } from "../../services/CategoryService";
 
 export const store = Vue.observable({
@@ -10,10 +12,12 @@ export const store = Vue.observable({
   }
 });
 
-export const mutations = {
+export const actions = {
   listCategories: async() => {
     const response = await store.categoryService.list({ });
 
     store.categories = [...store.categories, ...response];
   },
 };
+
+export const mapGetters = buildStore(store);

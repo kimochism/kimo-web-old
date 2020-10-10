@@ -5,6 +5,9 @@
     <MessageBar />
     <Menu />
     <router-view></router-view>
+
+    <MessageBar />
+    <Footer />
   </div>
 </template>
 
@@ -12,6 +15,9 @@
 import Menu from "./views/shared/menu/component.vue";
 import MessageBar from "./views/shared/message-bar/component.vue";
 import SignInUp from "./views/modal/SignInUp.vue";
+import Footer from "./views/shared/footer/component.vue";
+// import SignInUp from "./views/modal/SignInUp.vue";
+
 import { CustomerService } from "./services/CustomerService";
 import { UserService } from "./services/UserService";
 
@@ -77,6 +83,7 @@ export default {
     Menu,
     MessageBar,
     SignInUp,
+    Footer
   },
 };
 </script>
