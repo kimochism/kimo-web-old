@@ -34,7 +34,7 @@
           <span class="material-icons"> perm_identity </span>
         </router-link>
         <router-link to="/carrinho">
-          <md-badge md-content="1">
+          <md-badge :md-content="badge">
           <md-button class="md-icon-button">
             <span class="material-icons"> shopping_basket </span>
           </md-button>
@@ -72,6 +72,9 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
 <script>
+
+import { actions, mapGetters } from "./../../cart/store";
+
 export default {
   name: "Menu",
 
@@ -116,6 +119,10 @@ export default {
     };
   },
 
+  computed: {
+    ...mapGetters,
+  },
+
   mounted: function () {
     window.onresize = () => {
       if (window.innerWidth > 800) {
@@ -125,6 +132,8 @@ export default {
   },
 
   methods: {
+    ...actions,
+
     openMenu: function () {
       if (this.isOpen) {
         document.getElementById("MenuOptions").style.display = "flex";
@@ -140,6 +149,10 @@ export default {
       document.getElementById("LoginCase").style.display = "flex";
     },
   },
+
+  created() {
+    actions.getBadge();
+  }
 };
 </script>
 

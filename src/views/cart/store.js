@@ -12,6 +12,7 @@ export const store = Vue.observable({
     third: false,
     secondStepError: null,
     products: [],
+    badge: 0,
 });
 
 export const actions = {
@@ -32,6 +33,18 @@ export const actions = {
     async getCustomerBags() {
         const response = await store.customerBagService.list({ loggedCustomer: true });
         store.products = response;
+
+        return store.products;
+    },
+
+    async getBadge() {
+        
+        const customerBags = await this.getCustomerBags();
+
+        customerBags.forEach( customerBag => {
+            
+            store.badge += customerBag.quantity;
+        });
     }
 }
 
