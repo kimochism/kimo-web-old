@@ -54,8 +54,6 @@
     </div>
     <div>
       <Gap />
-      <Footer />
-      <MessageBar />
     </div>
   </div>
 </template>
@@ -86,48 +84,11 @@ export default {
   components: {
     ProductList,
     Card,
-    Footer,
-    MessageBar,
     Gap,
   },
 };
 </script>
 
 <style scoped>
-#ContainerCart {
-  padding: 50px 0px;
-  width: 100%;
-  min-width: 100%;
-  justify-content: center;
-  display: flex;
-}
-.md-steppers.md-theme-default .md-stepper-number {
-  border-radius: 1px;
-}
-.md-steppers.md-theme-default {
-  width: 80%;
-  min-height: 500px;
-}
-.subContainerBoxPayments {
-  padding: 0px 0px;
-  flex-direction: row;
-  display: flex;
-}
-
-.boxBoleto {
-  width: 50%;
-  justify-content: center;
-  display: flex;
-}
-.boxCard {
-  width: 50%;
-  justify-content: center;
-  display: flex;
-}
-
-@media screen and (max-width: 1024px) {
-  #ContainerCart {
-    flex-wrap: wrap;
-  }
-}
+  @import url("./style.css");
 </style>

@@ -1,0 +1,20 @@
+.shirt-maker-body {
+    text-align: center;
+  }
+  .title {
+    margin: 4% 0;
+    font-size: 40px;
+    font-weight: bold;
+  }
+  .types-container {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    display: flex;
+    padding: 5px 25px;
+  }
+  .container-stepper {
+    margin: 2% 0;
+  }
+  .selected-model {
+    border: 1px solid red;
+  }
