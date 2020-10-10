@@ -34,7 +34,11 @@
           <span class="material-icons"> perm_identity </span>
         </router-link>
         <router-link to="/carrinho">
-          <span class="material-icons"> shopping_basket </span>
+          <md-badge md-content="1">
+          <md-button class="md-icon-button">
+            <span class="material-icons"> shopping_basket </span>
+          </md-button>
+        </md-badge>
         </router-link>
       </div>
 

@@ -1,11 +1,11 @@
 <template>
   <div>
     <div id="ContainerCart">
-      <md-steppers :md-active-step.sync="active" md-linear>
+      <md-steppers :md-active-step.sync="active" md-alternative>
         <md-step
           id="first"
-          md-label="First Step"
-          md-description="Optional"
+          md-label="Produtos"
+          md-description="Verifique se os seus produtos"
           :md-done.sync="first"
         >
           <ProductList :products="products" />
@@ -18,28 +18,78 @@
 
         <md-step
           id="second"
-          md-label="Second Step"
+          md-label="Entrega"
+          md-description="Confirme o local da entrega"
           :md-error="secondStepError"
           :md-done.sync="second"
         >
-          <Card />
+          <div class="subContainerLocation">
+            <div class="box Left">
+              <div class="myLocations">
+                <h2>Meus endereços</h2>
+                <div class="itemAdress">
+                  <div class="editarItemAddress">
+                    <span class="material-icons"> create </span>
+                  </div>
+                  <div class="infoItemAddress">
+                    <span>Rua José Pessota</span>
+                    <span>Pq Santa Rita</span>
+                    <span>CEP: 0815-020</span>
+                    <span>São Paulo - SP</span>
+                  </div>
+                  <div class="deleteItemAddress">
+                    <span class="material-icons"> clear </span>
+                  </div>
+                </div>
+              </div>
+              <div class="newLocation">
+                <h2>Adicionar novo endereço</h2>
+                <div class="addNewLocation">
+                  <div class="inpAdress">
+                    <label for="">Rua</label>
+                    <input type="text" placeholder="Rua Avenida Paulista" />
+                  </div>
+
+                  <div class="inpAdress">
+                    <label for="">Número</label>
+                    <input type="text" placeholder="123" />
+                  </div>
+
+                  <div class="inpAdress">
+                    <label for="">CEP</label>
+                    <input type="text" placeholder="00000-000" />
+                  </div>
+                </div>
+
+                <button class="btnBlack">Adicionar</button>
+              </div>
+            </div>
+
+            <div class="box Right">asda</div>
+          </div>
+
           <md-button
             class="md-raised md-primary"
             @click="setDone('second', 'third')"
             >Continue</md-button
           >
-
           <md-button
             class="md-raised md-primary"
             @click="setDone('second', 'third')"
             >Continue</md-button
           >
           <md-button class="md-raised md-primary" @click="setError()"
-            >Set error!</md-button
+          md-error="xuuxuxuxbeleza"
+            >Verifique os campos</md-button
           >
         </md-step>
 
-        <md-step id="third" md-label="Third Step" :md-done.sync="third">
+        <md-step
+          id="third"
+          md-label="Pagamento"
+          md-description="Confirme o método de pagamento"
+          :md-done.sync="third"
+        >
           <div class="subContainerBoxPayments">
             <div class="boxBoleto">boletin</div>
             <div class="boxCard">
