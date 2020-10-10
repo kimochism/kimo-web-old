@@ -1,14 +1,13 @@
 import Vue from 'vue';
-import Router from 'vue-router'
-import Home from './pages/Home.vue'
-import ShirtMaker from './pages/ShirtMaker'
-import NotFound from './pages/NotFound'
-import VueCarousel from 'vue-carousel'
+import Router from 'vue-router';
+import Home from './views/home/component.vue';
+import ShirtMaker from './views/shirt-maker/component.vue';
+import NotFound from './views/not-found/component.vue';
 
 Vue.use(Router);
 
 function lazyLoad(view){
-  return () => import(`@/pages/${view}.vue`)
+  return () => import(`@/views/${view}/component.vue`);
 }
 
 const router = new Router({
@@ -22,37 +21,32 @@ const router = new Router({
       component: Home,
     },
     {
-      path: '/userprofile',
-      name: 'userprofile',
-      component: lazyLoad('UserProfile'),
+      path: '/perfil',
+      name: 'profile',
+      component: lazyLoad('profile'),
     },
     {
-      path: '/cart',
+      path: '/carrinho',
       name: 'cart',
-      component: lazyLoad('Cart'),
+      component: lazyLoad('cart'),
     },
     {
-      path: '/checkout',
-      name: 'checkout',
-      component: lazyLoad('checkout'),
-    },
-    {
-      path: '/category',
+      path: '/categorias',
       name: 'category',
-      component: lazyLoad('Category'),
+      component: lazyLoad('category'),
     },
     {
-      path: '/catalog',
+      path: '/catalogo',
       name: 'catalog',
-      component: lazyLoad('Catalog'),
+      component: lazyLoad('catalog'),
     },
     {
-      path: '/product',
+      path: '/produtos',
       name: 'product',
-      component: lazyLoad('Product'),
+      component: lazyLoad('product'),
     },
     {
-      path: "/shirtMaker",
+      path: "/sua-estampa",
       name: "shirt maker",
       component: ShirtMaker,
     },
