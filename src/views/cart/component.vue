@@ -28,31 +28,29 @@
             @click="setDone('second', 'third')"
             >Continue</md-button
           >
-            
-            <md-button
-              class="md-raised md-primary"
-              @click="setDone('second', 'third')"
-              >Continue</md-button
-            >
-            <md-button class="md-raised md-primary" @click="setError()"
-              >Set error!</md-button
-            >
-          </md-step>
 
-          <md-step  id="third" md-label="Third Step" :md-done.sync="third">
-            <div class="subContainerBoxPayments">
-              <div class="boxBoleto">
-                boletin
-              </div>
-              <div class="boxCard">
-                <Card/>  
-              </div>
+          <md-button
+            class="md-raised md-primary"
+            @click="setDone('second', 'third')"
+            >Continue</md-button
+          >
+          <md-button class="md-raised md-primary" @click="setError()"
+            >Set error!</md-button
+          >
+        </md-step>
+
+        <md-step id="third" md-label="Third Step" :md-done.sync="third">
+          <div class="subContainerBoxPayments">
+            <div class="boxBoleto">boletin</div>
+            <div class="boxCard">
+              <Card />
             </div>
-            <md-button class="md-raised md-primary" @click="setDone('third')"
-              >Done</md-button
-            >
-          </md-step>
-        </md-steppers>
+          </div>
+          <md-button class="md-raised md-primary" @click="setDone('third')"
+            >Done</md-button
+          >
+        </md-step>
+      </md-steppers>
     </div>
     <div>
       <Gap />
@@ -63,42 +61,27 @@
 </template>
 
 <script>
-import ProductList from "./product-list/component.vue";
-import MessageBar from "./../shared/message-bar/component.vue";
-import Footer from "./../shared/footer/component.vue";
-import Card from "./form-payment/component.vue";
-import Gap from "./../shared/gap/component.vue";
+import ProductList from './product-list/component.vue';
+import MessageBar from './../shared/message-bar/component.vue';
+import Footer from './../shared/footer/component.vue';
+import Card from './form-payment/component.vue';
+import Gap from './../shared/gap/component.vue';
 
-import { CustomerBagService } from "../../services/CustomerBagService";
+import { actions, mapGetters } from './store';
 
 export default {
-  name: "StepperLinear",
-  data: () => ({
-    active: "first",
-    customerBagService: new CustomerBagService(),
-    first: false,
-    second: false,
-    third: false,
-    secondStepError: null,
-    products: []
-  }),
+  name: 'StepperLinear',
+
+  computed: {
+    ...mapGetters
+  },
+
   methods: {
-    setDone(id, index) {
-      this[id] = true;
-
-      this.secondStepError = null;
-
-      if (index) {
-        this.active = index;
-      }
-    },
-    setError() {
-      this.secondStepError = "This is an error!";
-    },
+    ...actions,
   },
 
   created() {
-    this.customerBagService.list({ loggedCustomer: true }).then(products => this.products = products)
+    actions.getCustomerBags();
   },
   components: {
     ProductList,
@@ -125,18 +108,18 @@ export default {
   width: 80%;
   min-height: 500px;
 }
-.subContainerBoxPayments{
+.subContainerBoxPayments {
   padding: 0px 0px;
   flex-direction: row;
   display: flex;
 }
 
-.boxBoleto{
+.boxBoleto {
   width: 50%;
   justify-content: center;
   display: flex;
 }
-.boxCard{
+.boxCard {
   width: 50%;
   justify-content: center;
   display: flex;

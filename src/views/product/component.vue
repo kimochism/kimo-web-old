@@ -92,66 +92,41 @@
     <Slider v-if="categoryId" :categoryId="categoryId" />
     <hr class="break_pdtc" />
     <Gap />
-    <Footer />
-    <MessageBar />
   </div>
 </template>
 
 <script>
-import Slider from "./product-slider/component.vue";
-import MessageBar from "../shared/message-bar/component.vue";
-import Footer from "../shared/footer/component.vue";
-import Gap from "../shared/gap/component.vue";
 
-import { ProductService } from "../../services/ProductService";
-import { CustomerBagService } from "../../services/CustomerBagService";
+import Slider from './product-slider/component.vue';
+import Gap from '../shared/gap/component.vue';
+
+import { mapGetters, actions } from './store';
 
 export default {
-  name: "Product",
+  name: 'Product',
   components: {
-    MessageBar,
-    Footer,
     Slider,
     Gap,
   },
-  data() {
-    return {
-      productService: new ProductService(),
-      customerBagService: new CustomerBagService(),
-      product: {},
-      categoryId: null,
-    };
+
+  computed: {
+    ...mapGetters
   },
+
   methods: {
-    getProductById() {
-      const id = this.getQuery("id");
-
-      this.productService.show(id).then((product) => {
-        this.product = product;
-        this.categoryId = product.categories[0].id;
-      });
-    },
     getQuery(param) {
-      return this.$route.query[param];
+        return this.$route.query[param];
     },
-    addToCustomerBag(productId) {
-      if (!localStorage.getItem("Authorization")) {
-        document.getElementById("CadastroCase").style.display = "none";
-        document.getElementById("LoginCase").style.display = "flex";
-        document.getElementById("ContainerLogin").style.display = "flex";
-        return;
-      }
 
-      this.customerBagService.store({ productId })
-        .then(result => alert('produto adicionado pessoas do front colocar um bagui bonito aq'))
-        .catch(err => alert(err.message));
-    },
+    ...actions
   },
+
   created() {
     if (!this.$route.query.id) {
       this.$router.push({ path: "not-found" });
     }
-    this.getProductById();
+  
+    actions.getProductById(this.$route.query.id);
   },
 };
 </script>

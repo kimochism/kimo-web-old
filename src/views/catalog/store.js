@@ -1,8 +1,8 @@
-import Vue from "vue";
+import Vue from 'vue';
 
 import { buildStore } from '../../utils/base-store';
 
-import { ProductService } from "../../services/ProductService";
+import { ProductService } from '../../services/ProductService';
 
 export const store = Vue.observable({
   productService: new ProductService(),

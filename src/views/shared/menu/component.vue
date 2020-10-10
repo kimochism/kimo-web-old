@@ -15,10 +15,10 @@
         </router-link>
       </div>
       <div class="optionsMenu">
-        <router-link to="/category">
+        <router-link to="/categorias">
           <span>Categorias</span>
         </router-link>
-        <router-link to="/catalog">
+        <router-link to="/catalogo">
           <span>Catálogo</span>
         </router-link>
         <span>Gamer</span>
@@ -30,10 +30,10 @@
       <div class="searchMenu ajust">
         <input type="text" placeholder="Procurar" />
         <span class="material-icons weSearch"> search </span>
-        <router-link to="/UserProfile">
+        <router-link to="/perfil">
           <span class="material-icons"> perm_identity </span>
         </router-link>
-        <router-link to="/cart">
+        <router-link to="/carrinho">
           <span class="material-icons"> shopping_basket </span>
         </router-link>
       </div>

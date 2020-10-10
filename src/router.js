@@ -41,7 +41,7 @@ const router = new Router({
       component: lazyLoad('catalog'),
     },
     {
-      path: '/produtos',
+      path: '/produto',
       name: 'product',
       component: lazyLoad('product'),
     },

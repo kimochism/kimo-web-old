@@ -7,7 +7,6 @@
     <!-- ******* -->
     <!-- Modelo pra componente -->
     <!-- ******* -->
-    
 
     <div class="optionsHeader">
       <div class="options">
@@ -36,18 +35,7 @@
     </div>
 
     <div id="ContainerCatalog">
-      <div
-        v-on:click="navigateToProduct(product.id)"
-        class="productBoxItem"
-        v-for="product in products"
-        :key="product.id"
-      >
-        <img :src="product.images[0].url" alt width="270px" />
-        <span for>{{ product.name }}</span>
-        <span>
-          <b>R$ {{ product.price }}</b>
-        </span>
-      </div>
+      <ProductCard v-for="product in products" :key="product.id" :product="product" />
     </div>
 
     <div class="btnSeeMore">
@@ -65,6 +53,7 @@
 <script>
 
 import ProductFilter from './product-filter/component.vue';
+import ProductCard from './product-card/component';
 
 import { actions, mapGetters } from './store';
 
@@ -73,6 +62,7 @@ export default {
 
   components: {
     ProductFilter,
+    ProductCard
   },
 
   computed: {
@@ -81,10 +71,6 @@ export default {
 
   methods: {
     ...actions,
-
-    navigateToProduct(id) {
-      this.$router.push({ path: 'product', query: { id } });
-    },
 
   },
   created() {
@@ -155,21 +141,6 @@ export default {
   justify-content: space-between;
   flex-wrap: wrap;
   display: flex;
-}
-
-.productBoxItem {
-  width: 270px;
-  height: 370px;
-  flex: 1 1 270px;
-  margin: 1%;
-  cursor: pointer;
-  flex-direction: column;
-  align-items: center;
-  display: flex;
-}
-
-.productBoxItem span {
-  padding: 12px;
 }
 
 .btnSeeMore {

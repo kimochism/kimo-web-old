@@ -11,56 +11,41 @@
     <InstagramCase />
     <Products :products="products" />
     <Gap />
-    <Footer />
-    <MessageBar />
   </div>
 </template>
 
 <script>
-import MessageBar from "../shared/message-bar/component.vue";
-import InstagramCase from "./instagram-case/component.vue";
-import Products from "./product-list/component.vue";
-import Footer from "../shared/footer/component.vue";
-import Slider from "./slider-home/component.vue";
-import Warning from "./warning/component.vue";
-import Gap from "../shared/gap/component.vue";
-import Offer from "./offer/component.vue";
-import { ProductService } from "../../services/ProductService";
+
+import InstagramCase from './instagram-case/component.vue';
+import Products from './product-list/component.vue';
+import Slider from './slider-home/component.vue';
+import Warning from './warning/component.vue';
+import Gap from '../shared/gap/component.vue';
+import Offer from './offer/component.vue';
+
+import { mapGetters, actions } from './store';
 
 export default {
   name: "home",
   components: {
-    MessageBar,
     Slider,
     Warning,
     Offer,
     Products,
-    Footer,
     Gap,
     InstagramCase,
   },
-  data() {
-    return {
-      products: {},
-      offerProduct: {},
-      productService: new ProductService(),
-    };
+
+  computed: {
+    ...mapGetters
   },
+
   methods: {
-    listProducts() {
-      this.productService
-        .list({ page: 1, limit: 6 })
-        .then((products) => (this.products = products.data));
-    },
-    getOfferProduct() {
-      this.productService
-        .list({ offer: true, page: 1, limit: 1 })
-        .then((products) => (this.offerProduct = products.data[0]));
-    },
+    ...actions
   },
   created() {
-    this.listProducts();
-    this.getOfferProduct();
+    actions.listProducts();
+    actions.getOfferProduct();
   },
 };
 </script>
