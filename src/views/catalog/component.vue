@@ -7,6 +7,7 @@
     <!-- ******* -->
     <!-- Modelo pra componente -->
     <!-- ******* -->
+    
 
     <div class="optionsHeader">
       <div class="options">
@@ -49,8 +50,10 @@
       </div>
     </div>
 
+    {{ count }}
+
     <div class="btnSeeMore">
-      <button v-on:click="listProducts()">Ver Mais</button>
+      <button v-on:click="setCount()">Ver Mais</button>
     </div>
 
     <ProductFilter
@@ -69,7 +72,8 @@ import MessageBar from "./../shared/message-bar/component.vue";
 import Footer from "./../shared/footer/component.vue";
 import ProductFilter from "./product-filter/component.vue";
 import { ProductService } from "../../services/ProductService";
-// import router from '../router';
+
+import { store, mutations } from './store';
 
 export default {
   name: "Catalog",
@@ -81,20 +85,17 @@ export default {
   data() {
     return {
       productService: new ProductService(),
-      products: [],
+      // products: [],
       page: 0,
       showProductFilter: false,
     };
   },
+  computed: {
+    products() {
+      return store.products
+    }
+  },
   methods: {
-    listProducts() {
-      this.page++;
-      this.productService
-        .list({ page: this.page, limit: 8 })
-        .then(
-          (products) => (this.products = [...this.products, ...products.data])
-        );
-    },
     navigateToProduct(id) {
       this.$router.push({ path: "product", query: { id } });
     },
@@ -103,7 +104,7 @@ export default {
     },
   },
   created() {
-    this.listProducts();
+    mutations.listProducts();
   },
 };
 </script>
