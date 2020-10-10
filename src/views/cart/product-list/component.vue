@@ -37,6 +37,7 @@ export default {
 
 #ListBuy {
   width: 100%;
+  
   min-height: 500px;
   max-height: 500px;
   margin-right: 50px;
