@@ -44,6 +44,7 @@
 
     <ProductFilter
       v-show="showProductFilter"
+      :toggleProductFilter="toggleProductFilter"
     />
   </div>
 </template>

@@ -69,13 +69,10 @@
 </template>
 
 <script>
-import { actions } from '../store';
-export default {
-  name: "ProductFilter",
-  methods: {
-    ...actions
-  },
-};
+  export default {
+    name: "ProductFilter",
+    props: ['toggleProductFilter']
+  };
 </script>
 
 <style src="./style.css"  scoped>
