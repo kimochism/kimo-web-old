@@ -20,8 +20,7 @@
   import MessageBar from "../shared/message-bar/component.vue";
   import Header from "../shared/header/component.vue";
   import Footer from "../shared/footer/component.vue";
-  import { CategoryService } from "../../services/CategoryService";
-
+  import { store, mutations } from "./store";
   export default {
     name: "Categories",
     components: {
@@ -30,24 +29,16 @@
       Header,
       Footer,
     },
-    data() {
-      return {
-        categories: {},
-        categoryService: new CategoryService(),
-        header: {
-          title: "Categorias",
-        },
-      };
-    },
-    methods: {
-      listCategories() {
-        this.categoryService
-          .list({})
-          .then((categories) => (this.categories = categories));
+    computed: {
+      categories() {
+        return store.categories;
       },
+      header() {
+        return store.header;
+      }
     },
     created() {
-      this.listCategories();
+      mutations.listCategories();
     },
   };
 </script>

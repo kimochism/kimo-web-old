@@ -1,6 +1,6 @@
 <template>
   <div id="ContainerDaddy">
-    <!-- <SignInUp :auth="auth" :storeUser="storeUser" /> -->
+    <SignInUp :auth="auth" :storeUser="storeUser" />
 
     <MessageBar />
     <Menu />
@@ -11,7 +11,7 @@
 <script>
 import Menu from "./views/shared/menu/component.vue";
 import MessageBar from "./views/shared/message-bar/component.vue";
-// import SignInUp from "./views/modal/SignInUp.vue";
+import SignInUp from "./views/modal/SignInUp.vue";
 import { CustomerService } from "./services/CustomerService";
 import { UserService } from "./services/UserService";
 
@@ -76,7 +76,7 @@ export default {
   components: {
     Menu,
     MessageBar,
-  // SignInUp,
+    SignInUp,
   },
 };
 </script>
