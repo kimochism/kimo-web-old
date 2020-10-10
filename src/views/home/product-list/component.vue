@@ -39,7 +39,7 @@ export default {
 
   methods: {
     navigateToProduct(id) {
-      this.$router.push({ path: "product", query: { id } });
+      this.$router.push({ path: "produto", query: { id } });
     },
   },
 };
