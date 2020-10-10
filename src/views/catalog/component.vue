@@ -64,9 +64,10 @@
 </template>
 
 <script>
-import MessageBar from "../views/navigation/MessageBar";
-import Footer from "../views/navigation/Footer";
-import ProductFilter from "../views/catalog/ProductFilter";
+
+import MessageBar from "./../shared/message-bar/component.vue";
+import Footer from "./../shared/footer/component.vue";
+import ProductFilter from "./product-filter/component.vue";
 import { ProductService } from "../services/ProductService";
 // import router from '../router';
 

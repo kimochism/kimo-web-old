@@ -63,11 +63,11 @@
 </template>
 
 <script>
-import ProductList from "../views/cart/ProductList";
-import MessageBar from "../views/navigation/MessageBar";
-import Footer from "../views/navigation/Footer.vue";
-import Card from "../views/payment/Card.vue";
-import Gap from "../views/navigation/Gap.vue";
+import ProductList from "./product-list/component.vue";
+import MessageBar from "./../shared/message-bar/component.vue";
+import Footer from "./../shared/footer/component.vue";
+import Card from "./form-payment/component.vue";
+import Gap from "./../shared/gap/component.vue";
 
 import { CustomerBagService } from "../services/CustomerBagService";
 

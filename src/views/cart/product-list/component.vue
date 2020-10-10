@@ -2,7 +2,6 @@
   <div class="container">
     <div id="ListBuy">
       <ProductItem v-for="product in products" :key="product.id" :customerBag="product"/>
-
     </div>
     <div class="footerShoppingList">
       <div class="continueCart">
@@ -18,7 +17,7 @@
 </template>
 
 <script>
-import ProductItem from "./ProductItem.vue";
+import ProductItem from "./../product-item/component.vue";
 
 export default {
   name: "ProductList",
