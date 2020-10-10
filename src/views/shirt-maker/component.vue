@@ -113,9 +113,9 @@
 </template>
 
 <script scoped>
-import MessageBar from "../views/navigation/MessageBar.vue";
-import Footer from "../views/navigation/Footer.vue";
-import CardShirtType from "../views/shirtMaker/CardShirtType.vue";
+import MessageBar from "../shared/message-bar/component.vue";
+import Footer from "../shared/footer/component.vue";
+import CardShirtType from "./card-shit-type/component.vue";
 
 export default {
   name: "ShirtMaker",

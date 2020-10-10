@@ -85,7 +85,7 @@ export default {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
-  background-image: url("../../assets/insta.png");
+  background-image: url("../../../assets/insta.png");
   background-size: 70px 70px;
   background-repeat: no-repeat;
   background-position: center;
