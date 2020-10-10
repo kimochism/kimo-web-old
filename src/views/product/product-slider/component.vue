@@ -10,11 +10,6 @@
       :autoplayTimeout="5000"
     >
       <slide>
-        <Item
-          v-for="product in products"
-          :key="product.id"
-          :product="product"
-        />
         <div class="content" v-for="product in products" :key="product.id" :product="product">
           <img :src="product.images[0].url" alt="" />
           <div class="items">
@@ -32,7 +27,6 @@
 
 <script>
 import { Carousel, Slide } from "vue-carousel";
-import Item from "./Item.vue";
 import { CategoryService } from "../../../services/CategoryService";
 
 export default {
@@ -48,7 +42,6 @@ export default {
   components: {
     Carousel,
     Slide,
-    Item,
   },
   methods: {
     listProductsByCategory(id) {

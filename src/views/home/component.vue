@@ -17,15 +17,15 @@
 </template>
 
 <script>
-import MessageBar from "../views/navigation/MessageBar.vue";
-import InstagramCase from "../views/home/InstagramCase.vue";
-import { ProductService } from "../services/ProductService";
-import Products from "../views/product/Products.vue";
-import Footer from "../views/navigation/Footer.vue";
-import Slider from "../views/home/SliderHome.vue";
-import Warning from "../views/home/Warning.vue";
-import Gap from "../views/navigation/Gap.vue";
-import Offer from "../views/home/Offer.vue";
+import MessageBar from "../shared/message-bar/component.vue";
+import InstagramCase from "./instagram-case/component.vue";
+import Products from "./product-list/component.vue";
+import Footer from "../shared/footer/component.vue";
+import Slider from "./slider-home/component.vue";
+import Warning from "./warning/component.vue";
+import Gap from "../shared/gap/component.vue";
+import Offer from "./offer/component.vue";
+import { ProductService } from "../../services/ProductService";
 
 export default {
   name: "home",

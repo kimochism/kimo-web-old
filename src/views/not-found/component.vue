@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="ContainerNotFound">
-      <img src="../assets/404.png" alt="" />
+      <img src="../../assets/404.png" alt="" />
       <span>Oops.. Página não encontrada</span>
       <p>
         Ocorreu um erro na página que você tentou acessar

@@ -69,7 +69,7 @@ import Footer from "./../shared/footer/component.vue";
 import Card from "./form-payment/component.vue";
 import Gap from "./../shared/gap/component.vue";
 
-import { CustomerBagService } from "../services/CustomerBagService";
+import { CustomerBagService } from "../../services/CustomerBagService";
 
 export default {
   name: "StepperLinear",

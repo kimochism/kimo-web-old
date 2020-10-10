@@ -17,7 +17,7 @@ export default {
 <style scoped>
 #header {
   height: 320px;
-  background-image: url("../../assets/bg.png");
+  background-image: url("../../../assets/bg.png");
   background-size: cover;
   background-position: top;
   justify-content: center;

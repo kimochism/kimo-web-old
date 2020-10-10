@@ -17,10 +17,10 @@
 
 <script>
   import Item from "./category-item/component.vue";
-  import MessageBar from "./../navigation/message-bar/component.vue";
-  import Header from "./../navigation/header/component.vue";
-  import Footer from "./../navigation/footer/component.vue";
-  import { CategoryService } from "../services/CategoryService";
+  import MessageBar from "../shared/message-bar/component.vue";
+  import Header from "../shared/header/component.vue";
+  import Footer from "../shared/footer/component.vue";
+  import { CategoryService } from "../../services/CategoryService";
 
   export default {
     name: "Categories",

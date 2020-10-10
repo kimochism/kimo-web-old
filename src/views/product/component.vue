@@ -103,8 +103,8 @@ import MessageBar from "../shared/message-bar/component.vue";
 import Footer from "../shared/footer/component.vue";
 import Gap from "../shared/gap/component.vue";
 
-import { ProductService } from "../services/ProductService";
-import { CustomerBagService } from "../services/CustomerBagService";
+import { ProductService } from "../../services/ProductService";
+import { CustomerBagService } from "../../services/CustomerBagService";
 
 export default {
   name: "Product",
