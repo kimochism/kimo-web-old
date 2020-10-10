@@ -76,7 +76,7 @@ export default {
   components: {
     Menu,
     MessageBar,
-    SignInUp,
+    // SignInUp,
   },
 };
 </script>
