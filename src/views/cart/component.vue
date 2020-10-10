@@ -59,11 +59,9 @@
 </template>
 
 <script>
-import ProductList from './product-list/component.vue';
-import MessageBar from './../shared/message-bar/component.vue';
-import Footer from './../shared/footer/component.vue';
-import Card from './form-payment/component.vue';
-import Gap from './../shared/gap/component.vue';
+import ProductList from "./product-list/component.vue";
+import Card from "./form-payment/component.vue";
+import Gap from "./../shared/gap/component.vue";
 
 import { actions, mapGetters } from './store';
 
