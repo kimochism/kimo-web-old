@@ -89,6 +89,10 @@
     margin: 0 auto;
     display: flex;
   }
+
+  * {
+    color: black;
+  }
   
   .subContainerMessageTwo {
     width: 100%;

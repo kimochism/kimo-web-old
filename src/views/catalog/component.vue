@@ -79,6 +79,6 @@ export default {
 };
 </script>
 
-<style scoped>
-  @import url("./style.css");
+<style src="./style.css"  scoped>
+  
 </style>
