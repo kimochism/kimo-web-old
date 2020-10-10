@@ -15,23 +15,5 @@ export default {
 </script>
 
 <style scoped>
-#header {
-  height: 320px;
-  background-image: url("../../../assets/bg.png");
-  background-size: cover;
-  background-position: top;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  display: flex;
-}
-
-#header h1 {
-  font-weight: bold;
-}
-
-#header span {
-  font-size: 16px;
-  text-transform: uppercase;
-}
+@import url("./style.css");
 </style>

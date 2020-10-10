@@ -11,16 +11,12 @@
     <InstagramCase />
     <Products :products="products" />
     <Gap />
-    <Footer />
-    <MessageBar />
   </div>
 </template>
 
 <script>
-import MessageBar from "../shared/message-bar/component.vue";
 import InstagramCase from "./instagram-case/component.vue";
 import Products from "./product-list/component.vue";
-import Footer from "../shared/footer/component.vue";
 import Slider from "./slider-home/component.vue";
 import Warning from "./warning/component.vue";
 import Gap from "../shared/gap/component.vue";
@@ -30,12 +26,10 @@ import { ProductService } from "../../services/ProductService";
 export default {
   name: "home",
   components: {
-    MessageBar,
     Slider,
     Warning,
     Offer,
     Products,
-    Footer,
     Gap,
     InstagramCase,
   },
@@ -66,66 +60,5 @@ export default {
 </script>
 
 <style scoped>
-* {
-  outline: none !important;
-}
-.warning-shirt-maker {
-  background-color: white;
-  text-align: center;
-  padding: 20px;
-}
-
-.linker {
-  text-decoration: none;
-  color: black;
-}
-.linker:hover {
-  text-decoration: none;
-  color: black;
-}
-
-.h1ShirtMaker {
-  width: auto;
-  text-transform: uppercase;
-  line-height: 30px;
-  padding: 8px;
-  color: black;
-  margin: 0 auto;
-}
-
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-
-html {
-  margin: 0px;
-  padding: 0px;
-  overflow-x: hidden;
-}
-
-body {
-  margin: 0px;
-  padding: 0px;
-  font-family: "Kumbh Sans", sans-serif;
-  text-rendering: optimizeLegibility !important;
-  font-weight: 400;
-  font-style: normal;
-  overflow-x: hidden !important;
-}
+@import url("./style.css");
 </style>

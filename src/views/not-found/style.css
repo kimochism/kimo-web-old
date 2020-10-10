@@ -1,0 +1,16 @@
+#ContainerNotFound {
+    padding: 120px 0px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  #ContainerNotFound span {
+    font-size: 18px;
+    padding: 28px;
+  }
+  #ContainerNotFound p {
+    text-align: center;
+    font-size: 18px;
+    line-height: 25px;
+  }

@@ -34,15 +34,5 @@
 </script>
   
 <style scoped>
-  .container {
-    margin: 50px 10%;
-  }
-
-  .content {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
+  @import url("./style.css");
 </style>

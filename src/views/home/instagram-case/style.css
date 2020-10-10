@@ -1,0 +1,36 @@
+#ContainerInstagramCase {
+    background-color: white;
+    height: 500px;
+    display: flex;
+  }
+  .boxInstagram {
+    width: 100%;
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+  }
+  .instaOpacity:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+  .instaOpacity {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    background-image: url("../../../assets/insta.png");
+    background-size: 70px 70px;
+    background-repeat: no-repeat;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    transition: 1s;
+    display: flex;
+    opacity: 0;
+  }
+  .instaOpacity span {
+    margin-top: 110px;
+    text-align: center;
+  }

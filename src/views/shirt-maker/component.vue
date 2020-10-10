@@ -107,21 +107,15 @@
         >
       </md-step>
     </md-steppers>
-    <Footer />
-    <MessageBar />
   </div>
 </template>
 
 <script scoped>
-import MessageBar from "../shared/message-bar/component.vue";
-import Footer from "../shared/footer/component.vue";
 import CardShirtType from "./card-shit-type/component.vue";
 
 export default {
   name: "ShirtMaker",
   components: {
-    MessageBar,
-    Footer,
     CardShirtType,
   },
   data: () => ({
@@ -160,24 +154,5 @@ export default {
 </script>
 
 <style scoped>
-.shirt-maker-body {
-  text-align: center;
-}
-.title {
-  margin: 4% 0;
-  font-size: 40px;
-  font-weight: bold;
-}
-.types-container {
-  justify-content: space-between;
-  flex-wrap: wrap;
-  display: flex;
-  padding: 5px 25px;
-}
-.container-stepper {
-  margin: 2% 0;
-}
-.selected-model {
-  border: 1px solid red;
-}
+  @import url("./style.css");
 </style>

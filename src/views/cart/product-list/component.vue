@@ -30,49 +30,5 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  width: 100%;
-}
-
-#ListBuy {
-  width: 100%;
-  
-  min-height: 500px;
-  max-height: 500px;
-  margin-right: 50px;
-  flex-direction: column;
-  display: flex;
-  margin: auto;
-  overflow: auto;
-}
-
-/* footer */
-
-.footerShoppingList {
-  padding: 25px 15px;
-  font-size: 16px;
-  font-weight: bold;
-  justify-content: space-between;
-  align-items: center;
-  display: flex;
-}
-
-.colorPrimary {
-  color: #007bff;
-}
-
-.continueCart {
-  align-items: center;
-  display: flex;
-}
-
-.price {
-  padding-right: 20px;
-}
-
-@media screen and (max-width: 800px) {
-  .price {
-    padding-right: 0px;
-  }
-}
+  @import url("./style.css");
 </style>

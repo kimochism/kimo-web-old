@@ -11,16 +11,5 @@ export default {
 </script>
 
 <style scoped>
-#MessageBar {
-  width: 100%;
-  height: 25px;
-  background-color: whitesmoke;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-}
-#MessageBar span {
-  letter-spacing: 0.2em;
-  font-size: 12px;
-}
+  @import url("./style.css");
 </style>
