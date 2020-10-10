@@ -44,8 +44,6 @@
 
     <ProductFilter
       v-show="showProductFilter"
-      :showProductFilter="showProductFilter"
-      @returnShowProductFilter="showProductFilter = $event"
     />
   </div>
 </template>

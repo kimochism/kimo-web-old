@@ -73,85 +73,24 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
 <script>
 
-import { actions, mapGetters } from "./../../cart/store";
+import { actions, mapGetters } from "./store";
+import { actions as cartActions, mapGetters as cartMapGetters} from "./../../cart/store";
 
 export default {
   name: "Menu",
 
-  data: function () {
-    return {
-      message: "",
-      isOpen: true,
-      routerLinks: {
-        home: {
-          path: '/',
-          name: 'Início'
-        },
-        category: {
-          path: '/category',
-          name: 'Categorias'
-        },
-        catalog: {
-          path: '/catalog',
-          name: 'Catálogo'
-        },
-        gamer: {
-          path: '/catalog',
-          name: 'Gamer'
-        },
-        anime: {
-          path: '/catalog',
-          name: 'Anime'
-        },
-        geek: {
-          path: '/catalog',
-          name: 'Geek'
-        },
-        eGirl: {
-          path: '/catalog',
-          name: 'E-girl'
-        },
-        kids: {
-          path: '/catalog',
-          name: 'Kids'
-        },
-      }
-    };
-  },
-
   computed: {
     ...mapGetters,
-  },
-
-  mounted: function () {
-    window.onresize = () => {
-      if (window.innerWidth > 800) {
-        document.getElementById("MenuOptions").style.display = "none";
-      }
-    };
+    ...cartMapGetters
   },
 
   methods: {
     ...actions,
-
-    openMenu: function () {
-      if (this.isOpen) {
-        document.getElementById("MenuOptions").style.display = "flex";
-      } else {
-        document.getElementById("MenuOptions").style.display = "none";
-      }
-      console.log(this.isOpen);
-      this.isOpen = !this.isOpen;
-    },
-    changeCadastro: function () {
-      document.getElementById("ContainerLogin").style.display = "flex";
-      document.getElementById("CadastroCase").style.display = "none";
-      document.getElementById("LoginCase").style.display = "flex";
-    },
+    ...cartActions
   },
 
   created() {
-    actions.getBadge();
+    cartActions.getBadge();
   }
 };
 </script>

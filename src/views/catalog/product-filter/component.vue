@@ -1,8 +1,8 @@
 <template>
-  <div class="container" v-show="showProductFilter">
-    <div class="overlay" v-on:click="closeFilter()"></div>
+  <div class="container">
+    <div class="overlay" v-on:click="toggleProductFilter()"></div>
     <div class="content">
-      <span class="material-icons" v-on:click="closeFilter()"> close </span>
+      <span class="material-icons" v-on:click="toggleProductFilter()"> close </span>
       <div class="filter">
         <div class="filter-item">
           <p class="title">Ordenar por</p>
@@ -69,14 +69,11 @@
 </template>
 
 <script>
+import { actions } from '../store';
 export default {
   name: "ProductFilter",
-  props: ["showProductFilter"],
   methods: {
-    closeFilter() {
-      this.showProductFilter = !this.showProductFilter;
-      this.$emit("returnShowProductFilter", this.showProductFilter);
-    },
+    ...actions
   },
 };
 </script>
