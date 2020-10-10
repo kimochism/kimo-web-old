@@ -50,10 +50,8 @@
       </div>
     </div>
 
-    {{ count }}
-
     <div class="btnSeeMore">
-      <button v-on:click="setCount()">Ver Mais</button>
+      <button v-on:click="listProducts()">Ver Mais</button>
     </div>
 
     <ProductFilter
@@ -61,50 +59,36 @@
       :showProductFilter="showProductFilter"
       @returnShowProductFilter="showProductFilter = $event"
     />
-    <Footer />
-    <MessageBar />
   </div>
 </template>
 
 <script>
 
-import MessageBar from "./../shared/message-bar/component.vue";
-import Footer from "./../shared/footer/component.vue";
-import ProductFilter from "./product-filter/component.vue";
-import { ProductService } from "../../services/ProductService";
+import ProductFilter from './product-filter/component.vue';
 
-import { store, mutations } from './store';
+import { actions, mapGetters } from './store';
 
 export default {
-  name: "Catalog",
+  name: 'Catalog',
+
   components: {
-    MessageBar,
-    Footer,
     ProductFilter,
   },
-  data() {
-    return {
-      productService: new ProductService(),
-      // products: [],
-      page: 0,
-      showProductFilter: false,
-    };
-  },
+
   computed: {
-    products() {
-      return store.products
-    }
+    ...mapGetters
   },
+
   methods: {
+    ...actions,
+
     navigateToProduct(id) {
-      this.$router.push({ path: "product", query: { id } });
+      this.$router.push({ path: 'product', query: { id } });
     },
-    toggleProductFilter() {
-      this.showProductFilter = !this.showProductFilter;
-    },
+
   },
   created() {
-    mutations.listProducts();
+    actions.listProducts();
   },
 };
 </script>
@@ -112,7 +96,7 @@ export default {
 <style scoped>
 #header {
   height: 320px;
-  background-image: url("../../assets/bg.png");
+  background-image: url('../../assets/bg.png');
   background-size: cover;
   background-position: top;
   justify-content: center;

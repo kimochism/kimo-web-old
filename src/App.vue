@@ -5,13 +5,18 @@
     <MessageBar />
     <Menu />
     <router-view></router-view>
+
+    <MessageBar />
+    <Footer />
   </div>
 </template>
 
 <script>
 import Menu from "./views/shared/menu/component.vue";
 import MessageBar from "./views/shared/message-bar/component.vue";
+import Footer from "./views/shared/footer/component.vue";
 // import SignInUp from "./views/modal/SignInUp.vue";
+
 import { CustomerService } from "./services/CustomerService";
 import { UserService } from "./services/UserService";
 
