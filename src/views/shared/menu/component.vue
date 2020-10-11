@@ -21,11 +21,7 @@
         <router-link to="/catalogo">
           <span>Catálogo</span>
         </router-link>
-        <span>Gamer</span>
-        <span>Anime</span>
-        <span>Geek</span>
-        <span>E-girl</span>
-        <span>Kids</span>
+        <span v-for="category in categories" :key="category.id" @click="navigateToCatalog(category.name)" >{{ category.name.toUpperCase() }}</span>
       </div>
       <div class="searchMenu ajust">
         <input type="text" placeholder="Procurar" />
@@ -52,8 +48,8 @@
         </div>
 
         <div id="MenuOptions">
-          <router-link :to="routerLink.path" tag="span" v-for="routerLink in routerLinks" :key="routerLink.name">
-            <span v-on:click="openMenu()">{{routerLink.name}}</span>
+          <router-link :to="category.name" tag="span" v-for="category in categories" :key="category.id">
+            <span v-on:click="openMenu()">{{category.name.toUpperCase()}}</span>
           </router-link>
         </div>
       </div>
@@ -70,7 +66,6 @@
   </div>
 </template>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
 <script>
 
 import { actions, mapGetters } from "./store";
@@ -86,11 +81,16 @@ export default {
 
   methods: {
     ...actions,
-    ...cartActions
+    ...cartActions,
+
+    navigateToCatalog(categoryName) {
+      this.$router.push({ path: 'catalogo', query: { categoryName } });
+    }
   },
 
   created() {
     cartActions.getBadge();
+    actions.listCategories();
   }
 };
 </script>

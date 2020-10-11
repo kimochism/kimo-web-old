@@ -2,43 +2,13 @@ import Vue from 'vue';
 
 import { buildStore } from '../../../utils/base-store';
 
+import { CategoryService } from '../../../services/CategoryService';
+
 export const store = Vue.observable({
     message: "",
     isOpen: true,
-    routerLinks: {
-        home: {
-            path: '/',
-            name: 'Início'
-        },
-        category: {
-            path: '/categorias',
-            name: 'Categorias'
-        },
-        catalog: {
-            path: '/catalogo',
-            name: 'Catálogo'
-        },
-        gamer: {
-            path: '/catalogo',
-            name: 'Gamer'
-        },
-        anime: {
-            path: '/catalogo',
-            name: 'Anime'
-        },
-        geek: {
-            path: '/catalogo',
-            name: 'Geek'
-        },
-        eGirl: {
-            path: '/catalogo',
-            name: 'E-girl'
-        },
-        kids: {
-            path: '/catalogo',
-            name: 'Kids'
-        },
-    }
+    categoryService: new CategoryService(),
+    categories: []
 });
 
 export const actions = {
@@ -58,6 +28,12 @@ export const actions = {
         document.getElementById("CadastroCase").style.display = "none";
         document.getElementById("LoginCase").style.display = "flex";
     },
+
+    async listCategories() {
+        const response = await store.categoryService.list({});
+        
+        store.categories = response;
+    }
 }
 
 export const mapGetters = buildStore(store);

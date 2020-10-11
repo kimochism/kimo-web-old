@@ -5,7 +5,6 @@ export default class BaseService {
 
     constructor() {
         const authorizaion = localStorage.getItem('Authorization');
-        console.log(authorizaion)
         this.http = axios.create({
             baseURL: enviroment.api,
             headers: {
@@ -29,6 +28,20 @@ export default class BaseService {
 
         const response = await this.http.post(buildedUrl, data);
 
+        return response.data;
+    }
+
+    async put(url, data, pathParams = []) {
+        const buildedUrl = this.buildUrl(url, pathParams, null);
+
+        const response = await this.http.put(buildedUrl, data);
+        return response.data;
+    }
+
+    async delete(url, pathParams = []) {
+        const buildedUrl = this.buildUrl(url, pathParams, null);
+
+        const response = await this.http.delete(buildedUrl);
         return response.data;
     }
 

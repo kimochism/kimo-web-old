@@ -53,8 +53,7 @@
 
 import ProductFilter from './product-filter/component.vue';
 import ProductCard from './product-card/component';
-
-import { actions, mapGetters } from './store';
+import { actions, mapGetters, store } from './store';
 
 export default {
   name: 'Catalog',
@@ -64,17 +63,25 @@ export default {
     ProductCard
   },
 
-  computed: {
-    ...mapGetters
+  computed: { ...mapGetters },
+
+  methods: { ...actions },
+
+  watch: {
+    '$route.query': async query =>  {
+      await actions.listProducts(query, true);
+    }
   },
 
-  methods: {
-    ...actions,
+  async created() {
+    const queries = this.$route.query;
 
+    await actions.listProducts(queries, true);
   },
-  created() {
-    actions.listProducts();
-  },
+
+  destroyed() {
+    store.products = [];
+  }
 };
 </script>
 

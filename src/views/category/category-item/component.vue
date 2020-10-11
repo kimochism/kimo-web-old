@@ -1,9 +1,9 @@
 // 
 <template>
-    <div id="ContainerItemCategory">
-        <div class="container" v-bind:style="{ 'background-image': 'url(' + this.category.image.url + ')' }">
+    <div id="ContainerItemCategory" @click="navigateToCatalog(category.name)">
+        <div class="container" v-bind:style="{ 'background-image': 'url(' + category.image.url + ')' }">
             <div class="card">
-                <span class="title">{{this.category.name}}</span>
+                <span class="title">{{category.name}}</span>
             </div>
         </div>
     </div>
@@ -13,6 +13,12 @@
     export default {
         name: 'Item',
         props: ['category'],
+
+        methods: {
+            navigateToCatalog(categoryName) {
+                this.$router.push({ path: 'catalogo', query: { categoryName } })
+            }
+        }
     };
 </script>
 

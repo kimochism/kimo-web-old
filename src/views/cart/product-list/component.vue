@@ -6,7 +6,7 @@
     <div class="footerShoppingList">
       <div class="continueCart">
         <span class="material-icons">keyboard_arrow_left</span>
-        <span class="colorPrimary"><router-link to="/catalog">Continuar comprando</router-link></span>
+        <span class="colorPrimary"><router-link to="/catalogo">Continuar comprando</router-link></span>
       </div>
       <div>
         <span>Subtotal: <b>R$</b></span>

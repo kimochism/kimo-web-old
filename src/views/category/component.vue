@@ -16,7 +16,7 @@
 <script>
   import Item from "./category-item/component.vue";
   import Header from "../shared/header/component.vue";
-  import { actions, mapGetters } from "./store";
+  import { actions, mapGetters, store } from "./store";
 
   export default {
     name: "Categories",
@@ -30,6 +30,10 @@
     created() {
       actions.listCategories();
     },
+
+    destroyed() {
+      store.categories = [];
+    }
   };
 </script>
   
