@@ -48,7 +48,7 @@
         </div>
 
         <div id="MenuOptions">
-          <router-link :to="category.name" tag="span" v-for="category in categories" :key="category.id">
+          <router-link :to="'/catalogo?categoryName=' +category.name" tag="span" v-for="category in categories" :key="category.id">
             <span v-on:click="openMenu()">{{category.name.toUpperCase()}}</span>
           </router-link>
         </div>
