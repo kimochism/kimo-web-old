@@ -31,13 +31,17 @@ export const actions = {
         }
     },
 
-    async storeUser(signUpData) {
-        if (this.isPasswordEquals()) {
+    async storeUser() {
+        if (!this.isPasswordEquals()) {
             alert('senhas imcompatives do meu saco');
             return;
         }
 
-        const { id, email, username, password } = await store.userService.store(signUpData);
+        const { id, email, username, password } = await store.userService.store({
+            username: store.username,
+            password: store.password,
+            email: store.email
+        });
 
         if (id) {
             await this.auth({ email, password });
@@ -46,7 +50,7 @@ export const actions = {
                 userId: id,
                 fullName: username,
                 email: email,
-                cellPhoneNumber: signUpData.cellPhoneNumber,
+                cellPhoneNumber: store.cellPhoneNumber,
             });
         }
     },
