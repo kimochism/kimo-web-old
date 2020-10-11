@@ -9,7 +9,7 @@
     </div>
     <Offer :offerProduct="offerProduct" />
     <InstagramCase />
-    <Products :products="products" />
+    <ProductList :products="products" />
     <Gap />
   </div>
 </template>
@@ -17,7 +17,7 @@
 <script>
 
 import InstagramCase from './instagram-case/component.vue';
-import Products from './product-list/component.vue';
+import ProductList from './product-list/component.vue';
 import Slider from './slider-home/component.vue';
 import Warning from './warning/component.vue';
 import Gap from '../shared/gap/component.vue';
@@ -31,7 +31,7 @@ export default {
     Slider,
     Warning,
     Offer,
-    Products,
+    ProductList,
     Gap,
     InstagramCase,
   },

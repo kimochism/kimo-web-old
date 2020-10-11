@@ -10,6 +10,7 @@ const store = Vue.observable({
     customerBagService: new CustomerBagService(),
     product: {},
     categoryId: null,
+    mainImage: ''
 });
 
 export const actions = {
@@ -20,7 +21,9 @@ export const actions = {
 
         if (response) {
             store.product = response;
-            store.categoryId = response.categories[0].id;
+            store.categoryId = response.categories[0] && response.categories[0].id;
+
+            store.mainImage = response.images[0] && response.images[0].url;
         }
     },
 
@@ -31,6 +34,10 @@ export const actions = {
             alert('produto adicionado pessoas do front colocar um bagui bonito aq')
         }
     },
+
+    setMainImage(url) {
+        store.mainImage = url;
+    }
 }
 
 export const mapGetters = buildStore(store);
