@@ -41,10 +41,12 @@ export const actions = {
         
         const customerBags = await this.getCustomerBags();
 
-        customerBags.forEach( customerBag => {
-            
-            store.badge += customerBag.quantity;
-        });
+        if (customerBags) {
+            customerBags.forEach( customerBag => {
+                
+                store.badge += customerBag.quantity;
+            });
+        }
     }
 }
 
