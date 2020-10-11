@@ -2,7 +2,7 @@
   <div>
     <footer>
       <div>
-        <b class="headerMenuFooter">Menu do Rodapé</b>
+        <b class="headerMenuFooter">Menu do Rodapéss</b>
         <span>Pesquisar </span>
         <span>Rastreio</span>
         <span>Perguntas frequentes</span>
