@@ -4,8 +4,8 @@
       <div class="subContainerProduct">
         <div class="containerImage">
           <img
-            v-if="product && product.images && product.images.length"
-            :src="product.images[0].url"
+            v-if="mainImage"
+            :src="mainImage"
             alt
             width="100%"
           />
@@ -14,6 +14,7 @@
               class="boxImg"
               v-for="image of product.images"
               :key="image.url"
+              @click="setMainImage(image.url)"
             >
               <img v-if="image && image.url" :src="image.url" alt />
             </div>

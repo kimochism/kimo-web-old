@@ -21,16 +21,17 @@
     </div>
 
     <div class="buttonLoadItems">
-      <button>
-        <router-link to="/catalog" tag="m"> Ver mais </router-link>
+      <router-link to="/catalogo"> 
+      <button > Ver mais 
       </button>
+      </router-link>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Products",
+  name: "ProductList",
   props: ["products"],
 
   data() {

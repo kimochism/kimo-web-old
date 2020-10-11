@@ -2,6 +2,8 @@
   <div>
     <div id="ContainerLogin" v-on:click="changeContainer()"></div>
 
+     <!-- SIGN IN -->
+
     <div id="LoginCase" class="SubContainerLogin">
       <h1>
         Kimochism
@@ -13,13 +15,15 @@
       <label for>Senha</label>
       <input type="password" v-model="passwordLogin" placeholder="Senha" />
       <br />
-      <button class="btnLogin" v-on:click="callAuth()">Entrar</button>
+      <button class="btnLogin" v-on:click="auth({ email: emailLogin, password: passwordLogin })">Entrar</button>
       <button class="btnCadastrar" v-on:click="changeLogin()">Cadastrar</button>
       <br />
       <button class="btnFace">Entrar com Facebook</button>
       <button class="btnGoogle">Entrar com Google+</button>
     </div>
 
+
+    <!-- SIGN UP -->
     <div id="CadastroCase" class="SubContainerCadastro">
       <h1>
         Kimochism
@@ -41,7 +45,7 @@
         placeholder="Usuário ou E-mail"
       />
       <br />
-      <button class="btnCadastrar" v-on:click="callStoreUser()">
+      <button class="btnCadastrar" v-on:click="storeUser()">
         Cadastrar
       </button>
       <button class="btnLogin" v-on:click="changeCadastro()">Voltar</button>
@@ -50,65 +54,20 @@
 </template>
 
 <script>
-export default {
-  name: "SignInUp",
 
-  data() {
-    return {
-      emailLogin: "",
-      passwordLogin: "",
-      username: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-      cellPhoneNumber: "",
-    };
-  },
-  props: {
-    auth: { type: Function },
-    storeUser: { type: Function },
-  },
-  methods: {
-    callAuth() {
-      const request = { email: this.emailLogin, password: this.passwordLogin };
-      this.auth(request);
-    },
-    isPasswordEquals() {
-      return this.password === this.confirmPassword;
-    },
-    callStoreUser() {
-      const isPasswordEquals = this.isPasswordEquals();
+  import { mapGetters, actions, destroyStore } from './store';
 
-      if (!isPasswordEquals) {
-        return alert(
-          "ale ou lucas aqui tem que colocar no formulario que as senhas estao incorretas :)"
-        );
-      }
-      const request = {
-        username: this.username,
-        email: this.email,
-        password: this.password,
-        cellPhoneNumber: this.cellPhoneNumber,
-      };
+  export default {
+    name: "SignInUp",
 
-      this.storeUser(request);
-    },
-    changeLogin: function () {
-      document.getElementById("CadastroCase").style.display = "flex";
-      document.getElementById("LoginCase").style.display = "none";
-    },
-    changeCadastro: function () {
-      document.getElementById("ContainerLogin").style.display = "flex";
-      document.getElementById("CadastroCase").style.display = "none";
-      document.getElementById("LoginCase").style.display = "flex";
-    },
-    changeContainer: function () {
-      document.getElementById("ContainerLogin").style.display = "none";
-      document.getElementById("CadastroCase").style.display = "none";
-      document.getElementById("LoginCase").style.display = "none";
-    },
-  },
-};
+    computed: { ...mapGetters },
+
+    methods: { ...actions },
+
+    destroyed() {
+      destroyStore();
+    }
+  };
 </script>
 
 <style scoped>
