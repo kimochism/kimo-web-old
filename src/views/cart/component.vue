@@ -116,9 +116,8 @@
           <div class="subContainerBoxPayments">
             <Checkout />
           </div>
-          <md-button class="md-raised md-primary" @click="setDone('third')"
-            >Done</md-button
-          >
+          <!-- <md-button class="md-raised md-primary" @click="setDone('third')"
+            >Done</md-button -->
         </md-step>
       </md-steppers>
     </div>
