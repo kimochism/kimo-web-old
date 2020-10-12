@@ -15,6 +15,11 @@ export const actions = {
     async updateQuantity(newQuantity, customerBag, operation) {
         const response = await store.customerBagService.update(customerBag.id, { quantity: newQuantity });
 
+        if (newQuantity === 0) {
+            await this.destroyCustomerBag(customerBag.id);
+            return;
+        }
+
         customerBag.quantity = response.quantity;
 
         if (operation === 'minus') {
