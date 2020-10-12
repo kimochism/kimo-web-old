@@ -106,6 +106,17 @@
   background-color: black;
 }
 
+.subContainerFrete{
+  display: flex;
+}
+
+.itemDeliveryMet{
+  width: 200px;
+  border: 1px solid grey;
+  margin: 0.5%;
+  padding: 8px;
+}
+
 @media screen and (max-width: 1024px) {
   #ContainerCart {
     flex-wrap: wrap;

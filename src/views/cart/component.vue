@@ -65,7 +65,28 @@
               </div>
             </div>
 
-            <div class="box Right">asda</div>
+            <div class="box Right">
+              <h1>Selecione um método de entrega</h1>
+              <div class="subContainerFrete">
+
+                <div class="itemDeliveryMet">
+                  <div>
+                    <input type="radio" id="entrega">
+                    <label for="entrega">Sedex</label>
+                  </div>
+                  <label for="">Grátis</label>
+                </div>
+
+                <div class="itemDeliveryMet">
+                  <div>
+                    <input type="radio" id="entrega">
+                    <label for="entrega">E-Sedex</label>
+                  </div>
+                  <label for="">Grátis</label>
+                </div>
+
+              </div>
+            </div>
           </div>
 
           <md-button
