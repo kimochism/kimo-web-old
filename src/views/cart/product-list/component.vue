@@ -10,7 +10,7 @@
       </div>
       <div>
         <span>Subtotal: <b>R$</b></span>
-        <span class="price">24,90</span>
+        <span class="price">{{ amount }}</span>
       </div>
     </div>
   </div>
@@ -19,13 +19,19 @@
 <script>
 import ProductItem from "./../product-item/component.vue";
 
+import { store, actions, mapGetters } from './store';
+
 export default {
   name: "ProductList",
   components: {
     ProductItem,
   },
 
-  props: ['products']
+  computed: { ...mapGetters },
+
+  methods: { ...actions },
+
+  props: ['products', 'amount'],
 };
 </script>
 

@@ -275,10 +275,17 @@ body {
     letter-spacing: 2px;
     text-transform: uppercase;
     color: white;
+    cursor: pointer;
     padding: 12px;
     border: 0px;
     width: 100%;
     background-color: black;
+    border: 1px solid black;
+  }
+  .myBtnBlack:hover{
+    border: 1px solid black;
+    background-color: white;
+    color: black;
   }
     
   .payment-form .date-separator {
@@ -434,6 +441,9 @@ body {
   .medium{
     width: 49%;
   }
+  .large{
+    width: 100%;
+  }
   .flexInputs{
     flex-direction: row;
     display: flex;
@@ -463,5 +473,11 @@ body {
     }
     .marginAdd{
       margin: 3% 0px;
+    }
+    .medium{
+      width: 100%;
+    }
+    .inputWidth{
+      width: 100%;
     }
   }

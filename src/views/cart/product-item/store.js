@@ -4,7 +4,7 @@ import { buildStore } from '../../../utils/base-store';
 
 import { CustomerBagService } from '../../../services/CustomerBagService';
 
-import { actions as cartActions } from '../store';
+import { actions as cartActions, store as cartStore } from '../store';
 
 export const store = Vue.observable({
     customerBagService: new CustomerBagService(),
@@ -12,11 +12,17 @@ export const store = Vue.observable({
 
 export const actions = {
     
-    async updateQuantity(newQuantity, customerBag) {
+    async updateQuantity(newQuantity, customerBag, operation) {
         const response = await store.customerBagService.update(customerBag.id, { quantity: newQuantity });
 
         customerBag.quantity = response.quantity;
 
+        if (operation === 'minus') {
+            cartStore.amount -= parseInt(customerBag.product.price);
+        } else {
+            cartStore.amount += parseInt(customerBag.product.price);
+        }
+ 
         return response;
     },
 

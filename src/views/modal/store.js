@@ -37,14 +37,15 @@ export const actions = {
             return;
         }
 
-        const { id, email, username, password } = await store.userService.store({
+        const { id, email, username } = await store.userService.store({
             username: store.username,
             password: store.password,
             email: store.email
         });
 
         if (id) {
-            await this.auth({ email, password });
+            const authenticated = await store.userService.auth({ email, password: store.password });
+            localStorage.setItem('Authorization', authenticated.token);
 
             await this.storeCustomer({
                 userId: id,
@@ -52,6 +53,9 @@ export const actions = {
                 email: email,
                 cellPhoneNumber: store.cellPhoneNumber,
             });
+
+            const urlToReload = window.location.href;
+            window.location.href = urlToReload;
         }
     },
 
