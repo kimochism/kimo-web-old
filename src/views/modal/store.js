@@ -44,7 +44,8 @@ export const actions = {
         });
 
         if (id) {
-            await store.userService.auth({ email, password: store.password });
+            const authenticated = await store.userService.auth({ email, password: store.password });
+            localStorage.setItem('Authorization', authenticated.token);
 
             await this.storeCustomer({
                 userId: id,
