@@ -2,6 +2,10 @@
   <div id="ContainerDaddy">
     <SignInUp />
 
+    <div id="main-load">
+      <h2>CARREGANDO...</h2>
+    </div>
+
     <MessageBar />
     <Menu />
     <router-view></router-view>
@@ -30,6 +34,22 @@ export default {
 </script>
 
 <style>
+
+#main-load {
+   position:fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000
+}
+
+#main-load h2 {
+  color: white
+}
+
 .md-theme-default a:not(.md-button):hover{
   text-decoration: none !important;
 }

@@ -99,8 +99,10 @@
             @click="setDone('second', 'third')"
             >Continue</md-button
           >
-          <md-button class="md-raised md-primary" @click="setError()"
-          md-error="xuuxuxuxbeleza"
+          <md-button
+            class="md-raised md-primary"
+            @click="setError()"
+            md-error="xuuxuxuxbeleza"
             >Verifique os campos</md-button
           >
         </md-step>
@@ -112,10 +114,7 @@
           :md-done.sync="third"
         >
           <div class="subContainerBoxPayments">
-            <div class="boxBoleto">boletin</div>
-            <div class="boxCard">
-              <Card />
-            </div>
+            <Checkout />
           </div>
           <md-button class="md-raised md-primary" @click="setDone('third')"
             >Done</md-button
@@ -131,16 +130,17 @@
 
 <script>
 import ProductList from "./product-list/component.vue";
-import Card from "./form-payment/component.vue";
 import Gap from "./../shared/gap/component.vue";
 
-import { actions, mapGetters } from './store';
+import Checkout from "./checkout/component.vue";
+
+import { actions, mapGetters } from "./store";
 
 export default {
-  name: 'StepperLinear',
+  name: "StepperLinear",
 
   computed: {
-    ...mapGetters
+    ...mapGetters,
   },
 
   methods: {
@@ -152,12 +152,11 @@ export default {
   },
   components: {
     ProductList,
-    Card,
     Gap,
+    Checkout,
   },
 };
 </script>
 
 <style src="./style.css" scoped>
-  
 </style>
