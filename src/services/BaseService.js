@@ -97,13 +97,23 @@ export default class BaseService {
     }
 
     startLoad() {
-        document.getElementById('main-load').style.display = 'flex';
+        const load = document.getElementById('main-load');
+        if (!load || !load.style) {
+            return;
+        } 
+
+       load.style.display = 'flex';
     }
 
     closeLoad() {
-        setTimeout(() => {
-            document.getElementById('main-load').style.display = 'none';
-        }, 100)
+        const load = document.getElementById('main-load');
+        if (!load || !load.style) {
+            return;
+        }
+    
+        // setTimeout(() => {
+            load.style.display = 'none';
+        // }, 100)
     }
 
 }

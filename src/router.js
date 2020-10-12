@@ -55,6 +55,10 @@ const router = new Router({
       component: NotFound
     },
     { 
+      path: '/checkout', 
+      component: lazyLoad('checkout'),
+    },
+    { 
       path: '*', 
       redirect: '/not-found',
     },
