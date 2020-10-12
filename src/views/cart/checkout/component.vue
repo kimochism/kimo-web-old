@@ -104,7 +104,7 @@
                     <div class="form-group col-sm-8">
                       <label for="cardNumber">Card Number</label>
                       <input type="text" class="form-control input-background" id="cardNumber" data-checkout="cardNumber"
-                        onselectstart="return false" onpaste="return false" onCopy="return false" onCut="return false" onDrag="return false" onDrop="return false" autocomplete=off>
+                        onselectstart="return false" onDrag="return false" onDrop="return false" autocomplete=off>
                     </div>
                     <div class="form-group col-sm-4">
                       <label for="securityCode">CVV</label>
