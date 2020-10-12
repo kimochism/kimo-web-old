@@ -51,7 +51,7 @@ export default {
     },
   },
   created() {
-    this.listProductsByCategory(this.categoryId);
+    // this.listProductsByCategory(this.categoryId);
   },
 };
 </script>
