@@ -44,28 +44,6 @@
   justify-content: center;
   display: flex;
 }
-.subContainerBoxPayments {
-  padding: 0px 0px;
-  flex-direction: row;
-  display: flex;
-}
-.boxCard {
-  width: 50%;
-  display: flex;
-}
-.boxCard:nth-child(2n) {
-  justify-content: flex-end;
-}
-.boxBoleto {
-  width: 50%;
-  justify-content: space-between;
-  display: flex;
-}
-.box {
-  width: 49%;
-  height: 100%;
-}
-
 /* entrega */
 
 .subContainerLocation {
