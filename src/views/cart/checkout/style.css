@@ -405,7 +405,7 @@ body {
     display: flex;
   }
   .subCont{
-    width: 50%;
+    width: 100%;
     padding: 20px;
   }
   .subCont:nth-child(2n){
@@ -443,4 +443,25 @@ body {
   }
   .marginGl{
     margin: 2% 0px;
+  }
+  .extraPadding{
+    padding: 9px;
+  }
+
+  @media screen and (max-width: 1170px) {
+    .subCont{
+      width: 100%;
+    }
+    .ContainerCheckout{
+      flex-wrap: wrap;
+    }
+  }
+  @media screen and (max-width: 700px) {
+    
+    .myflex{
+      flex-direction: column;
+    }
+    .marginAdd{
+      margin: 3% 0px;
+    }
   }
