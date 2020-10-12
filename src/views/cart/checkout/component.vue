@@ -1,9 +1,6 @@
 <template>
   <div>
     <div class="ContainerCheckout">
-
-      
-
       <div class="subCont">
         <section class="payment-form dark">
           <div class="container_payment">
@@ -22,7 +19,7 @@
                   </div>
                 </div>
                 <div class="row myflex">
-                  <div class="form-group col-sm-5 flexInfo" >
+                  <div class="form-group col-sm-5 flexInfo">
                     <label for="docType">Tipo de documento</label>
                     <select
                       id="docType"
@@ -30,8 +27,7 @@
                       data-checkout="docType"
                       type="text"
                       class="myForm-control"
-                    >
-                    </select>
+                    ></select>
                   </div>
                   <div class="form-group col-sm-7">
                     <label for="docNumber">Número do documento</label>
@@ -56,67 +52,67 @@
                       class="myForm-control"
                     />
                   </div>
-                  
+
                   <div class="caseItemsForm marginGl">
                     <div class="form-group col-sm-4 medium">
                       <label for="">Data de validade</label>
                       <div class="input-group expiration-date">
                         <div class="flexInputs">
                           <input
-                          type="text"
-                          class="myForm-control"
-                          placeholder="MM"
-                          id="cardExpirationMonth"
-                          data-checkout="cardExpirationMonth"
-                          onselectstart="return false"
-                          onpaste="return false"
-                          onCopy="return false"
-                          onCut="return false"
-                          onDrag="return false"
-                          onDrop="return false"
-                          autocomplete="off"
-                        />
-                        <span class="date-separator">/</span>
-                        <input
-                          type="text"
-                          class="myForm-control"
-                          placeholder="YY"
-                          id="cardExpirationYear"
-                          data-checkout="cardExpirationYear"
-                          onselectstart="return false"
-                          onpaste="return false"
-                          onCopy="return false"
-                          onCut="return false"
-                          onDrag="return false"
-                          onDrop="return false"
-                          autocomplete="off"
-                        />
+                            type="text"
+                            class="myForm-control"
+                            placeholder="MM"
+                            id="cardExpirationMonth"
+                            data-checkout="cardExpirationMonth"
+                            onselectstart="return false"
+                            onpaste="return false"
+                            onCopy="return false"
+                            onCut="return false"
+                            onDrag="return false"
+                            onDrop="return false"
+                            autocomplete="off"
+                          />
+                          <span class="date-separator">/</span>
+                          <input
+                            type="text"
+                            class="myForm-control"
+                            placeholder="YY"
+                            id="cardExpirationYear"
+                            data-checkout="cardExpirationYear"
+                            onselectstart="return false"
+                            onpaste="return false"
+                            onCopy="return false"
+                            onCut="return false"
+                            onDrag="return false"
+                            onDrop="return false"
+                            autocomplete="off"
+                          />
                         </div>
                       </div>
                     </div>
                     <div class="form-group col-sm-4">
-                    <label for="securityCode">CVV</label>
-                    <input
-                      id="securityCode"
-                      data-checkout="securityCode"
-                      type="text"
-                      class="myForm-control"
-                      onselectstart="return false"
-                      onpaste="return false"
-                      onCopy="return false"
-                      onCut="return false"
-                      onDrag="return false"
-                      onDrop="return false"
-                      autocomplete="off"
-                    />
+                      <label for="securityCode">CVV</label>
+                      <input
+                        id="securityCode"
+                        data-checkout="securityCode"
+                        type="text"
+                        class="myForm-control"
+                        onselectstart="return false"
+                        onpaste="return false"
+                        onCopy="return false"
+                        onCut="return false"
+                        onDrag="return false"
+                        onDrop="return false"
+                        autocomplete="off"
+                      />
+                    </div>
                   </div>
-                  </div>     
 
-                  <div class="caseItemsForm marginGl" >
+                  <div class="caseItemsForm marginGl">
                     <div class="medium">
                       <div class="form-group col-sm-8">
-                      <label for="cardNumber">Número</label>
-                      <input
+                        <label for="cardNumber">Número</label>
+                        <input
                           type="text"
                           class="myForm-control input-background"
                           id="cardNumber"
@@ -130,31 +126,30 @@
                           autocomplete="off"
                           @input="guessPaymentMethod()"
                         />
-                       </div>
+                      </div>
                     </div>
 
                     <div class="medium">
                       <div id="issuerInput" class="form-group col-sm-12 hidden">
-                      <label for="issuer">Issuer</label>
-                      <select
-                        id="issuer"
-                        name="issuer"
-                        data-checkout="issuer"
-                        class="myForm-control"
-                        @input="updateInstallmentsForIssuer()"
-                      ></select>
+                        <label for="issuer">Issuer</label>
+                        <select
+                          id="issuer"
+                          name="issuer"
+                          data-checkout="issuer"
+                          class="myForm-control"
+                          @input="updateInstallmentsForIssuer()"
+                        ></select>
+                      </div>
+                      <div class="form-group col-sm-12">
+                        <label for="installments">Parcelas</label>
+                        <select
+                          type="text"
+                          id="installments"
+                          name="installments"
+                          class="myForm-control"
+                        ></select>
+                      </div>
                     </div>
-                    <div class="form-group col-sm-12">
-                      <label for="installments">Parcelas</label>
-                      <select
-                        type="text"
-                        id="installments"
-                        name="installments"
-                        class="myForm-control"
-                      ></select>
-                    </div>
-                    </div>
-
                   </div>
 
                   <div class="form-group col-sm-12">
@@ -162,7 +157,7 @@
                       type="hidden"
                       name="transactionAmount"
                       id="amount"
-                      value="10"
+                      :value="amount"
                     />
                     <input
                       type="hidden"
@@ -173,7 +168,7 @@
                     <br />
                     <button type="submit" class="myBtnBlack">Finalizar</button>
                     <br />
-                    <br>
+                    <br />
                     <a id="go-back">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -190,6 +185,7 @@
                         ></path>
                       </svg>
                       Continuar comprando
+                  {{ description }}
                     </a>
                   </div>
                 </div>
@@ -206,19 +202,14 @@
                 <h2 class="title">Seu carrinho</h2>
                 <div class="item">
                   <span class="price" id="summary-price"></span>
-                  <p class="item-name">
-                    Book x <span id="summary-quantity"></span>
-                  </p>
-                  <p class="item-name">
-                    Book y <span id="summary-quantity"></span>
-                  </p>
-                  <p class="item-name">
-                    Book z <span id="summary-quantity"></span>
+                  <p class="item-name" v-for="bag in products" :key="bag.id">
+                    {{ bag.quantity }}x {{ bag.product.name }} 
+                  <span id="summary-quantity"></span>
                   </p>
                 </div>
                 <div class="total">
                   Total:
-                  <span class="price" id="summary-total">230,90</span>
+                  <span class="price" id="summary-total">R$ {{ amount }}</span>
                 </div>
               </div>
             </div>
@@ -229,28 +220,25 @@
   </div>
 </template>
 
-
-
 <script>
-
-import { actions, mapGetters } from './store';
+import { actions, mapGetters } from "./store";
 
 export default {
   name: "Checkout",
 
+  props: ["products", "amount"],
+
   computed: {
-    ...mapGetters
+    ...mapGetters,
   },
 
   methods: {
-    ...actions
+    ...actions,
   },
 
-  created() {
-
-    window.Mercadopago.setPublishableKey("TEST-1fbc55f8-5b23-4228-b7a8-698acb95432d");
-    window.Mercadopago.getIdentificationTypes();
-  }
+  updated() {
+    actions.buildDescription(this.products);
+  },
 };
 </script>
 

@@ -5,12 +5,16 @@ import { buildStore } from '../../../utils/base-store';
 import { PaymentService } from '../../../services/PaymentService';
 
 export const store = Vue.observable({
-    
     doSubmit: false,
     paymentService: new PaymentService(),
+    description: '',
 });
 
 export const actions = {
+
+    buildDescription(products) {
+        store.description = products.map(bag => `${bag.quantity}x ${bag.product.name}`).toString();
+    },
     
     guessPaymentMethod() {
         this.cleanCardInfo();
@@ -152,8 +156,7 @@ export const actions = {
         return {
             amount: values.transactionAmount,
             token: values.token,
-            // description: values.description,
-            description: "POASSJKHSAJKASH",
+            description: store.description,
             installments: values.installments,
             paymentMethodId: values.paymentMethodId,
             issuerId: values.issuer,

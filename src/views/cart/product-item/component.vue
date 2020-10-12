@@ -15,10 +15,10 @@
       <div class="sub-content">
         <div class="quantCart sizeSubItem">
           <button>
-            <i class="fas fa-minus" @click="updateQuantity(customerBag.quantity - 1, customerBag)"></i></button>
+            <i class="fas fa-minus" @click="updateQuantity(customerBag.quantity - 1, customerBag, 'minus')"></i></button>
           <span>{{ customerBag.quantity }}</span>
           <button>
-            <i class="fas fa-plus" @click="updateQuantity(customerBag.quantity + 1, customerBag)"></i>
+            <i class="fas fa-plus" @click="updateQuantity(customerBag.quantity + 1, customerBag, 'plus')"></i>
           </button>
         </div>
 

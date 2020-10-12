@@ -5,10 +5,8 @@
         <md-step
           id="first"
           md-label="Produtos"
-          md-description="Verifique se os seus produtos"
-          :md-done.sync="first"
-        >
-          <ProductList :products="products" />
+          md-description="Verifique se os seus produtos" :md-done.sync="first" >
+          <ProductList :products="products" :amount="amount" />
           <md-button
             class="md-raised md-primary"
             @click="setDone('first', 'second')"
@@ -114,7 +112,7 @@
           :md-done.sync="third"
         >
           <div class="subContainerBoxPayments">
-            <Checkout />
+            <Checkout :products="products" :amount="amount" />
           </div>
           <!-- <md-button class="md-raised md-primary" @click="setDone('third')"
             >Done</md-button -->
