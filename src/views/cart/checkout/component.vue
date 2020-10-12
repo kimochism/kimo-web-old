@@ -66,7 +66,7 @@
               <div class="total">Total<span class="price" id="summary-total"></span></div>
             </div>
             <div class="payment-details">
-              <form action="/process_payment" method="post" id="paymentForm">
+              <form @submit="getCardToken" id="paymentForm">
                   <h3 class="title">Buyer Details</h3>
                   <div class="row">
                     <div class="form-group col">
@@ -104,7 +104,7 @@
                     <div class="form-group col-sm-8">
                       <label for="cardNumber">Card Number</label>
                       <input type="text" class="form-control input-background" id="cardNumber" data-checkout="cardNumber"
-                        onselectstart="return false" onDrag="return false" onDrop="return false" autocomplete=off>
+                        onselectstart="return false" onDrag="return false" onDrop="return false" autocomplete=off @input="guessPaymentMethod()">
                     </div>
                     <div class="form-group col-sm-4">
                       <label for="securityCode">CVV</label>
@@ -113,7 +113,7 @@
                     </div>
                     <div id="issuerInput" class="form-group col-sm-12 hidden">
                       <label for="issuer">Issuer</label>
-                      <select id="issuer" name="issuer" data-checkout="issuer" class="form-control"></select>
+                      <select id="issuer" name="issuer" data-checkout="issuer" class="form-control" @input="updateInstallmentsForIssuer()"></select>
                     </div>
                     <div class="form-group col-sm-12">
                       <label for="installments">Installments</label>
@@ -146,10 +146,24 @@
 
 <script>
 
-import './index';
+import { actions, mapGetters } from './store';
 
 export default {
   name: "Checkout",
+
+  computed: {
+    ...mapGetters
+  },
+
+  methods: {
+    ...actions
+  },
+
+  created() {
+
+    window.Mercadopago.setPublishableKey("TEST-1fbc55f8-5b23-4228-b7a8-698acb95432d");
+    window.Mercadopago.getIdentificationTypes();
+  }
 };
 </script>
 
