@@ -169,24 +169,6 @@
                     <button type="submit" class="myBtnBlack">Finalizar</button>
                     <br />
                     <br />
-                    <a id="go-back">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="12"
-                        height="12"
-                        viewBox="0 0 10 10"
-                        class="chevron-left"
-                      >
-                        <path
-                          fill="#009EE3"
-                          fill-rule="nonzero"
-                          id="chevron_left"
-                          d="M7.05 1.4L6.2.552 1.756 4.997l4.449 4.448.849-.848-3.6-3.6z"
-                        ></path>
-                      </svg>
-                      Continuar comprando
-                  {{ description }}
-                    </a>
                   </div>
                 </div>
               </form>
