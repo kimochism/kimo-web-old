@@ -145,20 +145,11 @@
 
 
 <script>
-import { mapGetters, actions, destroyStore } from "./store";
 
 import './index';
 
 export default {
   name: "Checkout",
-
-  computed: { ...mapGetters },
-
-  methods: { ...actions },
-
-  destroyed() {
-    destroyStore();
-  },
 };
 </script>
 
