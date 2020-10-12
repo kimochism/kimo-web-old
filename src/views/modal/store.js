@@ -44,7 +44,7 @@ export const actions = {
         });
 
         if (id) {
-            await this.auth({ email, password: store.password });
+            await store.userService.auth({ email, password: store.password });
 
             await this.storeCustomer({
                 userId: id,
@@ -52,6 +52,9 @@ export const actions = {
                 email: email,
                 cellPhoneNumber: store.cellPhoneNumber,
             });
+
+            const urlToReload = window.location.href;
+            window.location.href = urlToReload;
         }
     },
 
