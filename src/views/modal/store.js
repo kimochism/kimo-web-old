@@ -37,14 +37,14 @@ export const actions = {
             return;
         }
 
-        const { id, email, username, password } = await store.userService.store({
+        const { id, email, username } = await store.userService.store({
             username: store.username,
             password: store.password,
             email: store.email
         });
 
         if (id) {
-            await this.auth({ email, password });
+            await this.auth({ email, password: store.password });
 
             await this.storeCustomer({
                 userId: id,
