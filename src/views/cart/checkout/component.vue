@@ -19,7 +19,7 @@
                   </div>
                 </div>
                 <div class="row myflex">
-                  <div class="form-group col-sm-5 flexInfo inputWidth">
+                  <div class="form-group col-sm-5 flexInfo">
                     <label for="docType">Tipo de documento</label>
                     <select
                       id="docType"
@@ -40,7 +40,19 @@
                     />
                   </div>
                 </div>
-                
+                <br />
+                <h3 class="title">Detalhes do cartão</h3>
+                <div class="row">
+                  <div class="form-group col-sm-8">
+                    <label for="cardholderName">Nome</label>
+                    <input
+                      id="cardholderName"
+                      data-checkout="cardholderName"
+                      type="text"
+                      class="myForm-control"
+                    />
+                  </div>
+                </div>
                 <div class="marginGl">
                   <div class="form-group col-sm-8">
                         <label for="cardNumber">Número</label>
