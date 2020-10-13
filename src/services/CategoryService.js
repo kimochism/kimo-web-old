@@ -14,5 +14,4 @@ export class CategoryService extends BaseService {
     async listProductsByCategory(id) {
         return await this.get(serviceURLs.CATEGORIES_ID_PRODUCTS, [id]);
     }
-
 }

@@ -60,7 +60,10 @@ export const actions = {
     },
 
     async storeCustomer(customerData) {
-        const response = await store.customerService.store(customerData)
+
+        let customerService = new CustomerService();
+
+        const response = await customerService.store(customerData)
 
         return response;
     },
