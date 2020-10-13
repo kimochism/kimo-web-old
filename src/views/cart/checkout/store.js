@@ -3,15 +3,45 @@ import Vue from 'vue';
 import { buildStore } from '../../../utils/base-store';
 
 import { PaymentService } from '../../../services/PaymentService';
+import { OrderService } from '../../../services/OrderService';
+import { OrderProductService } from '../../../services/OrderProductService';
+
+import { store as cartStore } from '../store';
 
 export const store = Vue.observable({
-    
     doSubmit: false,
     paymentService: new PaymentService(),
+    orderService: new OrderService(),
+    orderProductService: new OrderProductService(),
+    description: '',
 });
 
 export const actions = {
-    
+
+    buildDescription(products) {
+        store.description = products.map(bag => `${bag.quantity}x ${bag.product.name}`).toString();
+    },
+
+    async storeOrder(data) {
+        const response = await this.orderService.store(data);
+
+        if (response) {
+            let orderProducts = [];
+
+            for (const bag of cartStore.products) {
+                orderProducts.push({ orderId: response.id, productId: bag.productId, quantity: bag.quantity })
+            }
+
+            await this.storeOrderProducts({ orderProducts });
+            return response;
+        }
+    },
+
+    async storeOrderProducts(data) {
+        const response = await this.orderProductService.store(data);
+        return response;
+    },
+
     guessPaymentMethod() {
         this.cleanCardInfo();
 
@@ -139,8 +169,16 @@ export const actions = {
 
             const payment = this.buildRequest(form);
 
-            store.paymentService.store(payment).then((response) => console.log(response));
-
+            this.storeOrder({
+                status: 'PENDING',
+                amount: cartStore.amount,
+                freight: 10,
+                total: cartStore.amount + 10,
+                description: store.description
+            }).then(response => {
+                payment.orderId = response.id;
+                store.paymentService.store(payment).then(async () => { })
+            });
         } else {
             alert("Verify filled data!\n" + JSON.stringify(response, null, 4));
         }
@@ -152,8 +190,7 @@ export const actions = {
         return {
             amount: values.transactionAmount,
             token: values.token,
-            // description: values.description,
-            description: "POASSJKHSAJKASH",
+            description: store.description,
             installments: values.installments,
             paymentMethodId: values.paymentMethodId,
             issuerId: values.issuer,
