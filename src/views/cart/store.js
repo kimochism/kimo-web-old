@@ -52,7 +52,7 @@ export const actions = {
         }
     },
 
-    bagAmount(products) {
+    bagAmount() {
         store.amount = store.products.reduce((accumulator, current) => {
             accumulator += parseFloat(current.product.price) * current.quantity;
 

@@ -1,12 +1,12 @@
 import Vue from 'vue';
 
-import { buildStore } from '../../../utils/base-store';
+import { buildStore } from '../../../../utils/base-store';
 
-import { PaymentService } from '../../../services/PaymentService';
-import { OrderService } from '../../../services/OrderService';
-import { OrderProductService } from '../../../services/OrderProductService';
+import { PaymentService } from '../../../../services/PaymentService';
+import { OrderService } from '../../../../services/OrderService';
+import { OrderProductService } from '../../../../services/OrderProductService';
 
-import { store as cartStore } from '../store';
+import { store as cartStore } from '../../store';
 
 export const store = Vue.observable({
     doSubmit: false,

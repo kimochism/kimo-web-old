@@ -54,14 +54,14 @@
       </div>
     </div>
 
-    <div class="subMessageTwo">
+    <!-- <div class="subMessageTwo">
       <div class="subContainerMessageTwo">
         <span class="mobileDisapear"
           >COVID-19 | SAIBA SOBRE OS NOSSOS SERVIÇOS</span
         >
         <span class="mobileDisapear">FRETE GRÁTIS PARA TODO BRASIL</span>
       </div>
-    </div>
+    </div>  -->
   </div>
 </template>
 

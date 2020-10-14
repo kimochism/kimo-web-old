@@ -39,7 +39,6 @@
 #ContainerCart {
   padding: 50px 0px;
   width: 100%;
-  min-height: 1060px;
   min-width: 100%;
   justify-content: center;
   display: flex;
