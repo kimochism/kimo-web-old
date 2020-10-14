@@ -32,7 +32,13 @@
 
 .header .material-icons {
     position: absolute;
-    padding-right: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+}
+
+.header .material-icons:hover{
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .content {

@@ -1,11 +1,11 @@
 <template>
-  <div class="overlay">
+  <div class="overlay" id="overlay">
       <div class="container">
         <div class="header">
             <span class="title">
                 <slot name="title"></slot>
             </span>
-            <span class="material-icons">close</span>
+            <span class="material-icons"  @click="destroy()">close</span>
         </div>
         <div class="content">
             <slot name="content"></slot>
@@ -18,8 +18,14 @@
 </template>
 
 <script>
+
+import { actions } from "./store";
+
 export default {
-    name: "BaseModal"
+    name: "BaseModal",
+    methods: {
+        ...actions
+    }
 }
 </script>
 

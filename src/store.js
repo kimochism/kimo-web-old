@@ -1,20 +1,16 @@
 import Vue from 'vue';
 
 import { buildStore } from './utils/base-store';
-import Successful from "./views/modals/successful/component.vue";
+import { actions as modalStore } from './views/modals/store';
+import { Successful } from './utils/importModals';
 
 export const store = Vue.observable({
 });
 
 export const actions = {
-    open() {
-        
-        let SuccessfulComponent = Vue.extend(Successful);
 
-        let instance = new SuccessfulComponent();
-        instance.$mount();
-
-        this.$refs.app.appendChild(instance.$el);
+    inject() {
+        modalStore.inject(Successful);
     }
 }
 
