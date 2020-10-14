@@ -1,9 +1,9 @@
 import Vue from 'vue';
 
-import { buildStore, clearStore } from '../../utils/base-store';
+import { buildStore, clearStore } from '../../../utils/base-store';
 
-import { UserService } from '../../services/UserService';
-import { CustomerService } from '../../services/CustomerService';
+import { UserService } from '../../../services/UserService';
+import { CustomerService } from '../../../services/CustomerService';
 
 export const store = Vue.observable({
     userService: new UserService(),
@@ -60,7 +60,10 @@ export const actions = {
     },
 
     async storeCustomer(customerData) {
-        const response = await store.customerService.store(customerData)
+
+        let customerService = new CustomerService();
+
+        const response = await customerService.store(customerData)
 
         return response;
     },

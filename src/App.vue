@@ -1,35 +1,43 @@
 <template>
   <div id="ContainerDaddy">
-    <SignInUp />
-
+    <div id="modal-stack"></div>
     <div id="main-load">
       <h2>CARREGANDO...</h2>
     </div>
-
     <MessageBar />
     <Menu />
     <router-view></router-view>
 
-    <Footer />
     <MessageBar />
+    <Footer />
   </div>
 </template>
 
 <script>
 import Menu from "./views/shared/menu/component.vue";
 import MessageBar from "./views/shared/message-bar/component.vue";
-import SignInUp from "./views/modal/SignInUp.vue";
 import Footer from "./views/shared/footer/component.vue";
+import Vue from 'vue';
+
+import { actions, mapGetters } from './store';
 
 export default {
   name: "App",
-
+  
   components: {
     Menu,
     MessageBar,
-    SignInUp,
-    Footer
+    Footer,
   },
+
+  computed: {
+    ...mapGetters
+  },
+  
+
+  methods: {
+    ...actions
+  }
 };
 </script>
 

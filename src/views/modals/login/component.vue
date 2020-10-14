@@ -76,7 +76,7 @@
   width: 100%;
   height: 100vh;
   z-index: 9999;
-  background-image: url("../../assets/bglogin2.png");
+  background-image: url("../../../assets/bglogin2.png");
   background-position: center;
   background-size: 100%;
   justify-content: center;
