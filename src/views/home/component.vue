@@ -3,8 +3,8 @@
     <Slider />
     <Warning />
     <div class="warning-shirt-maker">
-      <router-link to="/shirtMaker" class="linker">
-        <h1 class="h1ShirtMaker">Faça sua estampa!</h1>
+      <router-link to="/sua-estampa" class="linker">
+        <h1 class="h1ShirtMaker" style="display: none;">Faça sua estampa! </h1>
       </router-link>
     </div>
     <Offer :offerProduct="offerProduct" />
