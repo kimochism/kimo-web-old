@@ -156,6 +156,25 @@
     color: white;
     border: 0px;
   }
+  .freightContainer:hover{
+  }
+  .freightContainer{
+    padding: 8px;
+    border: 1px solid rgb(209, 209, 209);
+    align-items: center;
+    display: flex;
+  }
+  .freightContainer p{
+    margin: 0 auto;
+    color: black;
+    align-items: center;
+    display: flex;
+  }
+  .freightContainer span{
+    margin: 0 10px;
+    font-size: 18px;
+    color: black;
+  }
   /* Cores */
   .containerColorBoxes {
     width: 200px;

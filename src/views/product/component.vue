@@ -38,9 +38,9 @@
 
           <div class="InfoAddons">
             <!-- <span>
-                        <span class="material-icons">emoji_people</span>
-                        Provador virtual
-            </span>-->
+              <span class="material-icons">emoji_people</span>
+              Provador virtual
+            </span> -->
             <span>
               <span class="material-icons">straighten</span>
               Tabela de Medidas
@@ -71,8 +71,8 @@
           <div class="containerFrete">
             <span>Simular Frete</span>
             <div class="subContainerFrete">
-              <input type="text" placeholder="Digite seu CEP" />
-              <button>OK</button>
+              <input type="text" placeholder="Digite seu CEP" v-model="cep" />
+              <button @click="calculateFreight()">OK</button>
             </div>
             <br />
             <a
@@ -81,7 +81,13 @@
               >Não sei meu CEP</a
             >
           </div>
-
+          <div class="freightContainer" v-show="Object.keys(responseFreight).length > 0">
+              <p>
+                <span class="material-icons">local_shipping</span> 
+                SEDEX R$
+                {{responseFreight.amount}} em {{responseFreight.deliveryTime}} dias úteis
+              </p>
+          </div>
           <h1 class="we">
             Kimochism
             <br />気持ち

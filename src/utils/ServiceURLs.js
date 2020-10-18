@@ -22,4 +22,7 @@ export const serviceURLs = {
     CUSTOMER_BAGS_ID: '/customerBags/{id}',
 
     PAYMENTS: '/payments',
+
+    FREIGHTS: '/freights',
+
 }
