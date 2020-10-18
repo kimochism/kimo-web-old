@@ -1,10 +1,10 @@
 import Vue from 'vue';
 
-import { buildStore } from '../../../utils/base-store';
+import { buildStore } from '../../../../../utils/base-store';
 
-import { CustomerBagService } from '../../../services/CustomerBagService';
+import { CustomerBagService } from '../../../../../services/CustomerBagService';
 
-import { actions as cartActions, store as cartStore } from '../store';
+import { actions as cartActions, store as cartStore } from '../../../store';
 
 export const store = Vue.observable({
     customerBagService: new CustomerBagService(),

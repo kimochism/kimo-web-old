@@ -1,12 +1,21 @@
 <template>
   <div>
+
+      <h1>SKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK SUPRESSAAA ALEEEE ARRUMA AQUI</h1>
+      <h2>componentizei isso para ficar mais legivel</h2>
+      <h3> e vi que em todos os outros ecommerce o carrinho com os produtos + preço sem fica visivel para a cliente (card cinza logo a baixo)</h3>
+      <h3>entao por favor arrume o css disso, eu ja fiz a base vc so precisa ajustar o layout obg</h3> 
+      <h4>kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk deu pull se fudeu</h4>
+      <h4>obs removi o step de entrega mas vou fazer um novo com olucas</h4>
     <div id="ContainerCart">
       <md-steppers :md-active-step.sync="active" md-alternative>
         <md-step
           id="first"
           md-label="Produtos"
-          md-description="Verifique se os seus produtos" :md-done.sync="first" >
-          <ProductList :products="products" :amount="amount" />
+          md-description="Confira seus produtos"
+          :md-done.sync="first"
+        >
+          <Products :products="products" :amount="amount"/>
         </md-step>
 
         <md-step
@@ -16,85 +25,13 @@
           :md-error="secondStepError"
           :md-done.sync="second"
         >
-          <div class="subContainerLocation">
-            <div class="box Left">
-              <div class="myLocations">
-                <h2>Meus endereços</h2>
-                <div class="itemAdress">
-                  <div class="editarItemAddress">
-                    <span class="material-icons"> create </span>
-                  </div>
-                  <div class="infoItemAddress">
-                    <span>Rua José Pessota</span>
-                    <span>Pq Santa Rita</span>
-                    <span>CEP: 0815-020</span>
-                    <span>São Paulo - SP</span>
-                  </div>
-                  <div class="deleteItemAddress">
-                    <span class="material-icons"> clear </span>
-                  </div>
-                </div>
-              </div>
-              <div class="newLocation">
-                <h2>Adicionar novo endereço</h2>
-                <div class="addNewLocation">
-                  <div class="inpAdress">
-                    <label for="">Rua</label>
-                    <input type="text" placeholder="Rua Avenida Paulista" />
-                  </div>
-
-                  <div class="inpAdress">
-                    <label for="">Número</label>
-                    <input type="text" placeholder="123" />
-                  </div>
-
-                  <div class="inpAdress">
-                    <label for="">CEP</label>
-                    <input type="text" placeholder="00000-000" />
-                  </div>
-                </div>
-
-                <button class="btnBlack">Adicionar</button>
-              </div>
-            </div>
-
-            <div class="box Right">
-              <h1>Selecione um método de entrega</h1>
-              <div class="subContainerFrete">
-
-                <div class="itemDeliveryMet">
-                  <div>
-                    <input type="radio" id="entrega">
-                    <label for="entrega">Sedex</label>
-                  </div>
-                  <label for="">Grátis</label>
-                </div>
-
-                <div class="itemDeliveryMet">
-                  <div>
-                    <input type="radio" id="entrega">
-                    <label for="entrega">E-Sedex</label>
-                  </div>
-                  <label for="">Grátis</label>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
+        entrega
         </md-step>
 
-        <md-step
-          id="third"
-          md-label="Pagamento"
-          md-description="Confirme o método de pagamento"
-          :md-done.sync="third"
-        >
+        <md-step id="third" md-label="Pagamento" md-description="Confirme o método de pagamento" :md-done.sync="third">
           <div class="subContainerBoxPayments">
-            <Checkout :products="products" :amount="amount" />
+            <Payment :products="products" :amount="amount" />
           </div>
-          <!-- <md-button class="md-raised md-primary" @click="setDone('third')"
-            >Done</md-button -->
         </md-step>
       </md-steppers>
     </div>
@@ -105,10 +42,10 @@
 </template>
 
 <script>
-import ProductList from "./product-list/component.vue";
 import Gap from "./../shared/gap/component.vue";
 
-import Checkout from "./checkout/component.vue";
+import Payment from "./steps/payment/component.vue";
+import Products from "./steps/products/component.vue";
 
 import { actions, mapGetters } from "./store";
 
@@ -127,9 +64,9 @@ export default {
     actions.getCustomerBags();
   },
   components: {
-    ProductList,
     Gap,
-    Checkout,
+    Products,
+    Payment,
   },
 };
 </script>

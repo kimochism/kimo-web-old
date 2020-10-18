@@ -8,8 +8,8 @@
     <Menu />
     <router-view></router-view>
 
-    <MessageBar />
     <Footer />
+    <MessageBar />
   </div>
 </template>
 

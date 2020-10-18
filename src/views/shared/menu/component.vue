@@ -15,9 +15,6 @@
         </router-link>
       </div>
       <div class="optionsMenu">
-        <router-link to="/categorias">
-          <span>Categorias</span>
-        </router-link>
         <router-link to="/catalogo">
           <span>Catálogo</span>
         </router-link>
@@ -26,6 +23,7 @@
       <div class="searchMenu ajust">
         <input type="text" placeholder="Procurar" />
         <span class="material-icons weSearch"> search </span>
+        <span>Olá, <b>Usuário</b></span>
         <router-link to="/perfil">
           <span class="material-icons"> perm_identity </span>
         </router-link>
@@ -48,6 +46,7 @@
         </div>
 
         <div id="MenuOptions">
+          <span>Olá, <b>Usuário</b></span>
           <router-link :to="'/catalogo?categoryName=' +category.name" tag="span" v-for="category in categories" :key="category.id">
             <span v-on:click="openMenu()">{{category.name.toUpperCase()}}</span>
           </router-link>
@@ -55,14 +54,14 @@
       </div>
     </div>
 
-    <div class="subMessageTwo">
+    <!-- <div class="subMessageTwo">
       <div class="subContainerMessageTwo">
         <span class="mobileDisapear"
           >COVID-19 | SAIBA SOBRE OS NOSSOS SERVIÇOS</span
         >
         <span class="mobileDisapear">FRETE GRÁTIS PARA TODO BRASIL</span>
       </div>
-    </div>
+    </div>  -->
   </div>
 </template>
 
