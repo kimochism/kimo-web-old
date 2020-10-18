@@ -23,7 +23,7 @@ export const actions = {
     },
 
     destroy() {
-        document.getElementById("overlay").remove(store.instance.$el);
+        document.getElementById("modal-content").remove(store.instance.$el);
     },
 }
 

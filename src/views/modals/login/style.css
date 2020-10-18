@@ -1,0 +1,110 @@
+
+.SubContainerLogin {
+  width: 100%;
+  padding: 10%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 75vh;
+}
+
+.SubContainerLogin span {
+  padding: 20px;
+}
+
+h1 {
+  font-weight: bold;
+  line-height: 30px;
+  margin-top: 0;
+}
+
+.SubContainerLogin label {
+  padding: 0px;
+  margin: 0px;
+  text-align: left;
+}
+
+.SubContainerLogin input, button {
+  background-color: transparent;
+  margin-bottom: 1%;
+  padding: 8px;
+}
+
+.SubContainerLogin input {
+  background-color: transparent;
+  padding-left: 0px;
+  border: 0px;
+  border-bottom: 1px solid gray;
+  margin-bottom: 10%;
+}
+
+.btnGoogle {
+  background-color: #f14956;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: white;
+  border: 0px;
+}
+
+.btnFace {
+  background-color: #325cbb;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: white;
+  border: 0px;
+}
+
+.btnLogin {
+  background-color: #000;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: white;
+  border: 0px;
+}
+
+.btnCadastrar {
+  border: 2px solid black;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+/* Cadastro */
+
+.SubContainerCadastro {
+  width: 100%;
+  z-index: 9999;
+  padding: 10%;
+  background-color: white;
+  flex-direction: column;
+  text-align: center;
+  display: none;
+}
+
+.SubContainerCadastro h1 {
+  font-weight: bold;
+  margin-top: 0;
+}
+
+.SubContainerCadastro span {
+  padding: 20px;
+}
+
+.SubContainerCadastro label {
+  padding: 0px;
+  margin: 0px;
+  text-align: left;
+}
+.SubContainerCadastro input,
+button {
+  background-color: transparent;
+  margin-bottom: 1%;
+  padding: 8px;
+}
+
+.SubContainerCadastro input {
+  background-color: transparent;
+  padding-left: 0px;
+  border: 0px;
+  border-bottom: 1px solid gray;
+  margin-bottom: 10%;
+}

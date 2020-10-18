@@ -4,6 +4,9 @@ import { buildStore } from '../../../utils/base-store';
 
 import { CategoryService } from '../../../services/CategoryService';
 
+import { Login } from '../../../utils/importModals';
+import { actions as modalActions } from '../../modals/store';
+
 export const store = Vue.observable({
     message: "",
     isOpen: true,
@@ -33,6 +36,10 @@ export const actions = {
         const response = await store.categoryService.list({});
         
         store.categories = response;
+    },
+
+    inject() {
+        modalActions.inject(Login);
     }
 }
 

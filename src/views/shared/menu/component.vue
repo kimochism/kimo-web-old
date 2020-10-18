@@ -1,7 +1,7 @@
 <template>
   <div id="Containermenu">
     <div class="subMessage">
-      <span v-on:click="changeCadastro()">Registrar</span>
+      <span v-on:click="inject()">Registrar</span>
       <span>Devoluções</span>
       <span>Pedidos</span>
       <span>Newsletter</span>

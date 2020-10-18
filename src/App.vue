@@ -17,9 +17,6 @@
 import Menu from "./views/shared/menu/component.vue";
 import MessageBar from "./views/shared/message-bar/component.vue";
 import Footer from "./views/shared/footer/component.vue";
-import Vue from 'vue';
-
-import { actions, mapGetters } from './store';
 
 export default {
   name: "App",
@@ -28,15 +25,6 @@ export default {
     Menu,
     MessageBar,
     Footer,
-  },
-
-  computed: {
-    ...mapGetters
-  },
-  
-
-  methods: {
-    ...actions
   }
 };
 </script>

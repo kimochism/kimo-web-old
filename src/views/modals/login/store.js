@@ -74,12 +74,10 @@ export const actions = {
     },
 
     changeCadastro: function () {
-        document.getElementById("ContainerLogin").style.display = "flex";
         document.getElementById("CadastroCase").style.display = "none";
         document.getElementById("LoginCase").style.display = "flex";
     },
     changeContainer: function () {
-        document.getElementById("ContainerLogin").style.display = "none";
         document.getElementById("CadastroCase").style.display = "none";
         document.getElementById("LoginCase").style.display = "none";
     },
