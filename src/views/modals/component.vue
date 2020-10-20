@@ -1,7 +1,10 @@
 <template>
     <div id="modal-content">
         <Overlay @click="destroy()" />
-        <Modal>
+
+        <!-- the modal requires as dimensions property as an object, passing height and width in the same -->
+        
+        <Modal :dimensions="dimensions">
             <Header v-if="$slots.title">
                 <span class="title">
                     <slot name="title"></slot>
@@ -32,6 +35,7 @@ import { Overlay, Modal, Header, Content, Footer } from "./styled-component";
 
 export default {
     name: "BaseModal",
+    props: ['dimensions'],
     components: {
         Overlay,
         Modal,

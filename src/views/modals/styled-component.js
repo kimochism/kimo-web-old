@@ -11,9 +11,14 @@ const Overlay = styled.div`
     z-index: 9998;
 `;
 
-const Modal = styled.div`
-    min-width: 35%;
-    max-height: 75vh;
+const isMobile = () => {
+
+    return screen.width <= 768 ? true : false;
+};
+
+const Modal = styled('div', {dimensions: Object})`
+    min-width: ${ props => isMobile() ? '90%': props.dimensions.width };
+    max-height: ${ props => isMobile() ? '80vh' : props.dimensions.height };
     overflow-y: auto;
     position: fixed;
     margin: 0 auto;

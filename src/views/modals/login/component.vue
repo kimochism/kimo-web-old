@@ -1,6 +1,6 @@
 <template>
   <div>
-    <BaseModal>
+    <BaseModal :dimensions="{ width: '30%', heigth: '75vh' }">
       <template v-slot:content>
         <!-- SIGN IN -->
       
