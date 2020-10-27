@@ -71,7 +71,12 @@
           <div class="containerFrete">
             <span>Simular Frete</span>
             <div class="subContainerFrete">
-              <input type="text" placeholder="Digite seu CEP" v-model="cep" />
+              <input 
+                type="text"
+                placeholder="Digite seu CEP" 
+                v-model="cep" 
+                v-mask="['#####-###']"
+              />
               <button @click="calculateFreight()">OK</button>
             </div>
             <br />

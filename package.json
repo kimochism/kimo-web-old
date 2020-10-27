@@ -22,7 +22,9 @@
     "vue-carousel": "^0.18.0",
     "vue-material": "^1.0.0-beta-15",
     "vue-router": "^3.4.3",
-    "vue-styled-components": "^1.5.1"
+    "vue-styled-components": "^1.5.1",
+    "vue-toasted": "^1.1.28",
+    "vuejs-mask": "^1.0.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

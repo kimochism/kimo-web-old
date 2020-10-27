@@ -100,4 +100,11 @@ body {
   font-style: normal;
   overflow-x: hidden !important;
 }
+
+.custom-toast {
+ border-radius: 0px !important;
+ background: #f14956 !important;
+ padding: 20px !important;
+}
+
 </style>

@@ -9,12 +9,12 @@
             Kimochism
             <br />気持ち
           </h1>
-          <label for>Nome</label>
-          <input type="text" v-model="emailLogin" placeholder="Usuário ou E-mail" />
+          <label for>Email</label>
+          <input type="email" id="email" v-model="loginFields.email" autocomplete="autocomplete" placeholder="Digite seu email" />
           <label for>Senha</label>
-          <input type="password" v-model="passwordLogin" placeholder="Senha" />
+          <input type="password" id="password" v-model="loginFields.password" placeholder="Digite sua senha" />
           <br />
-          <button class="btnLogin" v-on:click="auth({ email: emailLogin, password: passwordLogin })">Entrar</button>
+          <button class="btnLogin" v-on:click="auth({ email: loginFields.email, password: loginFields.password })">Entrar</button>
           <button class="btnCadastrar" v-on:click="changeLogin()">Cadastrar</button>
           <br />
           <button class="btnFace">Entrar com Facebook</button>
@@ -29,18 +29,20 @@
           </h1>
           <span>É um prazer ver você aqui !</span>
           <label for>Nome</label>
-          <input type="text" v-model="username" placeholder="Clara" />
+          <input type="text" id="username" v-model="storeFields.username" placeholder="Clara" />
           <label for>Email</label>
-          <input type="text" v-model="email" placeholder="Usuário ou E-mail" />
+          <input type="email" id="email" v-model="storeFields.email" placeholder="Usuário ou E-mail" />
           <label for>Senha</label>
-          <input type="password" v-model="password" placeholder="Senha" />
+          <input type="password" id="password" v-model="storeFields.password" placeholder="Senha" />
           <label for>Confirme sua Senha</label>
-          <input type="password" v-model="confirmPassword" placeholder="Senha" />
+          <input type="password" id="confirmPassword" v-model="storeFields.confirmPassword" placeholder="Senha" />
           <label for>Telefone</label>
           <input
-            type="text"
-            v-model="cellPhoneNumber"
-            placeholder="Usuário ou E-mail"
+            type="phone"
+            id="cellPhoneNumber"
+            v-model="storeFields.cellPhoneNumber"
+            placeholder="Telefone"
+            v-mask="['(##) ####-####', '(##) #####-####']"
           />
           <br />
           <button class="btnCadastrar" v-on:click="storeUser()">
