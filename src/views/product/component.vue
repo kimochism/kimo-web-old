@@ -69,7 +69,9 @@
           <hr />
 
           <div class="containerFrete">
-            <span>Simular Frete</span>
+            <span>
+              Simular Frete
+            </span>
             <div class="subContainerFrete">
               <input 
                 type="text"
