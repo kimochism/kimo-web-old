@@ -1,12 +1,5 @@
 <template>
   <div>
-
-      <h1>SKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK SUPRESSAAA ALEEEE ARRUMA AQUI</h1>
-      <h2>componentizei isso para ficar mais legivel</h2>
-      <h3> e vi que em todos os outros ecommerce o carrinho com os produtos + preço sem fica visivel para a cliente (card cinza logo a baixo)</h3>
-      <h3>entao por favor arrume o css disso, eu ja fiz a base vc so precisa ajustar o layout obg</h3> 
-      <h4>kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk deu pull se fudeu</h4>
-      <h4>obs removi o step de entrega mas vou fazer um novo com olucas</h4>
     <div id="ContainerCart">
       <md-steppers :md-active-step.sync="active" md-alternative>
         <md-step
