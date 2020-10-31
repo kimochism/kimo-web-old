@@ -53,7 +53,11 @@
 
           <div class="containerButtons">
             <button v-on:click="addToCustomerBag(product.id)">Adicionar ao carrinho</button>
-            <button>Favoritar</button>
+            <button v-on:click="favor(product.id)">
+              Favoritar
+              <span class="material-icons" v-if="favorite">favorite</span>
+              <span class="material-icons" v-if="!favorite">favorite_border</span>
+            </button>
           </div>
 
           <div class="containerMessageAddon">
@@ -66,7 +70,9 @@
           <hr />
 
           <div class="containerFrete">
-            <span>Simular Frete</span>
+            <span>
+              Simular Frete
+            </span>
             <div class="subContainerFrete">
               <input 
                 type="text"
