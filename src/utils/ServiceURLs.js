@@ -25,4 +25,7 @@ export const serviceURLs = {
 
     FREIGHTS: '/freights',
 
+    WISHLISTS: '/wishlists',
+    WISHLISTS_PRODUCTS_ID: '/wishlists/products/{productId}'
+
 }
