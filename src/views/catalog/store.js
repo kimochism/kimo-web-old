@@ -22,7 +22,7 @@ export const actions = {
 
     store.page++;
 
-    const response = await store.productService.list({ page: store.page, limit: store.limit, ...queries });
+    const response = await store.productService.list({ page: store.page, limit: store.limit, ...queries, groupBy: true });
     
     store.products = [...store.products, ...response.data];
   },

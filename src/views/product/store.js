@@ -15,6 +15,20 @@ const store = Vue.observable({
     product: {},
     categoryId: null,
     mainImage: '',
+    sameProducts: [],
+    colors: [],
+    sizes: [],
+    selected: [],
+    active: {
+        color: {
+            current: Element,
+            previous: Element
+        },
+        size: {
+            current: Element,
+            previous: Element
+        }
+    }
 });
 
 export const actions = {
@@ -24,18 +38,80 @@ export const actions = {
         const response = await store.productService.show(id);
 
         if (response) {
+
+            store.sameProducts = await store.productService.list({ name: response.name });
+
+            store.sameProducts = store.sameProducts.data.map(element => {
+
+                store.colors.push(element.color);
+                store.sizes.push(element.size);
+
+                return { id: element.id, size: element.size, color: element.color, quantity: element.quantity };
+            });
+
+            store.colors = this.removeDuplicates(store.colors);
+            store.sizes = this.removeDuplicates(store.sizes);
+
             store.product = response;
             store.categoryId = response.categories[0] && response.categories[0].id;
 
             store.mainImage = response.images[0] && response.images[0].url;
         }
     },
+    
+    async selectColor(color, event) {
+
+        if(store.active.color.current != '') {
+            store.active.color.previous = store.active.color.current;
+        }
+
+        store.active.color.current = event.target;
+        
+        store.active.color.current.classList.add('colorBoxActive');
+
+        if(store.active.color.previous.length != 0) {
+            store.active.color.previous.classList.remove('colorBoxActive');
+        }
+        
+        store.selected = await store.productService.list({name: store.product.name, color: color});
+        
+        store.selected = store.selected.data.map(element => {
+            return element.size;  
+        });
+
+        store.selected.forEach(element => {
+            console.log(element);
+        });
+    },
+
+    async selectSize(size, event) {
+
+        if(store.active.size.current != '') {
+            store.active.size.previous = store.active.size.current;
+        }
+
+        store.active.size.current = event.target;
+
+        store.active.size.current.classList.add('sizeBoxActive');
+
+        if(store.active.size.previous.length != 0) {
+            store.active.size.previous.classList.remove('sizeBoxActive');
+        }
+
+        store.selected = await store.productService.list({name: store.product.name, size: size});
+        
+        store.selected = store.selected.data.map(element => {
+            return element.color;  
+        });
+
+        store.colors = store.selected;
+    },
 
     async addToCustomerBag(productId) {
         const response = await store.customerBagService.store({ productId });
         
         if (response) {
-            alert('produto adicionado pessoas do front colocar um bagui bonito aq')
+            Vue.toasted.success("Produto adicionado ao carrinho.", { className: ['custom-toast', 'success']});
         }
     },
 
@@ -61,7 +137,13 @@ export const actions = {
 
     setMainImage(url) {
         store.mainImage = url;
-    }
+    },
+     
+    removeDuplicates(array) {
+        return array.reduce((unique, item) => {
+            return unique.includes(item) ? unique : [...unique, item]
+        }, []);
+    },
 }
 
 export const mapGetters = buildStore(store);

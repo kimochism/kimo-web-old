@@ -25,15 +25,12 @@
           <h4>{{ product.name }}</h4>
           <span>REF: #{{ product.id }}</span>
           <div class="containerColorBoxes">
-            <div class="colorBox black"></div>
-            <div class="colorBox white"></div>
-            <div class="colorBox gray"></div>
-            <div class="colorBox pink"></div>
+            <div v-bind:class="color" 
+                class="colorBox" v-for="color in colors" 
+                :key="color" v-on:click="selectColor(color, $event)"></div>
           </div>
           <div class="containerSizes">
-            <div class="sizeBox">P</div>
-            <div class="sizeBox">M</div>
-            <div class="sizeBox">G</div>
+            <div class="sizeBox" v-for="(size) in sizes" :key="size" v-on:click="selectSize(size, $event)">{{size}}</div>
           </div>
 
           <div class="InfoAddons">
@@ -51,7 +48,7 @@
 
           <div class="containerPrice">
             <b>R$ {{ product.price }}</b>
-            <span>4x de R$ 17,48* s/juros no Cartão</span>
+            <span>4x de R$ {{ product.price/4 }}* s/juros no Cartão</span>
           </div>
 
           <div class="containerButtons">

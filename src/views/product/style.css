@@ -177,15 +177,15 @@
   }
   /* Cores */
   .containerColorBoxes {
-    width: 200px;
     padding: 15px 0px;
-    justify-content: space-around;
+    justify-content: flex-start;
     display: flex;
   }
   .colorBox {
     width: 25px;
     height: 25px;
     padding: 3px;
+    margin-right: 25px;
   }
   .colorBox::before {
     position: absolute;
@@ -199,12 +199,11 @@
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
   }
-  .colorBox:active {
+  .colorBoxActive {
     border: 2px solid black;
   }
   /* Tamanhos */
   .containerSizes {
-    width: 200px;
     padding: 15px 0px;
     display: flex;
   }
@@ -212,14 +211,16 @@
     width: 25px;
     cursor: pointer;
     height: 25px;
-    margin: 1% 6.9%;
+    margin-right: 25px;
+    padding: 10px;
     border: 1px solid rgb(196, 196, 196);
     text-transform: uppercase;
     justify-content: center;
     align-items: center;
     display: flex;
   }
-  .sizeBox:active {
+
+  .sizeBoxActive {
     border: 2px solid black;
   }
   /* pós medidas */
@@ -234,17 +235,17 @@
     font-size: 13px;
     align-items: center;
   }
-  .black {
+  .Preta {
     background-color: rgb(24, 24, 24);
   }
-  .gray {
-    background-color: grey;
+  .Vermelho {
+    background-color: red;
   }
-  .white {
+  .Branca {
     background-color: rgb(218, 218, 218);
   }
-  .pink {
-    background-color: rgb(240, 155, 152);
+  .Azul {
+    background-color: blue;
   }
   /* Quebra de linha */
   .breakAd {

@@ -103,8 +103,15 @@ body {
 
 .custom-toast {
  border-radius: 0px !important;
- background: #f14956 !important;
  padding: 20px !important;
+}
+
+.error {
+  background: red !important;
+}
+
+.success {
+  background: #00ae7c !important;
 }
 
 </style>
