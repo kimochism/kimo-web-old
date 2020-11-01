@@ -20,17 +20,28 @@
             </div>
           </div>
         </div>
-
         <div class="infoProductBox">
           <h4>{{ product.name }}</h4>
           <span>REF: #{{ product.id }}</span>
+        {{selecteds}}
           <div class="containerColorBoxes">
-            <div v-bind:class="color" 
-                class="colorBox" v-for="color in colors" 
-                :key="color" v-on:click="selectColor(color, $event)"></div>
+            <div 
+              v-bind:class="[color]" 
+              class="colorBox" 
+              v-for="color in colors"
+              :key="color" 
+              v-on:click="selectColor(color, $event)">
+            </div>
           </div>
+          {{sizes}}
           <div class="containerSizes">
-            <div class="sizeBox" v-for="(size) in sizes" :key="size" v-on:click="selectSize(size, $event)">{{size}}</div>
+            <div
+              v-bind:class="size.disabled ? 'enabled': ''"
+              class="sizeBox"
+              v-for="size in sizes" 
+              :key="size.value"
+              v-on:click="selectSize(size, $event)">{{size.value}}
+            </div>
           </div>
 
           <div class="InfoAddons">
@@ -55,8 +66,8 @@
             <button v-on:click="addToCustomerBag(product.id)">Adicionar ao carrinho</button>
             <button v-on:click="favor(product.id)">
               Favoritar
-              <span class="material-icons" v-if="favorite">favorite</span>
-              <span class="material-icons" v-if="!favorite">favorite_border</span>
+              <span class="material-icons" v-show="favorite">favorite</span>
+              <span class="material-icons" v-show="!favorite">favorite_border</span>
             </button>
           </div>
 

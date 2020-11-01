@@ -20,7 +20,7 @@ const store = Vue.observable({
     sameProducts: [],
     colors: [],
     sizes: [],
-    selected: [],
+    selecteds: [],
     favorite: false,
     active: {
         color: {
@@ -55,11 +55,15 @@ export const actions = {
             store.colors = this.removeDuplicates(store.colors);
             store.sizes = this.removeDuplicates(store.sizes);
 
+            store.sizes = store.sizes.map(size => {
+                return { value: size, disabled: false };
+            });
+
             store.product = response;
             store.categoryId = response.categories[0] && response.categories[0].id;
 
             store.mainImage = response.images[0] && response.images[0].url;
-            store.favorite = response.wishlist != null ? true : false;
+            store.favorite = response.wishlist !== null ? true : false;
         }
     },
     
@@ -77,14 +81,24 @@ export const actions = {
             store.active.color.previous.classList.remove('colorBoxActive');
         }
         
-        store.selected = await store.productService.list({name: store.product.name, color: color});
+        store.selecteds = await store.productService.list({name: store.product.name, color: color});
         
-        store.selected = store.selected.data.map(element => {
-            return element.size;  
+        store.selecteds = store.selecteds.data.map(selected => {
+            return selected.size;  
         });
 
-        store.selected.forEach(element => {
-            console.log(element);
+        store.sizes = store.sizes.map(size => {
+
+            store.selecteds.some(selected => {
+                if(size.value == selected) {
+                    size.disabled = false;
+                    return true;
+                }else{
+                    size.disabled = true;
+                }
+            });
+
+            return size;
         });
     },
 
@@ -102,13 +116,13 @@ export const actions = {
             store.active.size.previous.classList.remove('sizeBoxActive');
         }
 
-        store.selected = await store.productService.list({name: store.product.name, size: size});
+        store.selecteds = await store.productService.list({name: store.product.name, size: size});
         
-        store.selected = store.selected.data.map(element => {
-            return element.color;  
+        store.selecteds = store.selecteds.data.map(selected => {
+            return selected.color;  
         });
 
-        store.colors = store.selected;
+        store.colors = store.selecteds;
     },
 
     async addToCustomerBag(productId) {
@@ -151,10 +165,8 @@ export const actions = {
 
     async favor(productId) {
 
-        store.favorite = !store.favorite;
-
-        if(!store.favorite) {
-            const response = await store.wishlistService.destroy({ productId });
+        if(store.favorite) {
+            const response = await store.wishlistService.destroy([productId]);
 
             if(response) {
                 Vue.toasted.error("Produto removido da lista de favoritos.");
@@ -166,6 +178,8 @@ export const actions = {
                 Vue.toasted.success("Produto adicionado á lista de favoritos.");
             }
         }
+
+        store.favorite = !store.favorite;
     }
 }
 

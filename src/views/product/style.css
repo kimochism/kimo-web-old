@@ -196,6 +196,11 @@
     padding: 3px;
     margin-right: 25px;
   }
+
+  .enabled {
+    background-color: blueviolet;
+  }
+
   .colorBox::before {
     position: absolute;
     display: block;
