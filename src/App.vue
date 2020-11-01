@@ -1,11 +1,22 @@
 <template>
   <div id="ContainerDaddy">
     <div id="modal-stack"></div>
+
     <div id="main-load">
-      <h2>CARREGANDO...</h2>
+      <div class="loading">
+        <div class="loading-letter">K</div>
+        <div class="loading-letter">I</div>
+        <div class="loading-letter">M</div>
+        <div class="loading-letter">O</div>
+        <div class="loading-letter">気</div>
+        <div class="loading-letter">持</div>
+        <div class="loading-letter">ち</div>
+      </div>
     </div>
+
     <MessageBar />
     <Menu />
+    
     <router-view></router-view>
 
     <Footer />
@@ -32,23 +43,68 @@ export default {
 <style>
 
 #main-load {
-   position:fixed;
+    position:fixed;
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.7);
     display:flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000
+    z-index: 1000;
 }
 
-#main-load h2 {
-  color: white
+.loading {
+  display: flex;
+  flex-direction: row;
+}
+
+.loading-letter {
+  font-size: 60px;
+  font-weight: normal;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: white;
+  animation-name: bounce;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+.loading-letter:nth-child(2) {
+  animation-delay: .1s; 
+}
+.loading-letter:nth-child(3) {
+  animation-delay: .2s;
+}
+.loading-letter:nth-child(4) {
+  animation-delay: .3s; 
+}
+.loading-letter:nth-child(5) {
+  animation-delay: .4s;
+}
+.loading-letter:nth-child(6) {
+  animation-delay: .5s; 
+}
+.loading-letter:nth-child(7) {
+  animation-delay: .6s;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0px)
+  }
+  40% {
+    transform: translateY(-40px);
+  }
+  80%,
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 .md-theme-default a:not(.md-button):hover{
   text-decoration: none !important;
 }
+
 #ContainerDaddy{
   background-color: transparent;
 }
