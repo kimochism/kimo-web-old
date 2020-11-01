@@ -23,24 +23,23 @@
         <div class="infoProductBox">
           <h4>{{ product.name }}</h4>
           <span>REF: #{{ product.id }}</span>
-        {{selecteds}}
           <div class="containerColorBoxes">
             <div 
-              v-bind:class="[color]" 
+              v-bind:class="[color.value, color.disabled ? 'color-disabled' : '']" 
               class="colorBox" 
               v-for="color in colors"
-              :key="color" 
-              v-on:click="selectColor(color, $event)">
+              :key="color.value" 
+              v-on:click="color.disabled ? '' : selectColor(color.value, $event)">
             </div>
           </div>
-          {{sizes}}
           <div class="containerSizes">
             <div
-              v-bind:class="size.disabled ? 'enabled': ''"
+              v-bind:class="size.disabled ? 'size-disabled' : ''"
               class="sizeBox"
               v-for="size in sizes" 
               :key="size.value"
-              v-on:click="selectSize(size, $event)">{{size.value}}
+              v-on:click="size.disabled ? '' : selectSize(size.value, $event)">
+              {{size.value}}
             </div>
           </div>
 

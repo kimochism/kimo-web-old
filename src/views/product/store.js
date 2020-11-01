@@ -20,7 +20,8 @@ const store = Vue.observable({
     sameProducts: [],
     colors: [],
     sizes: [],
-    selecteds: [],
+    sizesAvailable: [],
+    colorsAvailable: [],
     favorite: false,
     active: {
         color: {
@@ -58,6 +59,10 @@ export const actions = {
             store.sizes = store.sizes.map(size => {
                 return { value: size, disabled: false };
             });
+            
+            store.colors = store.colors.map(color => {
+                return { value: color, disabled: false };
+            });
 
             store.product = response;
             store.categoryId = response.categories[0] && response.categories[0].id;
@@ -81,16 +86,16 @@ export const actions = {
             store.active.color.previous.classList.remove('colorBoxActive');
         }
         
-        store.selecteds = await store.productService.list({name: store.product.name, color: color});
+        store.sizesAvailable = await store.productService.list({name: store.product.name, color: color});
         
-        store.selecteds = store.selecteds.data.map(selected => {
-            return selected.size;  
+        store.sizesAvailable = store.sizesAvailable.data.map(available => {
+            return available.size;  
         });
 
         store.sizes = store.sizes.map(size => {
 
-            store.selecteds.some(selected => {
-                if(size.value == selected) {
+            store.sizesAvailable.some(available => {
+                if(size.value == available) {
                     size.disabled = false;
                     return true;
                 }else{
@@ -116,13 +121,25 @@ export const actions = {
             store.active.size.previous.classList.remove('sizeBoxActive');
         }
 
-        store.selecteds = await store.productService.list({name: store.product.name, size: size});
+        store.colorsAvailable = await store.productService.list({name: store.product.name, size: size});
         
-        store.selecteds = store.selecteds.data.map(selected => {
-            return selected.color;  
+        store.colorsAvailable = store.colorsAvailable.data.map(available => {
+            return available.color;  
         });
 
-        store.colors = store.selecteds;
+        store.colors = store.colors.map(color => {
+
+            store.colorsAvailable.some(available => {
+                if(color.value == available) {
+                    color.disabled = false;
+                    return true;
+                }else{
+                    color.disabled = true;
+                }
+            });
+
+            return color;
+        });
     },
 
     async addToCustomerBag(productId) {
