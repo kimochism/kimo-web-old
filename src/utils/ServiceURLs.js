@@ -9,6 +9,7 @@ export const serviceURLs = {
     ORDER_PRODUCTS: '/orderProducts',
 
     CUSTOMERS: '/customers',
+    CUSTOMERS_ID: '/customers/{id}',
     CUSTOMERS_ID_PRODUCTS_ID: '/customers/{customerId}/products/{productId}',
 
     USERS: '/users',

@@ -55,6 +55,10 @@
   .optionsMenu span {
     cursor: pointer;
   }
+
+  .username {
+    margin: 0 20px;
+  }
   
   .optionsMenu span:nth-child(-n + 3) {
     font-weight: bold;

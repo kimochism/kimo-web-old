@@ -23,7 +23,7 @@
       <div class="searchMenu ajust">
         <input type="text" placeholder="Procurar" />
         <span class="material-icons weSearch"> search </span>
-        <span>Olá, <b>Usuário</b></span>
+        <span class="username">Olá, <b>{{username}}</b></span>
         <router-link to="/perfil">
           <span class="material-icons"> perm_identity </span>
         </router-link>
@@ -46,7 +46,7 @@
         </div>
 
         <div id="MenuOptions">
-          <span>Olá, <b>Usuário</b></span>
+          <span>Olá, <b>{{username}}</b></span>
           <router-link :to="'/catalogo?categoryName=' +category.name" tag="span" v-for="category in categories" :key="category.id">
             <span v-on:click="openMenu()">{{category.name.toUpperCase()}}</span>
           </router-link>

@@ -9,7 +9,7 @@
                 <h3 class="title">Detalhes do comprador</h3>
                 <div class="row">
                   <div>
-                    <label for="email">E-Mail</label>
+                    <label for="email">E-mail</label>
                     <input
                       id="email"
                       name="email"
@@ -29,8 +29,8 @@
                       class="myForm-control inputWidth"
                     ></select>
                   </div>
-                  <div class="form-group col-sm-7 marginAdd">
-                    <label for="docNumber">Número do documento</label>
+                  <div class="form-group">
+                    <label for="docNumber">Documento</label>
                     <input
                       id="docNumber"
                       name="docNumber"

@@ -16,7 +16,7 @@
 
     <MessageBar />
     <Menu />
-    
+
     <router-view></router-view>
 
     <Footer />

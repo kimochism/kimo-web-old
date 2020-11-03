@@ -1,0 +1,40 @@
+.subContainerFavorites{
+    padding: 10px 0px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.itemFavorites{
+    width: 33%;
+    height: 150px;
+    margin: 1% 0;
+    cursor: pointer;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.itemFavorites:nth-child(1n){
+    background-image: url(https://i.pinimg.com/564x/34/79/47/347947845caa02b620b79877419b39e0.jpg);
+}
+
+.itemFavorites:nth-child(2n){
+    background-image: url(https://i.pinimg.com/564x/27/93/07/279307fadc7dbc00a4baa5fd2327ba38.jpg);
+}
+
+.itemFavorites:nth-child(3n){
+    background-image: url(https://i.pinimg.com/564x/3a/c1/09/3ac109aa254fd8307bb68f2cf108ef2b.jpg);
+}
+
+.OpacityItemFavorites{
+    background-image: linear-gradient(to top, rgba(155, 155, 155, 0.301), rgba(255, 255, 255, 0));
+    width: 100%;
+    height: 100%;
+}
+
+.OpacityItemFavorites span{
+    background-color: rgba(0, 0, 0, 0.541);
+    color: white;
+    padding: 1.5%;
+}

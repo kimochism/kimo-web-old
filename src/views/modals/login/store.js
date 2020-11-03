@@ -107,6 +107,8 @@ export const actions = {
                 cellPhoneNumber: store.cellPhoneNumber,
             });
 
+            localStorage.setItem('username', username);
+
             const urlToReload = window.location.href;
             window.location.href = urlToReload;
         }

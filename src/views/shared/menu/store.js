@@ -11,7 +11,8 @@ export const store = Vue.observable({
     message: "",
     isOpen: true,
     categoryService: new CategoryService(),
-    categories: []
+    categories: [],
+    username: localStorage.getItem("username")
 });
 
 export const actions = {

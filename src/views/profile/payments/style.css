@@ -1,0 +1,44 @@
+.subContainerPayments{
+    height: 300px;
+    overflow: auto;
+}
+
+.paymentButtons{
+    padding: 8px 0px;
+    display: flex;
+}
+
+.paymentButtons button{
+    background-color: transparent;
+    text-transform: uppercase;
+    border: 1px solid black;
+    padding: 10px 25px;
+}
+
+.paymentButtons button:hover{
+    background-color: black;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+}
+
+.subContainerPaymentsItem{
+    width: 100%;
+    padding: 20px;
+    border-bottom: 1px solid rgb(235, 235, 235);
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+
+}
+
+.imgCaseCard{
+    width: 50px;
+    height: 32px;
+    padding: 5px;
+    padding-right: 7px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-color: white;
+}

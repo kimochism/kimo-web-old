@@ -1,0 +1,38 @@
+.subContainerPreferences{
+    padding: 8px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.itemPreference{
+    width: 150px;
+    flex-direction: column;
+    display: flex;
+}
+
+.itemPreference select{
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid black;
+    padding: 8px;
+}
+
+.itemPreference select option{
+    padding: 8px;
+}
+
+.btnPreferences{
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid black;
+    text-transform: uppercase;
+}
+
+.btnPreferences:hover{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
