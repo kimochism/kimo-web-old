@@ -57,7 +57,8 @@
   }
 
   .username {
-    margin: 0 20px;
+    width: 180px;
+    text-align: center;
   }
   
   .optionsMenu span:nth-child(-n + 3) {

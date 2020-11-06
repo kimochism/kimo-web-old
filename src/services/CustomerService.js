@@ -12,6 +12,6 @@ export class CustomerService extends BaseService {
     }
 
     async show(id) {
-        return await this.get(serviceURLs.CUSTOMERS, [id]); 
+        return await this.get(serviceURLs.CUSTOMERS_ID, [id]); 
     }
 }

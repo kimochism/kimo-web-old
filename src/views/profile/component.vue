@@ -107,7 +107,8 @@ export default {
         Payments,
         Preferences,
         Register
-    }
+    },
+    props: ['content']
 }
 </script>
 

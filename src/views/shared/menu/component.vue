@@ -27,7 +27,7 @@
         <router-link to="/perfil">
           <span class="material-icons"> perm_identity </span>
         </router-link>
-        <router-link to="/carrinho">
+        <router-link to="/carrinho" style="z-index: 0;">
           <md-badge :md-content="badge">
           <md-button class="md-icon-button">
             <span class="material-icons"> shopping_basket </span>
