@@ -1,0 +1,105 @@
+.subContainerAddresss{
+    width: 100%;
+    height: 600px;
+    flex-direction: column;
+    display: flex;
+}
+
+.subBoxAdress{
+    width: 100%;
+}
+
+.subBoxAdressMap{
+    height: 300px;
+}
+
+.subBoxAdress:nth-child(1){
+    border-bottom: 1px solid rgb(235, 235, 235);
+}
+
+iframe{
+    width: 100%;
+    height: 100%;
+}
+
+.addAdress{
+    width: 100%;
+    border-bottom: 1px solid rgb(235, 235, 235);
+    justify-content: space-between;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.itemAddAddress{
+    width: 150px;
+    margin: 1%;
+    flex-direction: column;
+    display: flex;
+}
+
+.subBoxAdress{
+    width: 100%;
+    cursor: pointer;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.itemAdress{
+    height: 125px;
+    margin: 1% 0px;
+    margin-right: 1%;
+    border: 1px solid rgb(235, 235, 235);
+    display: flex;
+}
+
+.editarItemAddress{
+    padding: 15px;
+    background-color: rgb(197, 197, 197);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.itemAddAddress input{
+    padding: 0px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid black;
+    text-transform: capitalize;
+}
+
+.itemAddAddress button{
+    width: 150px;
+    background-color: transparent;
+    border: 1px solid black;
+    font-weight: bold;
+    height: 40px;
+    text-transform: uppercase;
+}
+
+.itemAddAddress button:hover{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.editarItemAddress:hover{
+    background-color:black;
+    color: white;
+}
+
+.infoItemAddress{
+    width: 150px;
+    padding: 15px;
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+}
+
+.deleteItemAddress{
+    padding: 15px;
+}
+
+.deleteItemAddress span:hover{
+    background-color: rgb(253, 105, 105);
+    color: white;
+}

@@ -1,0 +1,29 @@
+.subContainerRegister{
+    padding: 25px;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.itemSubContainerRegister{
+    margin: 1%;
+    width: 250px;
+    flex-direction: column;
+    display: flex;
+}
+
+.itemSubContainerRegister button{
+    padding: 12px;
+    border: 1px solid black;
+    background-color: transparent;
+    text-transform: uppercase;
+}
+
+.itemSubContainerRegister button:hover{
+    background-color: black;
+    cursor: pointer;
+    color: white;
+}
+
+.itemSubContainerRegister label{
+    text-transform: uppercase;
+}

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <BaseContent>
         <div id="MyRequests">
             <h1>Minhas Devoluções</h1>
             <div class="subContainerDevolution">
@@ -35,11 +35,19 @@
                 </div>
             </div>
         </div>
-    </div>
+    </BaseContent>
 </template>
+
 <script>
+
+import BaseContent from './../base-content/component.vue';
+
 export default {
-    
+    components: {
+        BaseContent
+    }    
 }
+
 </script>
+
 <style src="./style.css" scoped></style>

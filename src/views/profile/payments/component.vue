@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <BaseContent>
         <div id="MyPayments">
             <h1>Formas de Pagamentos</h1>
             <div class="subContainerPayments">
@@ -53,11 +53,18 @@
                 <button>Adicionar cartão</button>
             </div>
         </div>
-    </div>
+    </BaseContent>
 </template>
+
 <script>
+import BaseContent from './../base-content/component.vue';
+
 export default {
-    
+    components: {
+        BaseContent
+    }    
 }
+
 </script>
+
 <style src="./style.css" scoped></style>
